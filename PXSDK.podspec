@@ -10,9 +10,9 @@
 Pod::Spec.new do |s|
   s.name             = "PXSDK"
   s.version          = "0.1.0"
-  s.summary          = "A short description of PXSDK."
+  s.summary          = "PXSDK is IOS SDK for game analytic platform"
   s.description      = <<-DESC
-                       An optional longer description of PXSDK
+                       PXSDK is IOS SDK for game analytic platform
 
                        * Markdown format.
                        * Don't worry about the indent, we strip it!

@@ -10,6 +10,11 @@ language: objective-c
 # - pod install --project-directory=Example
 install:
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
-script:
-- set -o pipefail && xcodebuild test -workspace Example/PXSDK.xcworkspace -scheme PXSDK-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
+#script:
+
+xcode_workspace: Example/PXSDK.xcworkspace
+xcode_scheme: PXSDK-Example
+
+#- set -o pipefail && xcodebuild test -workspace Example/PXSDK.xcworkspace -scheme PXSDK-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
+
 - pod lib lint --quick
