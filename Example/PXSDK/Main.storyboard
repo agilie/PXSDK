@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,10 +14,73 @@
                         <viewControllerLayoutGuide type="top" id="uEw-UM-LJ8"/>
                         <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
+                    <view key="view" contentMode="scaleToFill" id="NhY-x0-Gsp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhZ-GD-tLl">
+                                <rect key="frame" x="16" y="20" width="568" height="30"/>
+                                <state key="normal" title="level change">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendLevel:" destination="whP-gf-Uak" eventType="touchDown" id="Yrt-Wr-Bow"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLq-St-mdt">
+                                <rect key="frame" x="16" y="58" width="568" height="30"/>
+                                <state key="normal" title="tutorial change">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendTutor:" destination="whP-gf-Uak" eventType="touchDown" id="mfo-hN-brN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DC6-MA-pVA">
+                                <rect key="frame" x="16" y="96" width="568" height="30"/>
+                                <state key="normal" title="transaction event">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendTranaction:" destination="whP-gf-Uak" eventType="touchDown" id="cKK-cj-Grc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNG-yl-iv0">
+                                <rect key="frame" x="16" y="134" width="568" height="30"/>
+                                <state key="normal" title="custom event">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendCustom:" destination="whP-gf-Uak" eventType="touchDown" id="ftD-4o-IwO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iya-s7-fIE">
+                                <rect key="frame" x="16" y="172" width="568" height="30"/>
+                                <state key="normal" title="currency event">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendCurrency:" destination="whP-gf-Uak" eventType="touchDown" id="TYc-6Z-trb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JhZ-GD-tLl" firstAttribute="trailing" secondItem="NhY-x0-Gsp" secondAttribute="trailingMargin" id="4Om-l1-jzs"/>
+                            <constraint firstItem="YLq-St-mdt" firstAttribute="trailing" secondItem="NhY-x0-Gsp" secondAttribute="trailingMargin" id="6wk-Ac-sa6"/>
+                            <constraint firstItem="DC6-MA-pVA" firstAttribute="top" secondItem="YLq-St-mdt" secondAttribute="bottom" constant="8" id="8M4-O6-wNa"/>
+                            <constraint firstItem="iya-s7-fIE" firstAttribute="trailing" secondItem="NhY-x0-Gsp" secondAttribute="trailingMargin" id="Ah7-q2-lD6"/>
+                            <constraint firstItem="YLq-St-mdt" firstAttribute="top" secondItem="JhZ-GD-tLl" secondAttribute="bottom" constant="8" id="Ndu-t3-Gbx"/>
+                            <constraint firstItem="DC6-MA-pVA" firstAttribute="leading" secondItem="NhY-x0-Gsp" secondAttribute="leadingMargin" id="OJG-nI-iZD"/>
+                            <constraint firstItem="kNG-yl-iv0" firstAttribute="leading" secondItem="NhY-x0-Gsp" secondAttribute="leadingMargin" id="QcK-S2-Oqf"/>
+                            <constraint firstItem="iya-s7-fIE" firstAttribute="top" secondItem="kNG-yl-iv0" secondAttribute="bottom" constant="8" id="UYW-JN-bYn"/>
+                            <constraint firstItem="iya-s7-fIE" firstAttribute="leading" secondItem="NhY-x0-Gsp" secondAttribute="leadingMargin" id="XJ8-eB-NAt"/>
+                            <constraint firstItem="DC6-MA-pVA" firstAttribute="trailing" secondItem="NhY-x0-Gsp" secondAttribute="trailingMargin" id="kCz-PP-3zc"/>
+                            <constraint firstItem="JhZ-GD-tLl" firstAttribute="leading" secondItem="NhY-x0-Gsp" secondAttribute="leadingMargin" id="ndI-x1-k2v"/>
+                            <constraint firstItem="kNG-yl-iv0" firstAttribute="top" secondItem="DC6-MA-pVA" secondAttribute="bottom" constant="8" id="r5j-lp-J3H"/>
+                            <constraint firstItem="YLq-St-mdt" firstAttribute="leading" secondItem="NhY-x0-Gsp" secondAttribute="leadingMargin" id="tQQ-PF-8BR"/>
+                            <constraint firstItem="kNG-yl-iv0" firstAttribute="trailing" secondItem="NhY-x0-Gsp" secondAttribute="trailingMargin" id="wsX-qr-F3n"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
