@@ -4,9 +4,3 @@ use_frameworks!
 target 'PXSDK_Example', :exclusive => true do
   pod "PXSDK", :path => "../"
 end
-
-target 'PXSDK_Tests', :exclusive => true do
-  pod "PXSDK", :path => "../"
-
-  
-end
