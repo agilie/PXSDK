@@ -11,6 +11,8 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface GILocationManager : NSObject <CLLocationManagerDelegate>
+
 @property(nonatomic, strong) CLLocationManager *locationManager;
 @property(nonatomic, strong) CLGeocoder *geocoder;
+
 @end

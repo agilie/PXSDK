@@ -11,6 +11,7 @@
 #import "GITracker.h"
 
 @implementation GILocationManager
+
 - (id)init {
     if (self) {
         self.locationManager = [[CLLocationManager alloc] init];
@@ -47,4 +48,5 @@
 
     }];
 }
+
 @end

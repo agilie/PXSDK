@@ -132,7 +132,6 @@
     self.currentSession = [self generateUniqueSessionString];
 }
 
-
 - (NSData *)makeRequestData:(NSData *)input {
 
     NSLocale *locale = [NSLocale currentLocale];
@@ -150,7 +149,6 @@
     
     return initialData;
 }
-
 
 - (NSDictionary *)makeRecordDict:(NSDictionary *)input {
     
