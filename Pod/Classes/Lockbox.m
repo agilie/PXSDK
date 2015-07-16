@@ -27,7 +27,9 @@ static Lockbox *_lockBox = nil;
 static NSString *_defaultKeyPrefix = nil;
 
 @interface Lockbox ()
+
 @property(strong, nonatomic, readwrite) NSString *keyPrefix;
+
 @end
 
 @implementation Lockbox

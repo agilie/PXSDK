@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface GIEventBuffer : NSObject
+
 @property(nonatomic, strong) NSMutableData *eventBuffer;
 @property(nonatomic) dispatch_queue_t isolationQueue;
 @property(nonatomic, strong) NSFileHandle *cacheFileHandle;
@@ -24,6 +25,5 @@
 - (void)destroyBuffer;
 
 - (void)destroyCacheBuffer;
-
 
 @end

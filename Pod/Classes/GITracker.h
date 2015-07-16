@@ -12,7 +12,6 @@
 
 + (void)setGameKey:(NSString *)gameKey;
 
-
 + (void)sendEvent:(NSString *)eventName;
 
 + (void)recordTransactionEventWithName:(NSString *)withName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount;
