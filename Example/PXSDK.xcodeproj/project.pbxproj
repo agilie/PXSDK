@@ -139,9 +139,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6003F589195388D20070C39A /* PXSDK_Example */ = {
+		6003F589195388D20070C39A /* PXSDK_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "PXSDK_Example" */;
+			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "PXSDK_Tests" */;
 			buildPhases = (
 				5B486D45A80A5D0B092BBF3E /* Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
@@ -154,7 +154,7 @@
 			);
 			dependencies = (
 			);
-			name = PXSDK_Example;
+			name = PXSDK_Tests;
 			productName = PXSDK;
 			productReference = 6003F58A195388D20070C39A /* PXSDK_Example.app */;
 			productType = "com.apple.product-type.application";
@@ -182,7 +182,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F589195388D20070C39A /* PXSDK_Example */,
+				6003F589195388D20070C39A /* PXSDK_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -387,7 +387,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "PXSDK_Example" */ = {
+		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "PXSDK_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C0195388D20070C39A /* Debug */,

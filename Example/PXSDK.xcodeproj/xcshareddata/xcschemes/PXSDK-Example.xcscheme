@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F589195388D20070C39A"
-               BuildableName = "PXSDK_Example.app"
-               BlueprintName = "PXSDK_Example"
+               BuildableName = "PXSDK_Tests.app"
+               BlueprintName = "PXSDK_Tests"
                ReferencedContainer = "container:PXSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "PXSDK_Example.app"
-            BlueprintName = "PXSDK_Example"
+            BuildableName = "PXSDK_Tests.app"
+            BlueprintName = "PXSDK_Tests"
             ReferencedContainer = "container:PXSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,8 +63,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "PXSDK_Example.app"
-            BlueprintName = "PXSDK_Example"
+            BuildableName = "PXSDK_Tests.app"
+            BlueprintName = "PXSDK_Tests"
             ReferencedContainer = "container:PXSDK.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -82,8 +82,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "PXSDK_Example.app"
-            BlueprintName = "PXSDK_Example"
+            BuildableName = "PXSDK_Tests.app"
+            BlueprintName = "PXSDK_Tests"
             ReferencedContainer = "container:PXSDK.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
