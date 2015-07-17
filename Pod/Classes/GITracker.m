@@ -29,6 +29,10 @@ static GITrackerCore *giTrackerCore;
     GITracker.giTrackerCore.gameKey = gameKey;
 }
 
++ (BOOL)userHasIAPOffer{
+    return [GITracker.giTrackerCore userHasIAPOffer];
+}
+
 + (void)sendEvent:(NSString *)eventName {
     [GITracker.giTrackerCore sendEvent:eventName];
 };
@@ -39,8 +43,8 @@ static GITrackerCore *giTrackerCore;
 
 };
 
-+ (void)recordLevelChangeEventFormLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel {
-    [GITracker.giTrackerCore recordLevelChangeEventFormLevel:fromLevel toLevel:toLevel];
++ (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel {
+    [GITracker.giTrackerCore recordLevelChangeEventFromLevel:fromLevel toLevel:toLevel];
 };
 
 + (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep {

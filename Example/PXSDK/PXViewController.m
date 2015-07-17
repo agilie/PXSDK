@@ -26,7 +26,7 @@
 }
 
 - (IBAction)sendLevel:(id)sender {
-    [GITracker recordLevelChangeEventFormLevel:@0 toLevel:@2];
+    [GITracker recordLevelChangeEventFromLevel:@0 toLevel:@2];
 }
 
 - (IBAction)sendTutor:(id)sender {
@@ -43,6 +43,16 @@
 
 - (IBAction)sendCurrency:(id)sender {
     [GITracker recordСurrencyChangeEventWithLevel:@1 andCurrency:@300];
+}
+
+- (IBAction)testUserHaveOffer:(id)sender {
+    
+    BOOL offerPresent = [GITracker userHasIAPOffer];
+    
+    NSString *stringOffer = offerPresent ? @"Yes" : @"No";
+    
+    [[[UIAlertView alloc] initWithTitle:@"userHasIAPOffer" message:stringOffer delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    
 }
 
 @end

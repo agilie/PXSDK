@@ -63,6 +63,15 @@
                                     <action selector="sendCurrency:" destination="whP-gf-Uak" eventType="touchDown" id="TYc-6Z-trb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwI-AE-mRh">
+                                <rect key="frame" x="16" y="210" width="568" height="30"/>
+                                <state key="normal" title="check is user have offer">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testUserHaveOffer:" destination="whP-gf-Uak" eventType="touchDown" id="K6W-fa-0oq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -70,11 +79,14 @@
                             <constraint firstItem="YLq-St-mdt" firstAttribute="trailing" secondItem="NhY-x0-Gsp" secondAttribute="trailingMargin" id="6wk-Ac-sa6"/>
                             <constraint firstItem="DC6-MA-pVA" firstAttribute="top" secondItem="YLq-St-mdt" secondAttribute="bottom" constant="8" id="8M4-O6-wNa"/>
                             <constraint firstItem="iya-s7-fIE" firstAttribute="trailing" secondItem="NhY-x0-Gsp" secondAttribute="trailingMargin" id="Ah7-q2-lD6"/>
+                            <constraint firstItem="vwI-AE-mRh" firstAttribute="trailing" secondItem="NhY-x0-Gsp" secondAttribute="trailingMargin" id="DYg-Bt-UMA"/>
+                            <constraint firstItem="vwI-AE-mRh" firstAttribute="leading" secondItem="NhY-x0-Gsp" secondAttribute="leadingMargin" id="LfN-hc-ciP"/>
                             <constraint firstItem="YLq-St-mdt" firstAttribute="top" secondItem="JhZ-GD-tLl" secondAttribute="bottom" constant="8" id="Ndu-t3-Gbx"/>
                             <constraint firstItem="DC6-MA-pVA" firstAttribute="leading" secondItem="NhY-x0-Gsp" secondAttribute="leadingMargin" id="OJG-nI-iZD"/>
                             <constraint firstItem="kNG-yl-iv0" firstAttribute="leading" secondItem="NhY-x0-Gsp" secondAttribute="leadingMargin" id="QcK-S2-Oqf"/>
                             <constraint firstItem="iya-s7-fIE" firstAttribute="top" secondItem="kNG-yl-iv0" secondAttribute="bottom" constant="8" id="UYW-JN-bYn"/>
                             <constraint firstItem="iya-s7-fIE" firstAttribute="leading" secondItem="NhY-x0-Gsp" secondAttribute="leadingMargin" id="XJ8-eB-NAt"/>
+                            <constraint firstItem="vwI-AE-mRh" firstAttribute="top" secondItem="iya-s7-fIE" secondAttribute="bottom" constant="8" id="deo-EA-7aC"/>
                             <constraint firstItem="DC6-MA-pVA" firstAttribute="trailing" secondItem="NhY-x0-Gsp" secondAttribute="trailingMargin" id="kCz-PP-3zc"/>
                             <constraint firstItem="JhZ-GD-tLl" firstAttribute="leading" secondItem="NhY-x0-Gsp" secondAttribute="leadingMargin" id="ndI-x1-k2v"/>
                             <constraint firstItem="kNG-yl-iv0" firstAttribute="top" secondItem="DC6-MA-pVA" secondAttribute="bottom" constant="8" id="r5j-lp-J3H"/>

@@ -102,6 +102,19 @@
     }
 }
 
+- (BOOL)userHasIAPOffer {
+    
+    if(!self.giUser) {
+        return NO;
+    } else {
+    
+        int spentTime = [NSDate date].timeIntervalSince1970 - self.currentSessionTimeStart;
+        
+        return self.giUser.params2 == [self curentUserLevel] && self.giUser.params1 < [NSNumber numberWithInt:spentTime] ;
+    }
+
+}
+
 - (NSString *)getUniqueDeviceIdentifierAsString {
 
     NSString *strApplicationUUID = [Lockbox stringForKey:kLockboxUUDIDKey];
@@ -130,6 +143,25 @@
 
 - (void)resetSession {
     self.currentSession = [self generateUniqueSessionString];
+    self.currentSessionTimeStart = [NSDate date].timeIntervalSince1970;
+}
+
+- (NSNumber *)curentUserLevel {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *result = [userDefaults objectForKey:@"userLevel"];
+    if (result) {
+        return [userDefaults objectForKey:@"userLevel"];
+    } else {
+        [userDefaults setObject:@0 forKey:@"userLevel"];
+        [userDefaults synchronize];
+        return @0;
+    }
+}
+
+- (void)setCurentUserLevel:(NSNumber *)level {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:level forKey:@"userLevel"];
+    [userDefaults synchronize];
 }
 
 - (NSData *)makeRequestData:(NSData *)input {
@@ -182,8 +214,10 @@
 
 };
 
-- (void)recordLevelChangeEventFormLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel {
+- (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel {
 
+    [self setCurentUserLevel:toLevel];
+    
     [self.giEventBuffer addRecordToBuffer:  [self makeRecordDict:
                                              @{ @"eventName": @"levelChange",
                                               @"fromLevel" : fromLevel,

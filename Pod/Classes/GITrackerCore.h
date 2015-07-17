@@ -21,14 +21,17 @@
 @property(nonatomic, strong) GIEventBuffer *giEventBuffer;
 @property(nonatomic, strong) NSTimer *realtimeTimer, *cacheTimer;
 @property(nonatomic, strong) GIUser *giUser;
+@property NSTimeInterval currentSessionTimeStart;
 
 - (id)init;
+
+- (BOOL)userHasIAPOffer;
 
 - (void)sendEvent:(NSString *)eventName;
 
 - (void)recordTransactionEventWithName:(NSString *)eventName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount;
 
-- (void)recordLevelChangeEventFormLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel;
+- (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel;
 
 - (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep;
 

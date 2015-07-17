@@ -10,13 +10,15 @@
 
 @interface GITracker : NSObject
 
++ (BOOL)userHasIAPOffer;
+
 + (void)setGameKey:(NSString *)gameKey;
 
 + (void)sendEvent:(NSString *)eventName;
 
 + (void)recordTransactionEventWithName:(NSString *)withName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount;
 
-+ (void)recordLevelChangeEventFormLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel;
++ (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel;
 
 + (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep;
 
