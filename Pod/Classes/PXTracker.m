@@ -22,14 +22,14 @@ static PXTrackerCore *sTrackerCore;
     return [sTrackerCore userHasIAPOffer];
 }
 
-+ (void)sendEvent:(NSString *)eventName withParams:(NSDictionary *)params{
++ (void)sendEvent:(NSString *)eventName withParams:(NSDictionary *)params {
     [sTrackerCore sendGeneralEventWithName:eventName andParams:params];
 };
 
 + (void)recordTransactionEventWithName:(NSString *)withName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount {
-    
+
     [sTrackerCore recordTransactionEventWithName:withName buyVirtualCurrency:buyVirtualCurrency receivingAmount:receivingAmount usingRealCurrency:usingRealCurrency spendingAmount:spendingAmount];
-    
+
 };
 
 + (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel {

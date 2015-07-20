@@ -19,22 +19,22 @@
 }
 
 - (NSFileHandle *)makeCacheFileHandle {
-    
+
     NSString *cacheFileName = [NSTemporaryDirectory() stringByAppendingPathComponent:kPXCacheFileName];
-    
+
     NSFileManager *fileMan = [NSFileManager defaultManager];
     if (![fileMan fileExistsAtPath:cacheFileName]) {
         [fileMan createFileAtPath:cacheFileName contents:nil attributes:nil];
     }
-    
+
     return [NSFileHandle fileHandleForUpdatingAtPath:cacheFileName];
-    
+
 }
 
 - (void)addRecordToBuffer:(NSDictionary *)record {
-    
+
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:record options:0 error:nil];
-    
+
     [self.eventBuffer appendData:jsonData];
     [self.eventBuffer appendData:[@"," dataUsingEncoding:NSUTF8StringEncoding]];
 }
@@ -51,7 +51,7 @@
 - (void)flushToCacheBuffer {
     NSData *temp = [NSData dataWithData:self.eventBuffer];
     [self destroyBuffer];
-    
+
     void(^block_write)() = ^{
         [self.cacheFileHandle seekToEndOfFile];
         [self.cacheFileHandle writeData:temp];

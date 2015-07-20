@@ -18,38 +18,38 @@
         self.uuid = [self getUniqueDeviceIdentifierAsString];
         self.network = [[PXNetwork alloc] init];
         self.eventBuffer = [[PXEventBuffer alloc] init];
-        
+
         [self setupCoreTimers];
         [self setupNSNotificationCenter];
-        
+
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-           [self setupUserPredictions];
+            [self setupUserPredictions];
         });
-        
+
     }
     return self;
 }
 
 - (void)setupNSNotificationCenter {
-    
+
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidFinishLaunchingNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self resetSession];
         [self sendGeneralEventWithName:@"launch" andParams:nil];
     }];
-    
+
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self resetSession];
         [self sendGeneralEventWithName:@"resumed" andParams:nil];
     }];
-    
+
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self sendGeneralEventWithName:@"background" andParams:nil];
     }];
-    
+
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillTerminateNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self sendGeneralEventWithName:@"killed" andParams:nil];
     }];
-    
+
 }
 
 - (void)dealloc {
@@ -61,15 +61,15 @@
 }
 
 - (void)setupUserPredictions {
-    
+
     NSString *requestUrl = [NSString stringWithFormat:kPXGetUserPredictionsUrl, self.gameKey];
-    
+
     [self.network getRequestWithUrl:requestUrl completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             self.user = [[PXUser alloc] initWithDictonary:dictionary];
         } else {
-            
+
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, kPXRequestUserPredictionsInterval * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [self setupUserPredictions];
             });
@@ -93,11 +93,11 @@
             }
         }];
     }
-    
+
 }
 
 - (void)cacheTimerFire:(id)sender {
-    
+
     if ([[self.eventBuffer dataFromCacheBuffer] length] > 0 && self.network.available) {
         NSData *data2send = [self makeRequestData:[self.eventBuffer dataFromCacheBuffer]];
         [self.network sendToServiceRawData:data2send completion:^(BOOL succes) {
@@ -135,9 +135,9 @@
 
 - (NSString *)generateUniqueSessionString {
     return [[NSString stringWithFormat:@"%.0f%@%@",
-             [[NSDate date] timeIntervalSince1970],
-             self.uuid,
-             [PXTrackerCore generateRandomString:10]] MD5];
+                                       [[NSDate date] timeIntervalSince1970],
+                                       self.uuid,
+                                       [PXTrackerCore generateRandomString:10]] MD5];
 }
 
 - (void)resetSession {
@@ -164,75 +164,75 @@
 }
 
 - (NSData *)makeRequestData:(NSData *)input {
-    
+
     NSLocale *locale = [NSLocale currentLocale];
     NSString *countryCode = [locale objectForKey:NSLocaleCountryCode];
-    
+
     NSString *initialJsonData = [NSString stringWithFormat:@" { \"uuid\" : \"%@\" , \"gikey\" : \"%@\" , \"countryCode\" : \"%@\" , \"events\" : [", self.uuid, self.gameKey, countryCode];
     NSString *endJsonData = @"]}";
-    
+
     NSMutableData *initialData = [NSMutableData dataWithData:[initialJsonData dataUsingEncoding:NSUTF8StringEncoding]];
     [initialData appendData:input];
-    
+
     [initialData setLength:initialData.length - [[@"," dataUsingEncoding:NSUTF8StringEncoding] length]];
-    
+
     [initialData appendData:[endJsonData dataUsingEncoding:NSUTF8StringEncoding]];
-    
+
     return initialData;
 }
 
 - (NSDictionary *)makeRecordDict:(NSDictionary *)input {
-    
+
     NSString *timeStampSting = [NSString stringWithFormat:@"%1.f", [[NSDate date] timeIntervalSince1970]];
-    
+
     NSMutableDictionary *tempDictionary = [NSMutableDictionary dictionaryWithDictionary:@{ @"sessionID" : self.currentSession,
-                                                                                           @"timeStamp" : @([timeStampSting intValue]) }];
+            @"timeStamp" : @([timeStampSting intValue]) }];
     [tempDictionary addEntriesFromDictionary:input];
-    
+
     return tempDictionary;
 }
 
 
-- (void)sendGeneralEventWithName:(NSString *)eventName andParams:(NSDictionary *)params{
-    
+- (void)sendGeneralEventWithName:(NSString *)eventName andParams:(NSDictionary *)params {
+
     NSMutableDictionary *record = [NSMutableDictionary dictionaryWithDictionary:params];
     [record setObject:eventName forKey:@"eventName"];
-    
-    [self.eventBuffer addRecordToBuffer: [self makeRecordDict: record]];
-    
+
+    [self.eventBuffer addRecordToBuffer:[self makeRecordDict:record]];
+
 }
 
 
 - (void)recordTransactionEventWithName:(NSString *)eventName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount {
-    
+
     [self sendGeneralEventWithName:@"transactionEvent" andParams:@{ @"transactionName" : eventName,
-                                                                    @"buyVirtualCurrency" : buyVirtualCurrency,
-                                                                    @"receivingAmount" : receivingAmount,
-                                                                    @"usingRealCurrency" : usingRealCurrency,
-                                                                    @"spendingAmount" : spendingAmount }];
+            @"buyVirtualCurrency" : buyVirtualCurrency,
+            @"receivingAmount" : receivingAmount,
+            @"usingRealCurrency" : usingRealCurrency,
+            @"spendingAmount" : spendingAmount }];
 
 };
 
 - (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel {
-    
+
     [self setCurentUserLevel:toLevel];
-    
-    [self sendGeneralEventWithName:@"levelChange" andParams:   @{ @"fromLevel" : fromLevel,
-                                                                  @"toLevel" : toLevel }];
+
+    [self sendGeneralEventWithName:@"levelChange" andParams:@{ @"fromLevel" : fromLevel,
+            @"toLevel" : toLevel }];
 
 };
 
 - (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep {
-    
-    [self sendGeneralEventWithName:@"tutorialChange" andParams: @{ @"fromStep" : fromStep,
-                                                                   @"toStep" : toStep }];
+
+    [self sendGeneralEventWithName:@"tutorialChange" andParams:@{ @"fromStep" : fromStep,
+            @"toStep" : toStep }];
 
 };
 
 - (void)recordСurrencyChangeEventWithLevel:(NSNumber *)level andCurrency:(NSNumber *)virtualCurrency {
-    
-    [self sendGeneralEventWithName:@"currencyChange" andParams:  @{ @"level" : level,
-                                                                    @"virtualCurrency" : virtualCurrency }];
+
+    [self sendGeneralEventWithName:@"currencyChange" andParams:@{ @"level" : level,
+            @"virtualCurrency" : virtualCurrency }];
 };
 
 
