@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PXSDK"
-  s.version          = "0.1.5"
+  s.version          = "0.1.6"
   s.summary          = "PXSDK is iOS game analytics SDK"
   s.description      = <<-DESC
                        Here goes a very long description for PXSDK is iOS game analytics SDK
