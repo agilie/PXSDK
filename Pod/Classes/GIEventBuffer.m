@@ -49,11 +49,11 @@
 }
 
 - (void)addRecordToBuffer:(NSDictionary *)record {
-    
-    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:record options:0 error: nil];
-    
-    [self.eventBuffer  appendData: jsonData ];
-    [self.eventBuffer  appendData: [@"," dataUsingEncoding: NSUTF8StringEncoding] ];
+
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:record options:0 error:nil];
+
+    [self.eventBuffer appendData:jsonData];
+    [self.eventBuffer appendData:[@"," dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 - (NSData *)dataFromBuffer {
@@ -66,12 +66,12 @@
 }
 
 - (void)flushToCacheBuffer {
-    NSData *temp = [NSData dataWithData :self.eventBuffer];
+    NSData *temp = [NSData dataWithData:self.eventBuffer];
     [self destroyBuffer];
 
     void(^block_write)() = ^{
         [self.cacheFileHandle seekToEndOfFile];
-        [self.cacheFileHandle writeData: temp ];
+        [self.cacheFileHandle writeData:temp];
     };
     dispatch_async(self.isolationQueue, block_write);
 }

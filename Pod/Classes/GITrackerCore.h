@@ -14,13 +14,13 @@
 
 @interface GITrackerCore : NSObject
 
-@property(nonatomic, strong) NSString *gameKey;
-@property(nonatomic, strong) NSString *currentSession;
-@property(nonatomic, strong) NSString *uuid;
-@property(nonatomic, strong) GINetwork *giNetwork;
-@property(nonatomic, strong) GIEventBuffer *giEventBuffer;
-@property(nonatomic, strong) NSTimer *realtimeTimer, *cacheTimer;
-@property(nonatomic, strong) GIUser *giUser;
+@property (nonatomic, strong) NSString *gameKey;
+@property (nonatomic, strong) NSString *currentSession;
+@property (nonatomic, strong) NSString *uuid;
+@property (nonatomic, strong) GINetwork *giNetwork;
+@property (nonatomic, strong) GIEventBuffer *giEventBuffer;
+@property (nonatomic, strong) NSTimer *realtimeTimer, *cacheTimer;
+@property (nonatomic, strong) GIUser *giUser;
 @property NSTimeInterval currentSessionTimeStart;
 
 - (id)init;

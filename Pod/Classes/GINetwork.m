@@ -41,9 +41,9 @@
                                                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 
                                                           NSDictionary *responseDictonary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-                                                          
-                                                          BOOL succes = error==nil && [[responseDictonary objectForKey:@"result"] isEqualToString:@"success"];
-                                                          
+
+                                                          BOOL succes = error == nil && [[responseDictonary objectForKey:@"result"] isEqualToString:@"success"];
+
                                                           completionHandler(succes);
                                                           self.available = YES;
 

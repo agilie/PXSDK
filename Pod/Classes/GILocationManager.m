@@ -21,7 +21,7 @@
         if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
             [self.locationManager requestWhenInUseAuthorization];
         }
-        
+
         [self.locationManager startUpdatingLocation];
     }
     return self;
@@ -34,8 +34,9 @@
 
     CLLocation *location = [locations lastObject];
     [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        if (placemarks == nil)
+        if (placemarks == nil) {
             return;
+        }
 
         //CLPlacemark *currentLocPlacemark = [placemarks objectAtIndex:0];
 
@@ -43,7 +44,7 @@
 
         /*[GITracker sendGeocode:[currentLocPlacemark country] countryIsoCode:[currentLocPlacemark ISOcountryCode] city:[[currentLocPlacemark addressDictionary] objectForKey:(NSString *) kABPersonAddressCityKey] location:coordinateString];
          */
-         
+
         [self.locationManager stopUpdatingLocation];
 
     }];

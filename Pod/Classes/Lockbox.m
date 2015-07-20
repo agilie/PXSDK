@@ -28,7 +28,7 @@ static NSString *_defaultKeyPrefix = nil;
 
 @interface Lockbox ()
 
-@property(strong, nonatomic, readwrite) NSString *keyPrefix;
+@property (strong, nonatomic, readwrite) NSString *keyPrefix;
 
 @end
 
@@ -37,7 +37,7 @@ static NSString *_defaultKeyPrefix = nil;
 + (void)initialize {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _defaultKeyPrefix = [[[NSBundle bundleForClass:[self class]] infoDictionary] objectForKey:(NSString *) kCFBundleIdentifierKey];
+        _defaultKeyPrefix = [[[NSBundle bundleForClass:[self class]] infoDictionary] objectForKey:(NSString *)kCFBundleIdentifierKey];
         _lockBox = [[Lockbox alloc] init];
     });
 }
@@ -53,8 +53,9 @@ static NSString *_defaultKeyPrefix = nil;
 - (instancetype)initWithKeyPrefix:(NSString *)keyPrefix {
     self = [self init];
     if (self) {
-        if (keyPrefix)
+        if (keyPrefix) {
             self.keyPrefix = keyPrefix;
+        }
     }
     return self;
 }
@@ -62,7 +63,7 @@ static NSString *_defaultKeyPrefix = nil;
 - (NSMutableDictionary *)_service {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 
-    [dict setObject:(LOCKBOX_ID) kSecClassGenericPassword forKey:(LOCKBOX_ID) kSecClass];
+    [dict setObject:(LOCKBOX_ID)kSecClassGenericPassword forKey:(LOCKBOX_ID)kSecClass];
 
     return dict;
 }
@@ -70,8 +71,8 @@ static NSString *_defaultKeyPrefix = nil;
 - (NSMutableDictionary *)_query {
     NSMutableDictionary *query = [NSMutableDictionary dictionary];
 
-    [query setObject:(LOCKBOX_ID) kSecClassGenericPassword forKey:(LOCKBOX_ID) kSecClass];
-    [query setObject:(LOCKBOX_ID) kCFBooleanTrue forKey:(LOCKBOX_ID) kSecReturnData];
+    [query setObject:(LOCKBOX_ID)kSecClassGenericPassword forKey:(LOCKBOX_ID)kSecClass];
+    [query setObject:(LOCKBOX_ID)kCFBooleanTrue forKey:(LOCKBOX_ID)kSecReturnData];
 
     return query;
 }
@@ -90,26 +91,27 @@ static NSString *_defaultKeyPrefix = nil;
     // If the object is nil, delete the item
     if (!obj) {
         NSMutableDictionary *query = [self _query];
-        [query setObject:hierKey forKey:(LOCKBOX_ID) kSecAttrService];
-        status = SecItemDelete((LOCKBOX_DICTREF) query);
+        [query setObject:hierKey forKey:(LOCKBOX_ID)kSecAttrService];
+        status = SecItemDelete((LOCKBOX_DICTREF)query);
         return (status == errSecSuccess);
     }
 
     NSMutableDictionary *dict = [self _service];
-    [dict setObject:hierKey forKey:(LOCKBOX_ID) kSecAttrService];
-    [dict setObject:(LOCKBOX_ID) (accessibility) forKey:(LOCKBOX_ID) kSecAttrAccessible];
-    [dict setObject:[obj dataUsingEncoding:NSUTF8StringEncoding] forKey:(LOCKBOX_ID) kSecValueData];
+    [dict setObject:hierKey forKey:(LOCKBOX_ID)kSecAttrService];
+    [dict setObject:(LOCKBOX_ID)(accessibility) forKey:(LOCKBOX_ID)kSecAttrAccessible];
+    [dict setObject:[obj dataUsingEncoding:NSUTF8StringEncoding] forKey:(LOCKBOX_ID)kSecValueData];
 
-    status = SecItemAdd((LOCKBOX_DICTREF) dict, NULL);
+    status = SecItemAdd((LOCKBOX_DICTREF)dict, NULL);
     if (status == errSecDuplicateItem) {
         NSMutableDictionary *query = [self _query];
-        [query setObject:hierKey forKey:(LOCKBOX_ID) kSecAttrService];
-        status = SecItemDelete((LOCKBOX_DICTREF) query);
-        if (status == errSecSuccess)
-            status = SecItemAdd((LOCKBOX_DICTREF) dict, NULL);
+        [query setObject:hierKey forKey:(LOCKBOX_ID)kSecAttrService];
+        status = SecItemDelete((LOCKBOX_DICTREF)query);
+        if (status == errSecSuccess) {
+            status = SecItemAdd((LOCKBOX_DICTREF)dict, NULL);
+        }
     }
     if (status != errSecSuccess)
-        DLog(@"SecItemAdd failed for key %@: %d", hierKey, (int) status);
+        DLog(@"SecItemAdd failed for key %@: %d", hierKey, (int)status);
 
     return (status == errSecSuccess);
 }
@@ -118,18 +120,19 @@ static NSString *_defaultKeyPrefix = nil;
     NSString *hierKey = [self _hierarchicalKey:key];
 
     NSMutableDictionary *query = [self _query];
-    [query setObject:hierKey forKey:(LOCKBOX_ID) kSecAttrService];
+    [query setObject:hierKey forKey:(LOCKBOX_ID)kSecAttrService];
 
     CFDataRef data = nil;
     OSStatus status =
-            SecItemCopyMatching((LOCKBOX_DICTREF) query, (CFTypeRef *) &data);
+            SecItemCopyMatching((LOCKBOX_DICTREF)query, (CFTypeRef *)&data);
     if (status != errSecSuccess && status != errSecItemNotFound)
-        DLog(@"SecItemCopyMatching failed for key %@: %d", hierKey, (int) status);
+        DLog(@"SecItemCopyMatching failed for key %@: %d", hierKey, (int)status);
 
-    if (!data)
+    if (!data) {
         return nil;
+    }
 
-    NSString *s = [[NSString alloc] initWithData:(__bridge_transfer NSData *) data encoding:NSUTF8StringEncoding];
+    NSString *s = [[NSString alloc] initWithData:(__bridge_transfer NSData *)data encoding:NSUTF8StringEncoding];
 
     return s;
 }
@@ -161,8 +164,9 @@ static NSString *_defaultKeyPrefix = nil;
 - (NSArray *)arrayForKey:(NSString *)key {
     NSArray *array = nil;
     NSString *components = [self objectForKey:key];
-    if (components)
+    if (components) {
         array = [NSArray arrayWithArray:[components componentsSeparatedByString:kDelimiter]];
+    }
 
     return array;
 }
@@ -178,8 +182,9 @@ static NSString *_defaultKeyPrefix = nil;
 - (NSSet *)setForKey:(NSString *)key {
     NSSet *set = nil;
     NSArray *array = [self arrayForKey:key];
-    if (array)
+    if (array) {
         set = [NSSet setWithArray:array];
+    }
 
     return set;
 }
@@ -198,8 +203,9 @@ static NSString *_defaultKeyPrefix = nil;
 - (NSDictionary *)dictionaryForKey:(NSString *)key {
     NSArray *keysAndValues = [self arrayForKey:key];
 
-    if (!keysAndValues || keysAndValues.count == 0)
+    if (!keysAndValues || keysAndValues.count == 0) {
         return nil;
+    }
 
     if ((keysAndValues.count % 2) != 0) {
         DLog(@"Dictionary for %@ was not saved properly to keychain", key);
@@ -218,16 +224,18 @@ static NSString *_defaultKeyPrefix = nil;
 }
 
 - (BOOL)setDate:(NSDate *)value forKey:(NSString *)key accessibility:(CFTypeRef)accessibility {
-    if (!value)
+    if (!value) {
         return [self setObject:nil forKey:key accessibility:accessibility];
+    }
     NSNumber *rti = [NSNumber numberWithDouble:[value timeIntervalSinceReferenceDate]];
     return [self setObject:[rti stringValue] forKey:key accessibility:accessibility];
 }
 
 - (NSDate *)dateForKey:(NSString *)key {
     NSString *dateString = [self objectForKey:key];
-    if (dateString)
+    if (dateString) {
         return [NSDate dateWithTimeIntervalSinceReferenceDate:[dateString doubleValue]];
+    }
     return nil;
 }
 

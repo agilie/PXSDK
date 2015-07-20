@@ -29,7 +29,7 @@ static GITrackerCore *giTrackerCore;
     GITracker.giTrackerCore.gameKey = gameKey;
 }
 
-+ (BOOL)userHasIAPOffer{
++ (BOOL)userHasIAPOffer {
     return [GITracker.giTrackerCore userHasIAPOffer];
 }
 
@@ -51,7 +51,7 @@ static GITrackerCore *giTrackerCore;
     [GITracker.giTrackerCore recordTutorialChangeEventFromStep:fromStep toStep:toStep];
 };
 
-+ (void)recordСurrencyChangeEventWithLevel:(NSNumber *)level andCurrency:(NSNumber *)virtualCurrency  {
++ (void)recordСurrencyChangeEventWithLevel:(NSNumber *)level andCurrency:(NSNumber *)virtualCurrency {
     [GITracker.giTrackerCore recordСurrencyChangeEventWithLevel:@1 andCurrency:@300];
 };
 

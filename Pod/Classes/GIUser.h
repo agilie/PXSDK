@@ -14,11 +14,11 @@
 
 //@property (nonatomic, strong) NSString *game_key;
 // @property (nonatomic, strong) NSString *uuid;
-@property(nonatomic, strong) NSNumber *params1;
-@property(nonatomic, strong) NSNumber *params2;
-@property(nonatomic, strong) NSNumber *params3;
-@property(nonatomic, strong) NSNumber *params4;
-@property(nonatomic, strong) NSNumber *params5;
+@property (nonatomic, strong) NSNumber *params1;
+@property (nonatomic, strong) NSNumber *params2;
+@property (nonatomic, strong) NSNumber *params3;
+@property (nonatomic, strong) NSNumber *params4;
+@property (nonatomic, strong) NSNumber *params5;
 
 @end
 

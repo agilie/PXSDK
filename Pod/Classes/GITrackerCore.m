@@ -78,8 +78,8 @@
 - (void)dinamicTimerFire:(id)sender {
 
     if ([self.giEventBuffer dataFromBuffer].length > 0 && self.giNetwork.available) {
-        NSData *data2send = [self makeRequestData: [self.giEventBuffer dataFromBuffer] ];
-        [self.giNetwork sendToServiceRawData: data2send andCompletion:^(BOOL succes) {
+        NSData *data2send = [self makeRequestData:[self.giEventBuffer dataFromBuffer]];
+        [self.giNetwork sendToServiceRawData:data2send andCompletion:^(BOOL succes) {
             if (succes) {
                 [self.giEventBuffer destroyBuffer];
             } else {
@@ -93,8 +93,8 @@
 - (void)cacheTimerFire:(id)sender {
 
     if ([[self.giEventBuffer dataFromCacheBuffer] length] > 0 && self.giNetwork.available) {
-         NSData *data2send = [self makeRequestData: [self.giEventBuffer dataFromCacheBuffer] ];
-        [self.giNetwork sendToServiceRawData: data2send andCompletion:^(BOOL succes) {
+        NSData *data2send = [self makeRequestData:[self.giEventBuffer dataFromCacheBuffer]];
+        [self.giNetwork sendToServiceRawData:data2send andCompletion:^(BOOL succes) {
             if (succes) {
                 [self.giEventBuffer destroyCacheBuffer];
             }
@@ -103,14 +103,14 @@
 }
 
 - (BOOL)userHasIAPOffer {
-    
-    if(!self.giUser) {
+
+    if (!self.giUser) {
         return NO;
     } else {
-    
+
         int spentTime = [NSDate date].timeIntervalSince1970 - self.currentSessionTimeStart;
-        
-        return self.giUser.params2 == [self curentUserLevel] && self.giUser.params1 < [NSNumber numberWithInt:spentTime] ;
+
+        return self.giUser.params2 == [self curentUserLevel] && self.giUser.params1 < [NSNumber numberWithInt:spentTime];
     }
 
 }
@@ -129,7 +129,7 @@
 + (NSString *)generateRandomString:(int)num {
     NSMutableString *string = [NSMutableString stringWithCapacity:num];
     for (int i = 0; i < num; i++) {
-        [string appendFormat:@"%C", (unichar) ('a' + arc4random_uniform(25))];
+        [string appendFormat:@"%C", (unichar)('a' + arc4random_uniform(25))];
     }
     return string;
 }
@@ -167,79 +167,79 @@
 - (NSData *)makeRequestData:(NSData *)input {
 
     NSLocale *locale = [NSLocale currentLocale];
-    NSString *countryCode = [locale objectForKey: NSLocaleCountryCode];
-    
-    NSString *initialJsonData = [NSString stringWithFormat:@" { \"uuid\" : \"%@\" , \"gikey\" : \"%@\" , \"countryCode\" : \"%@\" , \"events\" : [" , self.uuid, self.gameKey , countryCode];
+    NSString *countryCode = [locale objectForKey:NSLocaleCountryCode];
+
+    NSString *initialJsonData = [NSString stringWithFormat:@" { \"uuid\" : \"%@\" , \"gikey\" : \"%@\" , \"countryCode\" : \"%@\" , \"events\" : [", self.uuid, self.gameKey, countryCode];
     NSString *endJsonData = @"]}";
-    
-    NSMutableData *initialData =  [NSMutableData dataWithData: [initialJsonData dataUsingEncoding:NSUTF8StringEncoding] ] ;
-    [initialData appendData: input];
-    
-    [initialData setLength: initialData.length - [[@"," dataUsingEncoding:NSUTF8StringEncoding] length] ];
-    
+
+    NSMutableData *initialData = [NSMutableData dataWithData:[initialJsonData dataUsingEncoding:NSUTF8StringEncoding]];
+    [initialData appendData:input];
+
+    [initialData setLength:initialData.length - [[@"," dataUsingEncoding:NSUTF8StringEncoding] length]];
+
     [initialData appendData:[endJsonData dataUsingEncoding:NSUTF8StringEncoding]];
-    
+
     return initialData;
 }
 
 - (NSDictionary *)makeRecordDict:(NSDictionary *)input {
-    
-    NSMutableDictionary  *tempDictionary = [NSMutableDictionary dictionaryWithDictionary: @{ @"sessionID" : self.currentSession ,
-                                                                                             @"timeStamp" : [NSNumber numberWithInt: [[NSDate date] timeIntervalSince1970] ] }];
-    [tempDictionary addEntriesFromDictionary: input];
-    
+
+    NSMutableDictionary *tempDictionary = [NSMutableDictionary dictionaryWithDictionary:@{ @"sessionID" : self.currentSession,
+            @"timeStamp" : [NSNumber numberWithInt:[[NSDate date] timeIntervalSince1970]] }];
+    [tempDictionary addEntriesFromDictionary:input];
+
     return tempDictionary;
 }
 
 - (void)sendEvent:(NSString *)eventName {
 
-    [self.giEventBuffer addRecordToBuffer: [self makeRecordDict: @{ @"eventName" : eventName } ] ];
-    
+    [self.giEventBuffer addRecordToBuffer:[self makeRecordDict:@{ @"eventName" : eventName }]];
+
 }
 
 - (void)sendStateEvent:(NSString *)eventName {
 
-    [self.giEventBuffer addRecordToBuffer:  [self makeRecordDict: @{ @"eventName" : eventName }]];
-    
+    [self.giEventBuffer addRecordToBuffer:[self makeRecordDict:@{ @"eventName" : eventName }]];
+
 }
 
 - (void)recordTransactionEventWithName:(NSString *)eventName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount {
 
-    [self.giEventBuffer addRecordToBuffer:  [self makeRecordDict:
-                                             @{ @"eventName": @"transactionEvent",
-                                              @"buyVirtualCurrency" : buyVirtualCurrency,
-                                              @"receivingAmount" : receivingAmount,
-                                              @"usingRealCurrency" : usingRealCurrency,
-                                              @"spendingAmount" : spendingAmount }] ];
+    [self.giEventBuffer addRecordToBuffer:[self makeRecordDict:
+            @{ @"eventName" : @"transactionEvent",
+                    @"buyVirtualCurrency" : buyVirtualCurrency,
+                    @"receivingAmount" : receivingAmount,
+                    @"usingRealCurrency" : usingRealCurrency,
+                    @"spendingAmount" : spendingAmount }]];
 
 };
 
 - (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel {
 
     [self setCurentUserLevel:toLevel];
-    
-    [self.giEventBuffer addRecordToBuffer:  [self makeRecordDict:
-                                             @{ @"eventName": @"levelChange",
-                                              @"fromLevel" : fromLevel,
-                                              @"toLevel" : toLevel }] ];
 
-    
+    [self.giEventBuffer addRecordToBuffer:[self makeRecordDict:
+            @{ @"eventName" : @"levelChange",
+                    @"fromLevel" : fromLevel,
+                    @"toLevel" : toLevel }]];
+
+
 };
 
 - (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep {
-   
-    [self.giEventBuffer addRecordToBuffer:  [self makeRecordDict:
-                                             @{ @"eventName": @"tutorialChange",
-                                              @"fromStep" : fromStep,
-                                              @"toStep" : toStep }] ];
+
+    [self.giEventBuffer addRecordToBuffer:[self makeRecordDict:
+            @{ @"eventName" : @"tutorialChange",
+                    @"fromStep" : fromStep,
+                    @"toStep" : toStep }]];
 };
 
 - (void)recordСurrencyChangeEventWithLevel:(NSNumber *)level andCurrency:(NSNumber *)virtualCurrency {
-    
-    [self.giEventBuffer addRecordToBuffer:  [self makeRecordDict:
-                                             @{ @"eventName": @"currencyChange",
-                                                @"level" : level,
-                                                @"virtualCurrency" : virtualCurrency }] ];
+
+    [self.giEventBuffer addRecordToBuffer:[self makeRecordDict:
+            @{ @"eventName" : @"currencyChange",
+                    @"level" : level,
+                    @"virtualCurrency" : virtualCurrency }]];
 };
 
 

@@ -11,7 +11,7 @@
 
 #ifdef DEBUG
 // For unit tests
-@property(strong, nonatomic, readonly) NSString *keyPrefix;
+@property (strong, nonatomic, readonly) NSString *keyPrefix;
 #endif
 
 // When the default key prefix (your app's bundle id) is not sufficient, instantiate your own

@@ -10,9 +10,9 @@
 
 @interface GIEventBuffer : NSObject
 
-@property(nonatomic, strong) NSMutableData *eventBuffer;
-@property(nonatomic) dispatch_queue_t isolationQueue;
-@property(nonatomic, strong) NSFileHandle *cacheFileHandle;
+@property (nonatomic, strong) NSMutableData *eventBuffer;
+@property (nonatomic) dispatch_queue_t isolationQueue;
+@property (nonatomic, strong) NSFileHandle *cacheFileHandle;
 
 - (void)addRecordToBuffer:(NSDictionary *)record;
 
