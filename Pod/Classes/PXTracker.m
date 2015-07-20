@@ -23,9 +23,7 @@ static PXTrackerCore *sTrackerCore;
 }
 
 + (void)sendEvent:(NSString *)eventName withParams:(NSDictionary *)params{
-    
-    [giTrackerCore sendGeneralEventWithName:eventName andParams:params];
-    
+    [sTrackerCore sendGeneralEventWithName:eventName andParams:params];
 };
 
 + (void)recordTransactionEventWithName:(NSString *)withName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount {

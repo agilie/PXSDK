@@ -20,8 +20,11 @@
         self.eventBuffer = [[PXEventBuffer alloc] init];
         
         [self setupCoreTimers];
-        [self setupUserPredictions];
-        [self setupNSNotificationCenter];
+      
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+           [self setupUserPredictions];
+           [self setupNSNotificationCenter];
+        });
         
     }
     return self;
@@ -51,16 +54,22 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.realtimeTimer invalidate];
+    self.realtimeTimer = nil;
+    [self.cacheTimer invalidate];
+    self.cacheTimer = nil;
 }
 
 - (void)setupUserPredictions {
-    [self.network getRequestWithUrl:kPXGetUserPredictionsUrl completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+    
+    NSString *requestUrl = [NSString stringWithFormat:kPXGetUserPredictionsUrl, self.gameKey];
+    
+    [self.network getRequestWithUrl:requestUrl completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             self.user = [[PXUser alloc] initWithDictonary:dictionary];
         } else {
             
-            //TODO: remove this after test
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, kPXRequestUserPredictionsInterval * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [self setupUserPredictions];
             });
@@ -138,11 +147,11 @@
 
 - (NSNumber *)curentUserLevel {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *result = [userDefaults objectForKey:@"userLevel"];
+    NSString *result = [userDefaults objectForKey:kPXLevelKeyStore];
     if (result) {
-        return [userDefaults objectForKey:@"userLevel"];
+        return [userDefaults objectForKey:kPXLevelKeyStore];
     } else {
-        [userDefaults setObject:@0 forKey:@"userLevel"];
+        [userDefaults setObject:@0 forKey:kPXLevelKeyStore];
         [userDefaults synchronize];
         return @0;
     }
@@ -150,7 +159,7 @@
 
 - (void)setCurentUserLevel:(NSNumber *)level {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:level forKey:@"userLevel"];
+    [userDefaults setObject:level forKey:kPXLevelKeyStore];
     [userDefaults synchronize];
 }
 
@@ -174,8 +183,10 @@
 
 - (NSDictionary *)makeRecordDict:(NSDictionary *)input {
     
+    NSString *timeStampSting = [NSString stringWithFormat:@"%1.f", [[NSDate date] timeIntervalSince1970]];
+    
     NSMutableDictionary *tempDictionary = [NSMutableDictionary dictionaryWithDictionary:@{ @"sessionID" : self.currentSession,
-                                                                                           @"timeStamp" : @([[NSDate date] timeIntervalSince1970]) }];
+                                                                                           @"timeStamp" : @([timeStampSting intValue]) }];
     [tempDictionary addEntriesFromDictionary:input];
     
     return tempDictionary;
@@ -193,13 +204,6 @@
 
 
 - (void)recordTransactionEventWithName:(NSString *)eventName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount {
-    [self.eventBuffer addRecordToBuffer:[self makeRecordDict:
-                                           @{ @"eventName" : @"transactionEvent",
-                                              @"transactionName" : eventName,
-                                              @"buyVirtualCurrency" : buyVirtualCurrency,
-                                              @"receivingAmount" : receivingAmount,
-                                              @"usingRealCurrency" : usingRealCurrency,
-                                              @"spendingAmount" : spendingAmount }]];
     
     [self sendGeneralEventWithName:@"transactionEvent" andParams:@{ @"transactionName" : eventName,
                                                                     @"buyVirtualCurrency" : buyVirtualCurrency,

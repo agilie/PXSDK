@@ -7,12 +7,13 @@
 #define PXDefines
 
 static NSString * const kPXApiEndPointIUrl = @"http://playerxtracker.herokuapp.com/v1.1/";
-static NSString * const kPXGetUserPredictionsUrl = @"http://gistats.herokuapp.com/getUserPredictions/Testgame01";
+static NSString * const kPXGetUserPredictionsUrl = @"http://gistats.herokuapp.com/getUserPredictions/%@";
 
 static NSInteger kPXDynamicUpdateInterval = 1.0f * 60;
 static NSInteger kPXCacheUpdateInterval = 1.0f * 65 * 5;
 static NSInteger kPXRequestUserPredictionsInterval = 60;
 static NSString * const kPXLockboxUUDIDKey = @"uudid";
+static NSString * const kPXLevelKeyStore = @"userLevel";
 static char * const kPXFileQueueLockerName = "PXEventBufferQueue";
 static NSString * const kPXCacheFileName = @"PXTrackerCache.data";
 
