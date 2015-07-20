@@ -26,7 +26,7 @@ Add that requirements frameworks to your project:
   * CFNetwork.framework
 
 #List of tracking events and offer availability
-  * sendEvent         - eventName
+  * sendEvent         - eventName, parameters dictonary
   * levelChange       - timeStamp, fromLevel, toLevel
   * tutorialChange    - timeStamp, fromStep, toStep
   * transactionEvent  - timeStamp, withName, buyVirtualCurrenct, receivingAmount, usingRealCurrency, spendingAmount
