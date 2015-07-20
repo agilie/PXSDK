@@ -85,7 +85,7 @@ BOOL offerPresent = [PXTracker userHasIAPOffer];
 
 # Author
 
-Ankudinov Alexander, sasha@ankudinov.org.ua
+Sid99
 
 # License
 
