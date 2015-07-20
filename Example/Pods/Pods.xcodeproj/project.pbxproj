@@ -10,7 +10,6 @@
 		023F88F9B69575EC1E699256 /* GIUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A4944EE132D0E9B4A51519 /* GIUser.m */; };
 		02DE7A721F6DDACE895F66AD /* Pods-PXSDK_Example-PXSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6219D88C5AFE18C5C893DB34 /* Pods-PXSDK_Example-PXSDK-dummy.m */; };
 		0EE79969B3E336D4B5FFA6B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DFBF4B7C73BB358CD35AA9 /* Foundation.framework */; };
-		13B7D534852C9658AC2DDFF9 /* GILocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E5C46BAC8D19562D645775 /* GILocationManager.m */; };
 		22B79B667391E56D4C4B1F5C /* Pods-PXSDK_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C32231E2C89B071A3F89DEFB /* Pods-PXSDK_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24CE15BC8F7350CC172ADA08 /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = F9637F1B8F8EDFB78BA65341 /* NSString+MD5.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		26A64C6FABD9074A6A89ECC7 /* GITracker.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D3894DCC28521D093FC7E /* GITracker.m */; };
@@ -24,7 +23,6 @@
 		AD681DF544F7E485F00244BF /* Lockbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D96A5E184484A9F3A2CC98B /* Lockbox.m */; };
 		BD982EBF2009DBEAEF0FA47B /* GIUser.h in Headers */ = {isa = PBXBuildFile; fileRef = F35E0E6D2C06347192657575 /* GIUser.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C3BD92CBB738AECD5D6C114A /* GITrackerCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9317155E90C9CCD73316B /* GITrackerCore.m */; };
-		C97920368D95F81D9AA6E6F7 /* GILocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EEE519408B5EEDC929E806E0 /* GILocationManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E03621FD00114D624F4A54C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DFBF4B7C73BB358CD35AA9 /* Foundation.framework */; };
 		E96A88332F59F810426A1C7F /* GIEventBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BE1DB81D3DD9AE130EB501 /* GIEventBuffer.m */; };
 		F1A59015BF3805842EB0CBAB /* Pods-PXSDK_Example-PXSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AD6C00C86BEC68AF844F556 /* Pods-PXSDK_Example-PXSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -63,7 +61,6 @@
 		771FD486CAA9A9A84C3FE56E /* GITrackerCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GITrackerCore.h; sourceTree = "<group>"; };
 		7B357EE1D0EDC13B2FCA444E /* Pods-PXSDK_Example-PXSDK-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PXSDK_Example-PXSDK-Private.xcconfig"; sourceTree = "<group>"; };
 		7CBDBA5BB6D8CC2E59FEBDE6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89E5C46BAC8D19562D645775 /* GILocationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GILocationManager.m; sourceTree = "<group>"; };
 		8C633C2CB3B52B4312B070A2 /* Pods-PXSDK_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PXSDK_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9AC2D76736872EFD977E07B5 /* Pods-PXSDK_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PXSDK_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		9AD6C00C86BEC68AF844F556 /* Pods-PXSDK_Example-PXSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDK_Example-PXSDK-umbrella.h"; sourceTree = "<group>"; };
@@ -77,7 +74,6 @@
 		C32231E2C89B071A3F89DEFB /* Pods-PXSDK_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDK_Example-umbrella.h"; sourceTree = "<group>"; };
 		C5B898CE7D0FE92305AD7F14 /* Pods-PXSDK_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PXSDK_Example-resources.sh"; sourceTree = "<group>"; };
 		C926B5000B153765BF33EF20 /* Pods-PXSDK_Example-PXSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDK_Example-PXSDK-prefix.pch"; sourceTree = "<group>"; };
-		EEE519408B5EEDC929E806E0 /* GILocationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GILocationManager.h; sourceTree = "<group>"; };
 		EF83C7B33CA547952E465F62 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F35E0E6D2C06347192657575 /* GIUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GIUser.h; sourceTree = "<group>"; };
 		F9637F1B8F8EDFB78BA65341 /* NSString+MD5.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
@@ -214,8 +210,6 @@
 				6A4D4B51E2CFE0C9BEEFC1AA /* GIDefine.h */,
 				149B9D0DFB97632C70E008CA /* GIEventBuffer.h */,
 				08BE1DB81D3DD9AE130EB501 /* GIEventBuffer.m */,
-				EEE519408B5EEDC929E806E0 /* GILocationManager.h */,
-				89E5C46BAC8D19562D645775 /* GILocationManager.m */,
 				03310FC0AB1C909D5A44CDA5 /* GINetwork.h */,
 				C04AE108786CFFD37986F93E /* GINetwork.m */,
 				69E64A9DB2CB7925F9F18310 /* GITracker.h */,
@@ -249,7 +243,6 @@
 			files = (
 				87DE0E1BA5D34835388F032D /* GIDefine.h in Headers */,
 				F23A3738A31FBA52CD45DFA7 /* GIEventBuffer.h in Headers */,
-				C97920368D95F81D9AA6E6F7 /* GILocationManager.h in Headers */,
 				486D7C786D9597149A3699E0 /* GINetwork.h in Headers */,
 				F8198611DF248A4FB1BCDDFF /* GITracker.h in Headers */,
 				74A6C66812D7E6EB8FF091BF /* GITrackerCore.h in Headers */,
@@ -330,7 +323,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E96A88332F59F810426A1C7F /* GIEventBuffer.m in Sources */,
-				13B7D534852C9658AC2DDFF9 /* GILocationManager.m in Sources */,
 				A3C0FFEE2F25D5A251B99AC4 /* GINetwork.m in Sources */,
 				26A64C6FABD9074A6A89ECC7 /* GITracker.m in Sources */,
 				C3BD92CBB738AECD5D6C114A /* GITrackerCore.m in Sources */,

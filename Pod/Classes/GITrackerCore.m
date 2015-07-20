@@ -12,6 +12,7 @@
 #import "NSString+MD5.h"
 #import "GIEventBuffer.h"
 #import "GIDefine.h"
+#import "GIUser.h"
 
 @implementation GITrackerCore
 
@@ -55,6 +56,10 @@
 
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)setupUserPredictions {
     [self.giNetwork getRequestWithUrl:kUrlGetUserPredictions andCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
@@ -71,12 +76,11 @@
 }
 
 - (void)setupCoreTimers {
-    self.realtimeTimer = [NSTimer scheduledTimerWithTimeInterval:kDinamicUpdateInterval target:self selector:@selector(dinamicTimerFire:) userInfo:nil repeats:YES];
+    self.realtimeTimer = [NSTimer scheduledTimerWithTimeInterval:kDinamicUpdateInterval target:self selector:@selector(dynamicTimerFire:) userInfo:nil repeats:YES];
     self.cacheTimer = [NSTimer scheduledTimerWithTimeInterval:kCacheUpdateInterval target:self selector:@selector(cacheTimerFire:) userInfo:nil repeats:YES];
 }
 
-- (void)dinamicTimerFire:(id)sender {
-
+- (void)dynamicTimerFire:(id)sender {
     if ([self.giEventBuffer dataFromBuffer].length > 0 && self.giNetwork.available) {
         NSData *data2send = [self makeRequestData:[self.giEventBuffer dataFromBuffer]];
         [self.giNetwork sendToServiceRawData:data2send andCompletion:^(BOOL succes) {
@@ -103,26 +107,19 @@
 }
 
 - (BOOL)userHasIAPOffer {
-
-    if (!self.giUser) {
-        return NO;
-    } else {
-#warning TODO 100% bug
+    if (self.giUser) {
         NSTimeInterval spentTime = [NSDate date].timeIntervalSince1970 - self.currentSessionTimeStart;
-
-        return self.giUser.params2 == [self curentUserLevel] && self.giUser.params1 < [NSNumber numberWithInt:spentTime];
+        return [self.giUser.params2 isEqualToNumber:self.curentUserLevel] && [self.giUser.params1 doubleValue] < spentTime;
     }
-
+    return NO;
 }
 
 - (NSString *)getUniqueDeviceIdentifierAsString {
-
     NSString *strApplicationUUID = [Lockbox stringForKey:kLockboxUUDIDKey];
     if (strApplicationUUID == nil) {
         strApplicationUUID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
         [Lockbox setString:strApplicationUUID forKey:kLockboxUUDIDKey];
     }
-
     return strApplicationUUID;
 }
 

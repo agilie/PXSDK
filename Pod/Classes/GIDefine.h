@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Agilie. All rights reserved.
 //
 
-#include "GIUser.h"
-
 #define kApiEndPoint @"http://playerxtracker.herokuapp.com/v1.1/"
 #define kDinamicUpdateInterval 1.0f * 60
 #define kCacheUpdateInterval 1.0f * 65 * 2

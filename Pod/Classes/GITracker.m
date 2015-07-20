@@ -8,7 +8,6 @@
 
 #import "GITracker.h"
 #import "GITrackerCore.h"
-#import "GILocationManager.h"
 
 @implementation GITracker
 
