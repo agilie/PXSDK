@@ -10,11 +10,6 @@
 
 static PXTrackerCore *sTrackerCore;
 
-+ (PXTrackerCore *)trackerCore {
-    
-    return sTrackerCore;
-}
-
 + (void)initializeWithGameKey:(NSString *)gameKey {
     static dispatch_once_t pred;
     dispatch_once(&pred, ^{
