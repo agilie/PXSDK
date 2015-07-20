@@ -14,16 +14,15 @@ it, simply add the following line to your Podfile:
 pod "PXSDK"
 ```
 
-Import "GITracker.h" to your AppDelegate.m file, and init GITracker with your game API key in didFinishLaunchingWithOptions delegate:
+Import "PXTracker.h" to your AppDelegate.m file, and init PXTracker with your game API key in didFinishLaunchingWithOptions delegate:
 ```obj-c
-[GITracker setGameKey:@"THATYOURAPIKEY"];
+[PXTracker setGameKey:@"THATYOURAPIKEY"];
 ```
-Import "GITracker.h" in all the files where you want to track events.
+Import "PXTracker.h" in all the files where you want to track events.
 
 Add that requirements frameworks to your project:
   * MobileCoreServices.framework
   * SystemConfiguration.framework
-  * CoreLocation.framework
   * CFNetwork.framework
 
 #List of tracking events and offer availability
@@ -37,9 +36,10 @@ Add that requirements frameworks to your project:
 
 Level change event consists of two fields that you can use to describe a users level change in your app:
 * NSString eventName
+* NSDictionary custom parametersList
 
 ```obj-c
-[GITracker sendEvent:@"customEventName"];
+[PXTracker sendEvent:@"myCustomEvent" withParams:@{@"paramName":@"paramValue"}];
 ```
 
 ##Level change event
@@ -49,7 +49,7 @@ Level change event consists of two fields that you can use to describe a users l
 * NSNumber toLevel
 
 ```obj-c
-[GITracker recordLevelChangeEventFromLevel:@0 toLevel:@2];
+[PXTracker recordLevelChangeEventFromLevel:@0 toLevel:@2];
 ```
  
 ##Tutorial step change event
@@ -59,7 +59,7 @@ Tutorial step change event consists of two fields that you can use to describe a
 * NSNumber toStep
 
 ```obj-c
-[GITracker recordTutorialChangeEventFromStep:@0 toStep:@3];
+[PXTracker recordTutorialChangeEventFromStep:@0 toStep:@3];
 ```     
 
 ##Transaction event
@@ -72,7 +72,7 @@ Transaction event consists of five fields that you can use to describe a users l
 * NSNumber spendingAmount
 
 ```obj-c
-    [GITracker recordTransactionEventWithName:@"test" buyVirtualCurrency:@"coins" receivingAmount:@21 usingRealCurrency:@"usd" spendingAmount:@3];
+[PXTracker recordTransactionEventWithName:@"test" buyVirtualCurrency:@"coins" receivingAmount:@21 usingRealCurrency:@"usd" spendingAmount:@3];
 ```
 
 ##Availability of IAPOffer 
@@ -80,7 +80,7 @@ Transaction event consists of five fields that you can use to describe a users l
 Return  YES BOOL value if IAPOffer enabled for the moment:
 
 ```obj-c
-BOOL offerPresent = [GITracker userHasIAPOffer];
+BOOL offerPresent = [PXTracker userHasIAPOffer];
 ```   
 
 # Author
