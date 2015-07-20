@@ -16,7 +16,6 @@
 		6003F5A7195388D20070C39A /* PXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* PXViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		8A71B9F0AFD863BAD81118C2 /* Pods_PXSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1D53CDCF1F13C1C1239A37 /* Pods_PXSDK_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A9A235D179845E4802536179 /* Pods_PXSDKExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9A48A5B879F3E5EB3C02CD /* Pods_PXSDKExample.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -56,7 +55,6 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				8A71B9F0AFD863BAD81118C2 /* Pods_PXSDK_Example.framework in Frameworks */,
 				A9A235D179845E4802536179 /* Pods_PXSDKExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
