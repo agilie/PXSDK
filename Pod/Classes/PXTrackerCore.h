@@ -14,10 +14,10 @@
 @property (nonatomic, strong) NSString *gameKey;
 @property (nonatomic, strong) NSString *currentSession;
 @property (nonatomic, strong) NSString *uuid;
-@property (nonatomic, strong) PXNetwork *giNetwork;
-@property (nonatomic, strong) PXEventBuffer *giEventBuffer;
+@property (nonatomic, strong) PXNetwork *network;
+@property (nonatomic, strong) PXEventBuffer *eventBuffer;
 @property (nonatomic, strong) NSTimer *realtimeTimer, *cacheTimer;
-@property (nonatomic, strong) PXUser *giUser;
+@property (nonatomic, strong) PXUser *user;
 @property NSTimeInterval currentSessionTimeStart;
 
 - (id)init;

@@ -16,8 +16,8 @@
 - (id)init {
     if (self = [super init]) {
         self.uuid = [self getUniqueDeviceIdentifierAsString];
-        self.giNetwork = [[PXNetwork alloc] init];
-        self.giEventBuffer = [[PXEventBuffer alloc] init];
+        self.network = [[PXNetwork alloc] init];
+        self.eventBuffer = [[PXEventBuffer alloc] init];
         
         [self setupCoreTimers];
         [self setupUserPredictions];
@@ -54,14 +54,14 @@
 }
 
 - (void)setupUserPredictions {
-    [self.giNetwork getRequestWithUrl:kUrlGetUserPredictions andCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
+    [self.network getRequestWithUrl:kPXGetUserPredictionsUrl completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            self.giUser = [[PXUser alloc] initWithDictonary:dictionary];
+            self.user = [[PXUser alloc] initWithDictonary:dictionary];
         } else {
             
             //TODO: remove this after test
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, kRequestUserPredictionsInterval * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, kPXRequestUserPredictionsInterval * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [self setupUserPredictions];
             });
         }
@@ -69,18 +69,18 @@
 }
 
 - (void)setupCoreTimers {
-    self.realtimeTimer = [NSTimer scheduledTimerWithTimeInterval:kDinamicUpdateInterval target:self selector:@selector(dynamicTimerFire:) userInfo:nil repeats:YES];
-    self.cacheTimer = [NSTimer scheduledTimerWithTimeInterval:kCacheUpdateInterval target:self selector:@selector(cacheTimerFire:) userInfo:nil repeats:YES];
+    self.realtimeTimer = [NSTimer scheduledTimerWithTimeInterval:kPXDynamicUpdateInterval target:self selector:@selector(dynamicTimerFire:) userInfo:nil repeats:YES];
+    self.cacheTimer = [NSTimer scheduledTimerWithTimeInterval:kPXCacheUpdateInterval target:self selector:@selector(cacheTimerFire:) userInfo:nil repeats:YES];
 }
 
 - (void)dynamicTimerFire:(id)sender {
-    if ([self.giEventBuffer dataFromBuffer].length > 0 && self.giNetwork.available) {
-        NSData *data2send = [self makeRequestData:[self.giEventBuffer dataFromBuffer]];
-        [self.giNetwork sendToServiceRawData:data2send andCompletion:^(BOOL succes) {
+    if ([self.eventBuffer dataFromBuffer].length > 0 && self.network.available) {
+        NSData *data2send = [self makeRequestData:[self.eventBuffer dataFromBuffer]];
+        [self.network sendToServiceRawData:data2send completion:^(BOOL succes) {
             if (succes) {
-                [self.giEventBuffer destroyBuffer];
+                [self.eventBuffer destroyBuffer];
             } else {
-                [self.giEventBuffer flushToCacheBuffer];
+                [self.eventBuffer flushToCacheBuffer];
             }
         }];
     }
@@ -89,29 +89,29 @@
 
 - (void)cacheTimerFire:(id)sender {
     
-    if ([[self.giEventBuffer dataFromCacheBuffer] length] > 0 && self.giNetwork.available) {
-        NSData *data2send = [self makeRequestData:[self.giEventBuffer dataFromCacheBuffer]];
-        [self.giNetwork sendToServiceRawData:data2send andCompletion:^(BOOL succes) {
+    if ([[self.eventBuffer dataFromCacheBuffer] length] > 0 && self.network.available) {
+        NSData *data2send = [self makeRequestData:[self.eventBuffer dataFromCacheBuffer]];
+        [self.network sendToServiceRawData:data2send completion:^(BOOL succes) {
             if (succes) {
-                [self.giEventBuffer destroyCacheBuffer];
+                [self.eventBuffer destroyCacheBuffer];
             }
         }];
     }
 }
 
 - (BOOL)userHasIAPOffer {
-    if (self.giUser) {
+    if (self.user) {
         NSTimeInterval spentTime = [NSDate date].timeIntervalSince1970 - self.currentSessionTimeStart;
-        return [self.giUser.params2 isEqualToNumber:self.curentUserLevel] && [self.giUser.params1 doubleValue] < spentTime;
+        return [self.user.params1 doubleValue] < spentTime && [self.user.params2 isEqualToNumber:self.curentUserLevel];
     }
     return NO;
 }
 
 - (NSString *)getUniqueDeviceIdentifierAsString {
-    NSString *strApplicationUUID = [Lockbox stringForKey:kLockboxUUDIDKey];
+    NSString *strApplicationUUID = [Lockbox stringForKey:kPXLockboxUUDIDKey];
     if (strApplicationUUID == nil) {
         strApplicationUUID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-        [Lockbox setString:strApplicationUUID forKey:kLockboxUUDIDKey];
+        [Lockbox setString:strApplicationUUID forKey:kPXLockboxUUDIDKey];
     }
     return strApplicationUUID;
 }
