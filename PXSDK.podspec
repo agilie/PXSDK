@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PXSDK"
-  s.version          = "0.1.0"
+  s.version          = "0.1.5"
   s.summary          = "PXSDK is iOS game analytics SDK"
   s.description      = <<-DESC
                        Here goes a very long description for PXSDK is iOS game analytics SDK
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
                        * Markdown format.
                        * Don't worry about the indent, we strip it!
                        DESC
-  s.homepage         = "https://github.com/sid99/PXSdk"
+  s.homepage         = "https://github.com/agilie/PXSDK"
   s.license          = 'MIT'
   s.author           = { "Sid sid99" => "dsid99@gmail.com" }
   s.source           = { :git => "https://github.com/agilie/PXSDK.git", :tag => s.version.to_s }
