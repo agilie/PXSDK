@@ -17,7 +17,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [PXTracker setGameKey:@"TESTTESTTEST"];
+    [PXTracker initializeWithGameKey:@"Testgame01"];
     //[GITracker setGeoTrackingEnable:YES];
     
     return YES;

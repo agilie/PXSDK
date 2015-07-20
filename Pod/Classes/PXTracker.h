@@ -7,9 +7,9 @@
 
 @interface PXTracker : NSObject
 
-+ (BOOL)userHasIAPOffer;
++ (void)initializeWithGameKey:(NSString *)gameKey;
 
-+ (void)setGameKey:(NSString *)gameKey;
++ (BOOL)userHasIAPOffer;
 
 + (void)sendEvent:(NSString *)eventName;
 
