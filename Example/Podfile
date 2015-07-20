@@ -1,7 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'PXSDKExample', :exclusive => true do
+target 'PXSDKExample' do
   platform:ios, '8.0'
   pod "PXSDK", :path => "../"
 end
