@@ -8,25 +8,18 @@
 
 @implementation PXTracker
 
-static PXTrackerCore *giTrackerCore;
+static PXTrackerCore *sTrackerCore;
 
-+ (PXTrackerCore *)giTrackerCore {
-    
++ (void)initializeWithGameKey:(NSString *)gameKey {
     static dispatch_once_t pred;
-    
     dispatch_once(&pred, ^{
-        giTrackerCore = [[PXTrackerCore alloc] init];
+        sTrackerCore = [[PXTrackerCore alloc] init];
     });
-    
-    return giTrackerCore;
-}
-
-+ (void)setGameKey:(NSString *)gameKey {
-    giTrackerCore.gameKey = gameKey;
+    sTrackerCore.gameKey = gameKey;
 }
 
 + (BOOL)userHasIAPOffer {
-    return [giTrackerCore userHasIAPOffer];
+    return [sTrackerCore userHasIAPOffer];
 }
 
 + (void)sendEvent:(NSString *)eventName withParams:(NSDictionary *)params{
@@ -37,20 +30,20 @@ static PXTrackerCore *giTrackerCore;
 
 + (void)recordTransactionEventWithName:(NSString *)withName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount {
     
-    [giTrackerCore recordTransactionEventWithName:withName buyVirtualCurrency:buyVirtualCurrency receivingAmount:receivingAmount usingRealCurrency:usingRealCurrency spendingAmount:spendingAmount];
+    [sTrackerCore recordTransactionEventWithName:withName buyVirtualCurrency:buyVirtualCurrency receivingAmount:receivingAmount usingRealCurrency:usingRealCurrency spendingAmount:spendingAmount];
     
 };
 
 + (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel {
-    [giTrackerCore recordLevelChangeEventFromLevel:fromLevel toLevel:toLevel];
+    [sTrackerCore recordLevelChangeEventFromLevel:fromLevel toLevel:toLevel];
 };
 
 + (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep {
-    [giTrackerCore recordTutorialChangeEventFromStep:fromStep toStep:toStep];
+    [sTrackerCore recordTutorialChangeEventFromStep:fromStep toStep:toStep];
 };
 
 + (void)recordСurrencyChangeEventWithLevel:(NSNumber *)level andCurrency:(NSNumber *)virtualCurrency {
-    [giTrackerCore recordСurrencyChangeEventWithLevel:level andCurrency:virtualCurrency];
+    [sTrackerCore recordСurrencyChangeEventWithLevel:level andCurrency:virtualCurrency];
 };
 
 @end
