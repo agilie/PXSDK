@@ -15,9 +15,9 @@
     return self;
 }
 
-- (void)sendToServiceRawData:(NSData *)data andCompletion:(void (^)(BOOL succes))completionHandler {
+- (void)sendToServiceRawData:(NSData *)data completion:(void (^)(BOOL success))completionHandler {
     
-    NSString *mainRequestUrl = kApiEndPoint;
+    NSString *mainRequestUrl = kPXApiEndPointIUrl;
     
     NSURL *url = [NSURL URLWithString:mainRequestUrl];
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -28,46 +28,32 @@
     
     self.available = NO;
     
-    //TODO: remove this after test
-    NSLog(@"Try Send that %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    PXLog(@"send raw data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     
-    NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request
-                                                               fromData:data
-                                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                          
-                                                          NSDictionary *responseDictonary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                                          
-                                                          BOOL succes = error == nil && [responseDictonary[@"result"] isEqualToString:@"success"];
-                                                          
-                                                          completionHandler(succes);
-                                                          self.available = YES;
-                                                          
-                                                          //TODO: remove this after test
-                                                          NSLog(@"Recivie %@ %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], error);
-                                                          
-                                                      }];
-    
+    __weak typeof(self) weakSelf = self;
+    NSURLSessionUploadTask *uploadTask = [session uploadTaskWithRequest:request fromData:data completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary *responseDictonary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        BOOL success = (error == nil) && [responseDictonary[@"result"] isEqualToString:@"success"];
+        if (completionHandler) completionHandler(success);
+        weakSelf.available = YES;
+        PXLog(@"upload completed with response: %@\n error: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], error);
+    }];
     [uploadTask resume];
     
 };
 
-- (void)getRequestWithUrl:(NSString *)mainRequestUrl andCompletion:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
-    
+- (void)getRequestWithUrl:(NSString *)mainRequestUrl completion:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
     NSURL *url = [NSURL URLWithString:mainRequestUrl];
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+
+    NSURLSessionDataTask *getTask = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (completionHandler) completionHandler(data, response, error);
+        PXLog(@"got data: %@\n error: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], error);
+        
+    }];
     
-    
-    NSURLSessionDataTask *getTesk = [session dataTaskWithURL:url
-                                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                               
-                                               completionHandler(data, response, error);
-                                               //TODO: remove this after test
-                                               NSLog(@"Recivie %@ %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], error);
-                                               
-                                           }];
-    
-    [getTesk resume];
+    [getTask resume];
     
 };
 

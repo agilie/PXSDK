@@ -6,14 +6,27 @@
 #ifndef PXDefines
 #define PXDefines
 
-static NSString * const kApiEndPoint = @"http://playerxtracker.herokuapp.com/v1.1/";
-static NSString * const kUrlGetUserPredictions = @"http://gistats.herokuapp.com/getUserPredictions/Testgame01";
+static NSString * const kPXApiEndPointIUrl = @"http://playerxtracker.herokuapp.com/v1.1/";
+static NSString * const kPXGetUserPredictionsUrl = @"http://gistats.herokuapp.com/getUserPredictions/Testgame01";
 
-static NSInteger kDinamicUpdateInterval = 1.0f * 60;
-static NSInteger kCacheUpdateInterval = 1.0f * 65 * 2;
-static NSInteger kRequestUserPredictionsInterval = 1 * 65 * 2;
-static NSString * const kLockboxUUDIDKey = @"uudid";
-static char * const kFileQueueLocker = "GIEventBufferQueue";
-static NSString * const kCacheFileName = @"GITrackerCache.data";
+static NSInteger kPXDynamicUpdateInterval = 1.0f * 60;
+static NSInteger kPXCacheUpdateInterval = 1.0f * 65 * 5;
+static NSInteger kPXRequestUserPredictionsInterval = 60;
+static NSString * const kPXLockboxUUDIDKey = @"uudid";
+static char * const kPXFileQueueLockerName = "PXEventBufferQueue";
+static NSString * const kPXCacheFileName = @"PXTrackerCache.data";
+
+static const BOOL kPXLogsEnabled = YES;
+static NSString * const kPXLogsTag = @"[PXSDK] ";
+
+static inline void PXLog(NSString *format, ...) {
+    if (kPXLogsEnabled) {
+        va_list argList;
+        va_start(argList, format);
+        NSString *string = [kPXLogsTag stringByAppendingString:format];
+        NSLogv(string, argList);
+        va_end(argList);
+    }
+}
 
 #endif

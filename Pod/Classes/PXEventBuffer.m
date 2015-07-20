@@ -12,7 +12,7 @@
     self = [super init];
     if (self) {
         self.eventBuffer = [[NSMutableData alloc] init];
-        self.isolationQueue = dispatch_queue_create(kFileQueueLocker, DISPATCH_QUEUE_CONCURRENT);
+        self.isolationQueue = dispatch_queue_create(kPXFileQueueLockerName, DISPATCH_QUEUE_CONCURRENT);
         self.cacheFileHandle = [self makeCacheFileHandle];
     }
     return self;
@@ -20,7 +20,7 @@
 
 - (NSFileHandle *)makeCacheFileHandle {
     
-    NSString *cacheFileName = [NSTemporaryDirectory() stringByAppendingPathComponent:kCacheFileName];
+    NSString *cacheFileName = [NSTemporaryDirectory() stringByAppendingPathComponent:kPXCacheFileName];
     
     NSFileManager *fileMan = [NSFileManager defaultManager];
     if (![fileMan fileExistsAtPath:cacheFileName]) {
