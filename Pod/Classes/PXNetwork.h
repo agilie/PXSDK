@@ -1,14 +1,11 @@
 //
-//  GINetwork.h
-//  PXSDKExample
-//
-//  Created by Ankudinov Alexander on 7/8/15.
-//  Copyright (c) 2015 Agilie. All rights reserved.
+//  PXNetwork.h
+//  PXSDK
 //
 
 #import <Foundation/Foundation.h>
 
-@interface GINetwork : NSObject
+@interface PXNetwork : NSObject
 
 - (void)sendToServiceRawData:(NSData *)data andCompletion:(void (^)(BOOL succes))completionHandler;
 

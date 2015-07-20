@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		023F88F9B69575EC1E699256 /* GIUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A4944EE132D0E9B4A51519 /* GIUser.m */; };
+		023F88F9B69575EC1E699256 /* PXUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A4944EE132D0E9B4A51519 /* PXUser.m */; };
 		02DE7A721F6DDACE895F66AD /* Pods-PXSDK_Example-PXSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6219D88C5AFE18C5C893DB34 /* Pods-PXSDK_Example-PXSDK-dummy.m */; };
 		0EE79969B3E336D4B5FFA6B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DFBF4B7C73BB358CD35AA9 /* Foundation.framework */; };
 		22B79B667391E56D4C4B1F5C /* Pods-PXSDK_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C32231E2C89B071A3F89DEFB /* Pods-PXSDK_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24CE15BC8F7350CC172ADA08 /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = F9637F1B8F8EDFB78BA65341 /* NSString+MD5.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		26A64C6FABD9074A6A89ECC7 /* GITracker.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D3894DCC28521D093FC7E /* GITracker.m */; };
+		26A64C6FABD9074A6A89ECC7 /* PXTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D3894DCC28521D093FC7E /* PXTracker.m */; };
 		2B984F19F020D10484D0DD69 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C1AAAD87091314618032CD /* NSString+MD5.m */; };
-		486D7C786D9597149A3699E0 /* GINetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 03310FC0AB1C909D5A44CDA5 /* GINetwork.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		486D7C786D9597149A3699E0 /* PXNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 03310FC0AB1C909D5A44CDA5 /* PXNetwork.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		706361A9F1E2C72508799EF8 /* Lockbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 727F0790A20CAAAE15CF06AC /* Lockbox.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		74A6C66812D7E6EB8FF091BF /* GITrackerCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 771FD486CAA9A9A84C3FE56E /* GITrackerCore.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		87DE0E1BA5D34835388F032D /* GIDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A4D4B51E2CFE0C9BEEFC1AA /* GIDefine.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		74A6C66812D7E6EB8FF091BF /* PXTrackerCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 771FD486CAA9A9A84C3FE56E /* PXTrackerCore.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		87DE0E1BA5D34835388F032D /* PXDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A4D4B51E2CFE0C9BEEFC1AA /* PXDefines.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9F1B06BECBAC97B6B51346C2 /* Pods-PXSDK_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F62164B1D9BC127FAC2255B /* Pods-PXSDK_Example-dummy.m */; };
-		A3C0FFEE2F25D5A251B99AC4 /* GINetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C04AE108786CFFD37986F93E /* GINetwork.m */; };
+		A3C0FFEE2F25D5A251B99AC4 /* PXNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C04AE108786CFFD37986F93E /* PXNetwork.m */; };
 		AD681DF544F7E485F00244BF /* Lockbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D96A5E184484A9F3A2CC98B /* Lockbox.m */; };
-		BD982EBF2009DBEAEF0FA47B /* GIUser.h in Headers */ = {isa = PBXBuildFile; fileRef = F35E0E6D2C06347192657575 /* GIUser.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C3BD92CBB738AECD5D6C114A /* GITrackerCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9317155E90C9CCD73316B /* GITrackerCore.m */; };
+		BD982EBF2009DBEAEF0FA47B /* PXUser.h in Headers */ = {isa = PBXBuildFile; fileRef = F35E0E6D2C06347192657575 /* PXUser.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C3BD92CBB738AECD5D6C114A /* PXTrackerCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF9317155E90C9CCD73316B /* PXTrackerCore.m */; };
 		E03621FD00114D624F4A54C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DFBF4B7C73BB358CD35AA9 /* Foundation.framework */; };
-		E96A88332F59F810426A1C7F /* GIEventBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BE1DB81D3DD9AE130EB501 /* GIEventBuffer.m */; };
+		E96A88332F59F810426A1C7F /* PXEventBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BE1DB81D3DD9AE130EB501 /* PXEventBuffer.m */; };
 		F1A59015BF3805842EB0CBAB /* Pods-PXSDK_Example-PXSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AD6C00C86BEC68AF844F556 /* Pods-PXSDK_Example-PXSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F23A3738A31FBA52CD45DFA7 /* GIEventBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 149B9D0DFB97632C70E008CA /* GIEventBuffer.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F8198611DF248A4FB1BCDDFF /* GITracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E64A9DB2CB7925F9F18310 /* GITracker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F23A3738A31FBA52CD45DFA7 /* PXEventBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 149B9D0DFB97632C70E008CA /* PXEventBuffer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F8198611DF248A4FB1BCDDFF /* PXTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E64A9DB2CB7925F9F18310 /* PXTracker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,23 +42,23 @@
 
 /* Begin PBXFileReference section */
 		01C1AAAD87091314618032CD /* NSString+MD5.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
-		03310FC0AB1C909D5A44CDA5 /* GINetwork.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GINetwork.h; sourceTree = "<group>"; };
-		08BE1DB81D3DD9AE130EB501 /* GIEventBuffer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GIEventBuffer.m; sourceTree = "<group>"; };
-		149B9D0DFB97632C70E008CA /* GIEventBuffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GIEventBuffer.h; sourceTree = "<group>"; };
+		03310FC0AB1C909D5A44CDA5 /* PXNetwork.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXNetwork.h; sourceTree = "<group>"; };
+		08BE1DB81D3DD9AE130EB501 /* PXEventBuffer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXEventBuffer.m; sourceTree = "<group>"; };
+		149B9D0DFB97632C70E008CA /* PXEventBuffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXEventBuffer.h; sourceTree = "<group>"; };
 		1C6B9BE7EFCF96376BD29F80 /* Pods-PXSDK_Example-PXSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PXSDK_Example-PXSDK.modulemap"; sourceTree = "<group>"; };
 		28DADC9205C84AED87DB7F5E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F62164B1D9BC127FAC2255B /* Pods-PXSDK_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PXSDK_Example-dummy.m"; sourceTree = "<group>"; };
 		3DC090504BC9427185B725A3 /* PXSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PXSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B7FD288605BF398074BB3E /* Pods-PXSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PXSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
-		4DF9317155E90C9CCD73316B /* GITrackerCore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GITrackerCore.m; sourceTree = "<group>"; };
+		4DF9317155E90C9CCD73316B /* PXTrackerCore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXTrackerCore.m; sourceTree = "<group>"; };
 		57DFBF4B7C73BB358CD35AA9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		59366DB1112FA474F2834F5E /* Pods-PXSDK_Example-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDK_Example-environment.h"; sourceTree = "<group>"; };
 		6219D88C5AFE18C5C893DB34 /* Pods-PXSDK_Example-PXSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PXSDK_Example-PXSDK-dummy.m"; sourceTree = "<group>"; };
-		64A4944EE132D0E9B4A51519 /* GIUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GIUser.m; sourceTree = "<group>"; };
-		69E64A9DB2CB7925F9F18310 /* GITracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GITracker.h; sourceTree = "<group>"; };
-		6A4D4B51E2CFE0C9BEEFC1AA /* GIDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GIDefine.h; sourceTree = "<group>"; };
+		64A4944EE132D0E9B4A51519 /* PXUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXUser.m; sourceTree = "<group>"; };
+		69E64A9DB2CB7925F9F18310 /* PXTracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXTracker.h; sourceTree = "<group>"; };
+		6A4D4B51E2CFE0C9BEEFC1AA /* PXDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXDefines.h; sourceTree = "<group>"; };
 		727F0790A20CAAAE15CF06AC /* Lockbox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Lockbox.h; sourceTree = "<group>"; };
-		771FD486CAA9A9A84C3FE56E /* GITrackerCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GITrackerCore.h; sourceTree = "<group>"; };
+		771FD486CAA9A9A84C3FE56E /* PXTrackerCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXTrackerCore.h; sourceTree = "<group>"; };
 		7B357EE1D0EDC13B2FCA444E /* Pods-PXSDK_Example-PXSDK-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PXSDK_Example-PXSDK-Private.xcconfig"; sourceTree = "<group>"; };
 		7CBDBA5BB6D8CC2E59FEBDE6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C633C2CB3B52B4312B070A2 /* Pods-PXSDK_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PXSDK_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -67,15 +67,15 @@
 		9D96A5E184484A9F3A2CC98B /* Lockbox.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Lockbox.m; sourceTree = "<group>"; };
 		9DAB0467C2A45E6DBB16A9D7 /* Pods-PXSDK_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PXSDK_Example.modulemap"; sourceTree = "<group>"; };
 		A462BF1E0C4F7CD179C0F6D6 /* Pods_PXSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PXSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB2D3894DCC28521D093FC7E /* GITracker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GITracker.m; sourceTree = "<group>"; };
+		AB2D3894DCC28521D093FC7E /* PXTracker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXTracker.m; sourceTree = "<group>"; };
 		AC8F834F18DEC3EBB0A04670 /* Pods-PXSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PXSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B8F439C0D68A2D579B7D07D1 /* Pods-PXSDK_Example-PXSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PXSDK_Example-PXSDK.xcconfig"; sourceTree = "<group>"; };
-		C04AE108786CFFD37986F93E /* GINetwork.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GINetwork.m; sourceTree = "<group>"; };
+		C04AE108786CFFD37986F93E /* PXNetwork.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXNetwork.m; sourceTree = "<group>"; };
 		C32231E2C89B071A3F89DEFB /* Pods-PXSDK_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDK_Example-umbrella.h"; sourceTree = "<group>"; };
 		C5B898CE7D0FE92305AD7F14 /* Pods-PXSDK_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PXSDK_Example-resources.sh"; sourceTree = "<group>"; };
 		C926B5000B153765BF33EF20 /* Pods-PXSDK_Example-PXSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDK_Example-PXSDK-prefix.pch"; sourceTree = "<group>"; };
 		EF83C7B33CA547952E465F62 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F35E0E6D2C06347192657575 /* GIUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GIUser.h; sourceTree = "<group>"; };
+		F35E0E6D2C06347192657575 /* PXUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXUser.h; sourceTree = "<group>"; };
 		F9637F1B8F8EDFB78BA65341 /* NSString+MD5.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		FC27C2B50DE83CCEFE741A6F /* Pods-PXSDK_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PXSDK_Example-frameworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,17 +207,17 @@
 		F2970F5E2EAAEB8A5AFA1F86 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6A4D4B51E2CFE0C9BEEFC1AA /* GIDefine.h */,
-				149B9D0DFB97632C70E008CA /* GIEventBuffer.h */,
-				08BE1DB81D3DD9AE130EB501 /* GIEventBuffer.m */,
-				03310FC0AB1C909D5A44CDA5 /* GINetwork.h */,
-				C04AE108786CFFD37986F93E /* GINetwork.m */,
-				69E64A9DB2CB7925F9F18310 /* GITracker.h */,
-				AB2D3894DCC28521D093FC7E /* GITracker.m */,
-				771FD486CAA9A9A84C3FE56E /* GITrackerCore.h */,
-				4DF9317155E90C9CCD73316B /* GITrackerCore.m */,
-				F35E0E6D2C06347192657575 /* GIUser.h */,
-				64A4944EE132D0E9B4A51519 /* GIUser.m */,
+				6A4D4B51E2CFE0C9BEEFC1AA /* PXDefines.h */,
+				149B9D0DFB97632C70E008CA /* PXEventBuffer.h */,
+				08BE1DB81D3DD9AE130EB501 /* PXEventBuffer.m */,
+				03310FC0AB1C909D5A44CDA5 /* PXNetwork.h */,
+				C04AE108786CFFD37986F93E /* PXNetwork.m */,
+				69E64A9DB2CB7925F9F18310 /* PXTracker.h */,
+				AB2D3894DCC28521D093FC7E /* PXTracker.m */,
+				771FD486CAA9A9A84C3FE56E /* PXTrackerCore.h */,
+				4DF9317155E90C9CCD73316B /* PXTrackerCore.m */,
+				F35E0E6D2C06347192657575 /* PXUser.h */,
+				64A4944EE132D0E9B4A51519 /* PXUser.m */,
 				727F0790A20CAAAE15CF06AC /* Lockbox.h */,
 				9D96A5E184484A9F3A2CC98B /* Lockbox.m */,
 				F9637F1B8F8EDFB78BA65341 /* NSString+MD5.h */,
@@ -241,12 +241,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87DE0E1BA5D34835388F032D /* GIDefine.h in Headers */,
-				F23A3738A31FBA52CD45DFA7 /* GIEventBuffer.h in Headers */,
-				486D7C786D9597149A3699E0 /* GINetwork.h in Headers */,
-				F8198611DF248A4FB1BCDDFF /* GITracker.h in Headers */,
-				74A6C66812D7E6EB8FF091BF /* GITrackerCore.h in Headers */,
-				BD982EBF2009DBEAEF0FA47B /* GIUser.h in Headers */,
+				87DE0E1BA5D34835388F032D /* PXDefines.h in Headers */,
+				F23A3738A31FBA52CD45DFA7 /* PXEventBuffer.h in Headers */,
+				486D7C786D9597149A3699E0 /* PXNetwork.h in Headers */,
+				F8198611DF248A4FB1BCDDFF /* PXTracker.h in Headers */,
+				74A6C66812D7E6EB8FF091BF /* PXTrackerCore.h in Headers */,
+				BD982EBF2009DBEAEF0FA47B /* PXUser.h in Headers */,
 				706361A9F1E2C72508799EF8 /* Lockbox.h in Headers */,
 				24CE15BC8F7350CC172ADA08 /* NSString+MD5.h in Headers */,
 				F1A59015BF3805842EB0CBAB /* Pods-PXSDK_Example-PXSDK-umbrella.h in Headers */,
@@ -322,11 +322,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E96A88332F59F810426A1C7F /* GIEventBuffer.m in Sources */,
-				A3C0FFEE2F25D5A251B99AC4 /* GINetwork.m in Sources */,
-				26A64C6FABD9074A6A89ECC7 /* GITracker.m in Sources */,
-				C3BD92CBB738AECD5D6C114A /* GITrackerCore.m in Sources */,
-				023F88F9B69575EC1E699256 /* GIUser.m in Sources */,
+				E96A88332F59F810426A1C7F /* PXEventBuffer.m in Sources */,
+				A3C0FFEE2F25D5A251B99AC4 /* PXNetwork.m in Sources */,
+				26A64C6FABD9074A6A89ECC7 /* PXTracker.m in Sources */,
+				C3BD92CBB738AECD5D6C114A /* PXTrackerCore.m in Sources */,
+				023F88F9B69575EC1E699256 /* PXUser.m in Sources */,
 				AD681DF544F7E485F00244BF /* Lockbox.m in Sources */,
 				2B984F19F020D10484D0DD69 /* NSString+MD5.m in Sources */,
 				02DE7A721F6DDACE895F66AD /* Pods-PXSDK_Example-PXSDK-dummy.m in Sources */,

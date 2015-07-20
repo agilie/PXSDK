@@ -1,26 +1,23 @@
 //
-//  GITrackerCore.h
-//  PXSDKExample
-//
-//  Created by Ankudinov Alexander on 7/8/15.
-//  Copyright (c) 2015 Agilie. All rights reserved.
+//  PXTrackerCore.h
+//  PXSDK
 //
 
 #import <Foundation/Foundation.h>
 
-@class GINetwork;
-@class GIEventBuffer;
-@class GIUser;
+@class PXNetwork;
+@class PXEventBuffer;
+@class PXUser;
 
-@interface GITrackerCore : NSObject
+@interface PXTrackerCore : NSObject
 
 @property (nonatomic, strong) NSString *gameKey;
 @property (nonatomic, strong) NSString *currentSession;
 @property (nonatomic, strong) NSString *uuid;
-@property (nonatomic, strong) GINetwork *giNetwork;
-@property (nonatomic, strong) GIEventBuffer *giEventBuffer;
+@property (nonatomic, strong) PXNetwork *giNetwork;
+@property (nonatomic, strong) PXEventBuffer *giEventBuffer;
 @property (nonatomic, strong) NSTimer *realtimeTimer, *cacheTimer;
-@property (nonatomic, strong) GIUser *giUser;
+@property (nonatomic, strong) PXUser *giUser;
 @property NSTimeInterval currentSessionTimeStart;
 
 - (id)init;

@@ -1,14 +1,11 @@
 //
-//  GIEventBuffer.h
-//  PXSDKExample
-//
-//  Created by Dmitry Salnikov on 7/8/15.
-//  Copyright (c) 2015 Agilie. All rights reserved.
+//  PXEventBuffer.h
+//  PXSDK
 //
 
 #import <Foundation/Foundation.h>
 
-@interface GIEventBuffer : NSObject
+@interface PXEventBuffer : NSObject
 
 @property (nonatomic, strong) NSMutableData *eventBuffer;
 @property (nonatomic) dispatch_queue_t isolationQueue;

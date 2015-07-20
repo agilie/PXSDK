@@ -2,12 +2,9 @@
 //  PXAppDelegate.m
 //  PXSDK
 //
-//  Created by Ankudinov Alexander on 07/16/2015.
-//  Copyright (c) 2015 Ankudinov Alexander. All rights reserved.
-//
 
 #import "PXAppDelegate.h"
-#import "GITracker.h"
+#import "PXTracker.h"
 
 
 @interface PXAppDelegate ()
@@ -20,7 +17,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [GITracker setGameKey:@"TESTTESTTEST"];
+    [PXTracker setGameKey:@"TESTTESTTEST"];
     //[GITracker setGeoTrackingEnable:YES];
     
     return YES;

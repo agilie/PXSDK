@@ -2,12 +2,9 @@
 //  PXViewController.m
 //  PXSDK
 //
-//  Created by Ankudinov Alexander on 07/16/2015.
-//  Copyright (c) 2015 Ankudinov Alexander. All rights reserved.
-//
 
 #import "PXViewController.h"
-#import "GITracker.h"
+#import "PXTracker.h"
 
 @interface PXViewController ()
 
@@ -15,44 +12,30 @@
 
 @implementation PXViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)sendLevel:(id)sender {
-    [GITracker recordLevelChangeEventFromLevel:@0 toLevel:@2];
+    [PXTracker recordLevelChangeEventFromLevel:@0 toLevel:@2];
 }
 
 - (IBAction)sendTutor:(id)sender {
-    [GITracker recordTutorialChangeEventFromStep:@0 toStep:@3];
+    [PXTracker recordTutorialChangeEventFromStep:@0 toStep:@3];
 }
 
 - (IBAction)sendTranaction:(id)sender {
-    [GITracker recordTransactionEventWithName:@"test" buyVirtualCurrency:@"coins" receivingAmount:@21 usingRealCurrency:@"usd" spendingAmount:@3];
+    [PXTracker recordTransactionEventWithName:@"test" buyVirtualCurrency:@"coins" receivingAmount:@21 usingRealCurrency:@"usd" spendingAmount:@3];
 }
 
 - (IBAction)sendCustom:(id)sender {
-    [GITracker sendEvent:@"poppop"];
+    [PXTracker sendEvent:@"myCustomEvent"];
 }
 
 - (IBAction)sendCurrency:(id)sender {
-    [GITracker recordСurrencyChangeEventWithLevel:@1 andCurrency:@300];
+    [PXTracker recordСurrencyChangeEventWithLevel:@1 andCurrency:@300];
 }
 
 - (IBAction)testUserHaveOffer:(id)sender {
-    
-    BOOL offerPresent = [GITracker userHasIAPOffer];
-    
+    BOOL offerPresent = [PXTracker userHasIAPOffer];
     NSString *stringOffer = offerPresent ? @"Yes" : @"No";
-    
     [[[UIAlertView alloc] initWithTitle:@"userHasIAPOffer" message:stringOffer delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
-    
 }
 
 @end

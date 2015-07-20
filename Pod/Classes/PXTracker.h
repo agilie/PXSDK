@@ -1,14 +1,11 @@
 //
-//  GITracker.h
-//  PXSDKExample
-//
-//  Created by Ankudinov Alexander on 7/8/15.
-//  Copyright (c) 2015 Agilie. All rights reserved.
+//  PXTracker.h
+//  PXSDK
 //
 
 #import <Foundation/Foundation.h>
 
-@interface GITracker : NSObject
+@interface PXTracker : NSObject
 
 + (BOOL)userHasIAPOffer;
 

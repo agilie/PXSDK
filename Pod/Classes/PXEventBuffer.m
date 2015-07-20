@@ -1,15 +1,12 @@
 //
-//  GIEventBuffer.m
-//  PXSDKExample
-//
-//  Created by Dmitry Salnikov on 7/8/15.
-//  Copyright (c) 2015 Agilie. All rights reserved.
+//  PXEventBuffer.m
+//  PXSDK
 //
 
-#import "GIEventBuffer.h"
-#import "GIDefine.h"
+#import "PXEventBuffer.h"
+#import "PXDefines.h"
 
-@implementation GIEventBuffer
+@implementation PXEventBuffer
 
 - (id)init {
     self = [super init];
@@ -22,36 +19,22 @@
 }
 
 - (NSFileHandle *)makeCacheFileHandle {
-
+    
     NSString *cacheFileName = [NSTemporaryDirectory() stringByAppendingPathComponent:kCacheFileName];
-
+    
     NSFileManager *fileMan = [NSFileManager defaultManager];
     if (![fileMan fileExistsAtPath:cacheFileName]) {
         [fileMan createFileAtPath:cacheFileName contents:nil attributes:nil];
     }
-
+    
     return [NSFileHandle fileHandleForUpdatingAtPath:cacheFileName];
-
+    
 }
 
-//- (NSString *)separatedStringFromArray:(NSArray *)array {
-//
-//    NSMutableString *separatedString = [[NSMutableString alloc] init];
-//
-//    NSString *format = @"||%@";
-//    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//        [separatedString appendFormat:format, [obj description]];
-//    }];
-//
-//    [separatedString appendString:@"\n"];
-//
-//    return separatedString;
-//}
-
 - (void)addRecordToBuffer:(NSDictionary *)record {
-
+    
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:record options:0 error:nil];
-
+    
     [self.eventBuffer appendData:jsonData];
     [self.eventBuffer appendData:[@"," dataUsingEncoding:NSUTF8StringEncoding]];
 }
@@ -68,7 +51,7 @@
 - (void)flushToCacheBuffer {
     NSData *temp = [NSData dataWithData:self.eventBuffer];
     [self destroyBuffer];
-
+    
     void(^block_write)() = ^{
         [self.cacheFileHandle seekToEndOfFile];
         [self.cacheFileHandle writeData:temp];

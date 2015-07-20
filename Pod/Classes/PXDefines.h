@@ -1,9 +1,6 @@
 //
-//  GIDefine.h
-//  PXSDKExample
-//
-//  Created by Ankudinov Alexander on 7/9/15.
-//  Copyright (c) 2015 Agilie. All rights reserved.
+//  PXDefines.h
+//  PXSDK
 //
 
 #ifndef PXDefines
