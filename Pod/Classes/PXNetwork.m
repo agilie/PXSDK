@@ -37,7 +37,7 @@
                                                           
                                                           NSDictionary *responseDictonary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                                                           
-                                                          BOOL succes = error == nil && [[responseDictonary objectForKey:@"result"] isEqualToString:@"success"];
+                                                          BOOL succes = error == nil && [responseDictonary[@"result"] isEqualToString:@"success"];
                                                           
                                                           completionHandler(succes);
                                                           self.available = YES;
