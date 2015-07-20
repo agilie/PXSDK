@@ -31,20 +31,20 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidFinishLaunchingNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self resetSession];
-        [self sendStateEvent:@"launch"];
+        [self sendGeneralEventWithName:@"launch" andParams:nil];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self resetSession];
-        [self sendStateEvent:@"resumed"];
+        [self sendGeneralEventWithName:@"resumed" andParams:nil];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [self sendStateEvent:@"background"];
+        [self sendGeneralEventWithName:@"background" andParams:nil];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillTerminateNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [self sendStateEvent:@"killed"];
+        [self sendGeneralEventWithName:@"killed" andParams:nil];
     }];
     
 }
@@ -181,26 +181,25 @@
     return tempDictionary;
 }
 
-- (void)sendEvent:(NSString *)eventName {
+
+- (void)sendGeneralEventWithName:(NSString *)eventName andParams:(NSDictionary *)params{
     
-    [self.giEventBuffer addRecordToBuffer:[self makeRecordDict:@{ @"eventName" : eventName }]];
+    NSMutableDictionary *record = [NSMutableDictionary dictionaryWithDictionary:params];
+    [record setObject:eventName forKey:@"eventName"];
+    
+    [self.giEventBuffer addRecordToBuffer: [self makeRecordDict: record]];
     
 }
 
-- (void)sendStateEvent:(NSString *)eventName {
-    
-    [self.giEventBuffer addRecordToBuffer:[self makeRecordDict:@{ @"eventName" : eventName }]];
-    
-}
 
 - (void)recordTransactionEventWithName:(NSString *)eventName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount {
-    [self.giEventBuffer addRecordToBuffer:[self makeRecordDict:
-                                           @{ @"eventName" : @"transactionEvent",
-                                              @"transactionName" : eventName,
-                                              @"buyVirtualCurrency" : buyVirtualCurrency,
-                                              @"receivingAmount" : receivingAmount,
-                                              @"usingRealCurrency" : usingRealCurrency,
-                                              @"spendingAmount" : spendingAmount }]];
+    
+    [self sendGeneralEventWithName:@"transactionEvent" andParams:@{ @"transactionName" : eventName,
+                                                                    @"buyVirtualCurrency" : buyVirtualCurrency,
+                                                                    @"receivingAmount" : receivingAmount,
+                                                                    @"usingRealCurrency" : usingRealCurrency,
+                                                                    @"spendingAmount" : spendingAmount }];
+
     
 };
 
@@ -208,27 +207,22 @@
     
     [self setCurentUserLevel:toLevel];
     
-    [self.giEventBuffer addRecordToBuffer:[self makeRecordDict:
-                                           @{ @"eventName" : @"levelChange",
-                                              @"fromLevel" : fromLevel,
-                                              @"toLevel" : toLevel }]];
-    
-    
+    [self sendGeneralEventWithName:@"levelChange" andParams:   @{ @"fromLevel" : fromLevel,
+                                                                  @"toLevel" : toLevel }];
+
 };
 
 - (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep {
-    [self.giEventBuffer addRecordToBuffer:[self makeRecordDict:
-                                           @{ @"eventName" : @"tutorialChange",
-                                              @"fromStep" : fromStep,
-                                              @"toStep" : toStep }]];
+    
+    [self sendGeneralEventWithName:@"tutorialChange" andParams: @{ @"fromStep" : fromStep,
+                                                                   @"toStep" : toStep }];
+
 };
 
 - (void)recordСurrencyChangeEventWithLevel:(NSNumber *)level andCurrency:(NSNumber *)virtualCurrency {
     
-    [self.giEventBuffer addRecordToBuffer:[self makeRecordDict:
-                                           @{ @"eventName" : @"currencyChange",
-                                              @"level" : level,
-                                              @"virtualCurrency" : virtualCurrency }]];
+    [self sendGeneralEventWithName:@"currencyChange" andParams:  @{ @"level" : level,
+                                                                    @"virtualCurrency" : virtualCurrency }];
 };
 
 
