@@ -6,12 +6,17 @@
 //  Copyright (c) 2015 Agilie. All rights reserved.
 //
 
-#define kApiEndPoint @"http://playerxtracker.herokuapp.com/v1.1/"
-#define kDinamicUpdateInterval 1.0f * 60
-#define kCacheUpdateInterval 1.0f * 65 * 2
-#define kRequestUserPredictionsInterval 1 * 65 * 2
-#define kLockboxUUDIDKey @"uudid"
-#define kFileQueueLocker "GIEventBufferQueue"
-#define kCacheFileName @"GITrackerCache.data"
-#define kUrlGetUserPredictions @"http://gistats.herokuapp.com/getUserPredictions/Testgame01"
+#ifndef PXDefines
+#define PXDefines
 
+static NSString * const kApiEndPoint = @"http://playerxtracker.herokuapp.com/v1.1/";
+static NSString * const kUrlGetUserPredictions = @"http://gistats.herokuapp.com/getUserPredictions/Testgame01";
+
+static NSInteger kDinamicUpdateInterval = 1.0f * 60;
+static NSInteger kCacheUpdateInterval = 1.0f * 65 * 2;
+static NSInteger kRequestUserPredictionsInterval = 1 * 65 * 2;
+static NSString * const kLockboxUUDIDKey = @"uudid";
+static char * const kFileQueueLocker = "GIEventBufferQueue";
+static NSString * const kCacheFileName = @"GITrackerCache.data";
+
+#endif
