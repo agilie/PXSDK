@@ -25,7 +25,7 @@
 }
 
 - (IBAction)sendCustom:(id)sender {
-    [PXTracker sendEvent:@"myCustomEvent"];
+    [PXTracker sendEvent:@"myCustomEvent" withParams:nil];
 }
 
 - (IBAction)sendCurrency:(id)sender {

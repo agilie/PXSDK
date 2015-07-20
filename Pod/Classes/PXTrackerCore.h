@@ -24,7 +24,7 @@
 
 - (BOOL)userHasIAPOffer;
 
-- (void)sendEvent:(NSString *)eventName;
+- (void)sendGeneralEventWithName:(NSString *)eventName andParams:(NSDictionary *)params;
 
 - (void)recordTransactionEventWithName:(NSString *)eventName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount;
 

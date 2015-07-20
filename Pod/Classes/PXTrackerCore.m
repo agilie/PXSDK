@@ -200,7 +200,6 @@
                                                                     @"usingRealCurrency" : usingRealCurrency,
                                                                     @"spendingAmount" : spendingAmount }];
 
-    
 };
 
 - (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel {

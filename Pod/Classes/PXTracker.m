@@ -29,8 +29,10 @@ static PXTrackerCore *giTrackerCore;
     return [giTrackerCore userHasIAPOffer];
 }
 
-+ (void)sendEvent:(NSString *)eventName {
-    [giTrackerCore sendEvent:eventName];
++ (void)sendEvent:(NSString *)eventName withParams:(NSDictionary *)params{
+    
+    [giTrackerCore sendGeneralEventWithName:eventName andParams:params];
+    
 };
 
 + (void)recordTransactionEventWithName:(NSString *)withName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount {
