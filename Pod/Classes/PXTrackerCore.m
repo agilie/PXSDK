@@ -187,12 +187,19 @@
     NSMutableDictionary *record = [NSMutableDictionary dictionaryWithDictionary:params];
     [record setObject:eventName forKey:@"eventName"];
     
-    [self.giEventBuffer addRecordToBuffer: [self makeRecordDict: record]];
+    [self.eventBuffer addRecordToBuffer: [self makeRecordDict: record]];
     
 }
 
 
 - (void)recordTransactionEventWithName:(NSString *)eventName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount {
+    [self.eventBuffer addRecordToBuffer:[self makeRecordDict:
+                                           @{ @"eventName" : @"transactionEvent",
+                                              @"transactionName" : eventName,
+                                              @"buyVirtualCurrency" : buyVirtualCurrency,
+                                              @"receivingAmount" : receivingAmount,
+                                              @"usingRealCurrency" : usingRealCurrency,
+                                              @"spendingAmount" : spendingAmount }]];
     
     [self sendGeneralEventWithName:@"transactionEvent" andParams:@{ @"transactionName" : eventName,
                                                                     @"buyVirtualCurrency" : buyVirtualCurrency,
