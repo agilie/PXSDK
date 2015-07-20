@@ -1,5 +1,5 @@
 PODS:
-  - PXSDK (0.1.0)
+  - PXSDK (0.1.1)
 
 DEPENDENCIES:
   - PXSDK (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  PXSDK: 1a7ef8868f74f2ce0087dd9dc58d8ce677695220
+  PXSDK: 6cdcbea19b7cdaaaf9823e96bddfa66d844c792e
 
 COCOAPODS: 0.37.2

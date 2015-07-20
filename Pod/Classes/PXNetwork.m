@@ -17,7 +17,7 @@
 
 - (void)sendToServiceRawData:(NSData *)data completion:(void (^)(BOOL success))completionHandler {
 
-    NSString *mainRequestUrl = kPXApiEndPointIUrl;
+    NSString *mainRequestUrl = kPXApiEndPointUrl;
 
     NSURL *url = [NSURL URLWithString:mainRequestUrl];
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];

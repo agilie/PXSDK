@@ -1,5 +1,5 @@
 framework module PXSDK {
-  umbrella header "Pods-PXSDK_Example-PXSDK-umbrella.h"
+  umbrella header "Pods-PXSDKExample-PXSDK-umbrella.h"
 
   export *
   module * { export * }

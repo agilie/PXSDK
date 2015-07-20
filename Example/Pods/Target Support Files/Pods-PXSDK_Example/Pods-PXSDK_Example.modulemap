@@ -1,6 +1,0 @@
-framework module Pods_PXSDK_Example {
-  umbrella header "Pods-PXSDK_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}
