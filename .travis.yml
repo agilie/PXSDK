@@ -12,7 +12,7 @@ language: objective-c
 #script:
 xcode_workspace: Example/PXSDK.xcworkspace
 xcode_scheme: PXSDK-Example
-xcode_target: PXSDK_Example
+xcode_target: PXSDKExample
 xcode_sdk: iphonesimulator
 #- set -o pipefail && xcodebuild test -workspace Example/PXSDK.xcworkspace -scheme PXSDK-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
 #- pod lib lint --quick
