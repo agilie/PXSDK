@@ -34,19 +34,19 @@
 
 }
 
-- (NSString *)separatedStringFromArray:(NSArray *)array {
-
-    NSMutableString *separatedString = [[NSMutableString alloc] init];
-
-    NSString *format = @"||%@";
-    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [separatedString appendFormat:format, [obj description]];
-    }];
-
-    [separatedString appendString:@"\n"];
-
-    return separatedString;
-}
+//- (NSString *)separatedStringFromArray:(NSArray *)array {
+//
+//    NSMutableString *separatedString = [[NSMutableString alloc] init];
+//
+//    NSString *format = @"||%@";
+//    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        [separatedString appendFormat:format, [obj description]];
+//    }];
+//
+//    [separatedString appendString:@"\n"];
+//
+//    return separatedString;
+//}
 
 - (void)addRecordToBuffer:(NSDictionary *)record {
 

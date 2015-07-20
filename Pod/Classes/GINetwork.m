@@ -40,7 +40,7 @@
                                                                fromData:data
                                                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 
-                                                          NSDictionary *responseDictonary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                                                          NSDictionary *responseDictonary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 
                                                           BOOL succes = error == nil && [[responseDictonary objectForKey:@"result"] isEqualToString:@"success"];
 

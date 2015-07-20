@@ -6,7 +6,6 @@
 //
 
 #import "Lockbox.h"
-#import <Security/Security.h>
 
 // Define DLog if user hasn't already defined his own implementation
 #ifndef DLog

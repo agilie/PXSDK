@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSString *uuid;
 @property (nonatomic, strong) GINetwork *giNetwork;
 @property (nonatomic, strong) GIEventBuffer *giEventBuffer;
+#warning TODO Property 'realtimeTimer' is assigned but never accessed
+#warning TODO Property 'cacheTimer' is assigned but never accessed
 @property (nonatomic, strong) NSTimer *realtimeTimer, *cacheTimer;
 @property (nonatomic, strong) GIUser *giUser;
 @property NSTimeInterval currentSessionTimeStart;

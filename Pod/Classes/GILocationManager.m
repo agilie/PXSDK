@@ -7,13 +7,11 @@
 //
 
 #import "GILocationManager.h"
-#import <AddressBook/AddressBook.h>
-#import "GITracker.h"
 
 @implementation GILocationManager
 
 - (id)init {
-    if (self) {
+    if (self = [super init]) {
         self.locationManager = [[CLLocationManager alloc] init];
         self.geocoder = [[CLGeocoder alloc] init];
         self.locationManager.delegate = self;

@@ -52,6 +52,7 @@ static GITrackerCore *giTrackerCore;
 };
 
 + (void)recordСurrencyChangeEventWithLevel:(NSNumber *)level andCurrency:(NSNumber *)virtualCurrency {
+    #warning TODO fix mock values
     [GITracker.giTrackerCore recordСurrencyChangeEventWithLevel:@1 andCurrency:@300];
 };
 

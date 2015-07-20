@@ -58,7 +58,7 @@
 - (void)setupUserPredictions {
     [self.giNetwork getRequestWithUrl:kUrlGetUserPredictions andCompletion:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
-            NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             self.giUser = [[GIUser alloc] initWithDictonary:dictionary];
         } else {
 
@@ -107,8 +107,8 @@
     if (!self.giUser) {
         return NO;
     } else {
-
-        int spentTime = [NSDate date].timeIntervalSince1970 - self.currentSessionTimeStart;
+#warning TODO 100% bug
+        NSTimeInterval spentTime = [NSDate date].timeIntervalSince1970 - self.currentSessionTimeStart;
 
         return self.giUser.params2 == [self curentUserLevel] && self.giUser.params1 < [NSNumber numberWithInt:spentTime];
     }
@@ -126,7 +126,7 @@
     return strApplicationUUID;
 }
 
-+ (NSString *)generateRandomString:(int)num {
++ (NSString *)generateRandomString:(NSUInteger)num {
     NSMutableString *string = [NSMutableString stringWithCapacity:num];
     for (int i = 0; i < num; i++) {
         [string appendFormat:@"%C", (unichar)('a' + arc4random_uniform(25))];
@@ -185,7 +185,7 @@
 - (NSDictionary *)makeRecordDict:(NSDictionary *)input {
 
     NSMutableDictionary *tempDictionary = [NSMutableDictionary dictionaryWithDictionary:@{ @"sessionID" : self.currentSession,
-            @"timeStamp" : [NSNumber numberWithInt:[[NSDate date] timeIntervalSince1970]] }];
+            @"timeStamp" : @([[NSDate date] timeIntervalSince1970]) }];
     [tempDictionary addEntriesFromDictionary:input];
 
     return tempDictionary;
@@ -204,7 +204,7 @@
 }
 
 - (void)recordTransactionEventWithName:(NSString *)eventName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount {
-
+#warning TODO eventName is unused
     [self.giEventBuffer addRecordToBuffer:[self makeRecordDict:
             @{ @"eventName" : @"transactionEvent",
                     @"buyVirtualCurrency" : buyVirtualCurrency,
