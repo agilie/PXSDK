@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PXSDK"
-  s.version          = "0.1.6"
+  s.version          = "0.1.7"
   s.summary          = "PXSDK is iOS game analytics SDK"
   s.description      = <<-DESC
                        Here goes a very long description for PXSDK is iOS game analytics SDK
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
                        * Don't worry about the indent, we strip it!
                        DESC
   s.homepage         = "https://github.com/agilie/PXSDK"
-  s.license          = 'MIT'
+  s.license          = 'GPLv2'
   s.author           = { "Sid sid99" => "dsid99@gmail.com" }
   s.source           = { :git => "https://github.com/agilie/PXSDK.git", :tag => s.version.to_s }
 
@@ -29,5 +29,4 @@ Pod::Spec.new do |s|
 
 
   s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
 end
