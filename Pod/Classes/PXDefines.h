@@ -7,7 +7,7 @@
 #define PXDefines
 
 static NSString *const kPXApiEndPointUrl = @"http://playerxtracker.herokuapp.com/v1.1/";
-static NSString *const kPXGetUserPredictionsUrl = @"http://gistats.herokuapp.com/getUserPredictions/%@";
+static NSString *const kPXGetUserPredictionsUrl = @"http://gistats.herokuapp.com/getUserPredictions/%@/%@";
 
 static NSInteger kPXDynamicUpdateInterval = 1.0f * 60;
 static NSInteger kPXCacheUpdateInterval = 1.0f * 65 * 5;
