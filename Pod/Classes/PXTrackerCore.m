@@ -62,7 +62,7 @@
 
 - (void)setupUserPredictions {
 
-    NSString *requestUrl = [NSString stringWithFormat:kPXGetUserPredictionsUrl, self.gameKey];
+    NSString *requestUrl = [NSString stringWithFormat:kPXGetUserPredictionsUrl, self.gameKey, self.uuid];
 
     [self.network getRequestWithUrl:requestUrl completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
