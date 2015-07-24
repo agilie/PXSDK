@@ -15,6 +15,7 @@
 
 - (id)init {
     if (self = [super init]) {
+        [self resetSession];
         self.uuid = [self getUniqueDeviceIdentifierAsString];
         self.network = [[PXNetwork alloc] init];
         self.eventBuffer = [[PXEventBuffer alloc] init];
