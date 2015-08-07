@@ -16,6 +16,6 @@
     "ios": "8.0"
   },
   "requires_arc": true,
-  "source_files": "Pod/Classes/**/*",
-  "public_header_files": "Pod/Classes/**/*.h"
+  "source_files": "PXSDK/Classes/**/*",
+  "public_header_files": "PXSDK/Classes/**/*.h"
 }

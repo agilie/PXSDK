@@ -7,7 +7,9 @@
 
 @interface PXTracker : NSObject
 
-+ (void)initializeWithGameKey:(NSString *)gameKey;
++ (void)initializeWithGameKey:(NSString *)gameKey __attribute__((deprecated));
+
++ (void)initializeWithGameKey:(NSString *)gameKey enableDeviceToken:(BOOL)enableDeviceToken;
 
 + (BOOL)userHasIAPOffer;
 

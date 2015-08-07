@@ -18,6 +18,19 @@ static PXTrackerCore *sTrackerCore;
     sTrackerCore.gameKey = gameKey;
 }
 
++ (void)initializeWithGameKey:(NSString *)gameKey enableDeviceToken:(BOOL)enableDeviceToken {
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        sTrackerCore.finalizeBlock = ^ (NSString *deviceToken) {
+            [[PXTrackerCore alloc] init];
+            if (enableDeviceToken) {
+                
+            }
+        };
+    });
+    sTrackerCore.gameKey = gameKey;
+}
+
 + (BOOL)userHasIAPOffer {
     return [sTrackerCore userHasIAPOffer];
 }

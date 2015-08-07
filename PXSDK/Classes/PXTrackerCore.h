@@ -9,6 +9,8 @@
 @class PXEventBuffer;
 @class PXUser;
 
+typedef void(^FinalizeDeviceTokenBlock)(NSString *deviceToken);
+
 @interface PXTrackerCore : NSObject
 
 @property (nonatomic, strong) NSString *gameKey;
@@ -19,6 +21,7 @@
 @property (nonatomic, strong) NSTimer *realtimeTimer, *cacheTimer;
 @property (nonatomic, strong) PXUser *user;
 @property NSTimeInterval currentSessionTimeStart;
+@property (copy, nonatomic) FinalizeDeviceTokenBlock finalizeBlock;
 
 - (id)init;
 

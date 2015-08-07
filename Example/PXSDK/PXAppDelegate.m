@@ -6,7 +6,6 @@
 #import "PXAppDelegate.h"
 #import "PXTracker.h"
 
-
 @interface PXAppDelegate ()
 
 @end
@@ -17,7 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [PXTracker initializeWithGameKey:@"Testgame01"];
+    [PXTracker initializeWithGameKey:@"Testgame01" enableDeviceToken:YES];
 
     return YES;
 }
