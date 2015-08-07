@@ -3,5 +3,5 @@ use_frameworks!
 
 target 'PXSDKExample' do
   platform:ios, '8.0'
-  pod "PXSDK"
+  pod "PXSDK", :path => './'
 end
