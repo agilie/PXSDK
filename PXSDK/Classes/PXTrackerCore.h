@@ -9,21 +9,21 @@
 @class PXEventBuffer;
 @class PXUser;
 
-typedef void(^FinalizeDeviceTokenBlock)(NSString *deviceToken);
-
 @interface PXTrackerCore : NSObject
 
-@property (nonatomic, strong) NSString *gameKey;
-@property (nonatomic, strong) NSString *currentSession;
-@property (nonatomic, strong) NSString *uuid;
+@property (nonatomic, copy) NSString *deviceToken;
+@property (nonatomic, copy) NSString *gameKey;
+@property (nonatomic, copy) NSString *currentSession;
+@property (nonatomic, copy) NSString *uuid;
 @property (nonatomic, strong) PXNetwork *network;
 @property (nonatomic, strong) PXEventBuffer *eventBuffer;
 @property (nonatomic, strong) NSTimer *realtimeTimer, *cacheTimer;
 @property (nonatomic, strong) PXUser *user;
 @property NSTimeInterval currentSessionTimeStart;
-@property (copy, nonatomic) FinalizeDeviceTokenBlock finalizeBlock;
 
 - (id)init;
+
+- (void)setupUserPredictionsForToken:(NSString *)token;
 
 - (BOOL)userHasIAPOffer;
 
@@ -31,7 +31,7 @@ typedef void(^FinalizeDeviceTokenBlock)(NSString *deviceToken);
 
 - (void)recordTransactionEventWithName:(NSString *)eventName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount;
 
-- (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel;
+- (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel andCurrency:(NSNumber *)currency;
 
 - (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep;
 

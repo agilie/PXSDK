@@ -16,6 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
     [PXTracker initializeWithGameKey:@"Testgame01" enableDeviceToken:YES];
 
     return YES;

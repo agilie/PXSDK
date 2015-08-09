@@ -18,14 +18,8 @@
         self.uuid = [self getUniqueDeviceIdentifierAsString];
         self.network = [[PXNetwork alloc] init];
         self.eventBuffer = [[PXEventBuffer alloc] init];
-
         [self setupCoreTimers];
         [self setupNSNotificationCenter];
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [self setupUserPredictions];
-        });
-
     }
     return self;
 }
@@ -60,18 +54,20 @@
     self.cacheTimer = nil;
 }
 
-- (void)setupUserPredictions {
-
+- (void)setupUserPredictionsForToken:(NSString *)token {
+    self.deviceToken = token;
     NSString *requestUrl = [NSString stringWithFormat:kPXGetUserPredictionsUrl, self.gameKey, self.uuid];
-
+    if (token) {
+        [NSString stringWithFormat:@"requestUrl/%@",token];
+    }
+    __weak typeof(self) weakSelf = self;
     [self.network getRequestWithUrl:requestUrl completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            self.user = [[PXUser alloc] initWithDictonary:dictionary];
+            weakSelf.user = [[PXUser alloc] initWithDictonary:dictionary];
         } else {
-
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, kPXRequestUserPredictionsInterval * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                [self setupUserPredictions];
+                [weakSelf setupUserPredictionsForToken:token];
             });
         }
     }];
@@ -213,13 +209,13 @@
 
 };
 
-- (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel {
+- (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel andCurrency:(NSNumber *)currency {
 
     [self setCurentUserLevel:toLevel];
 
     [self sendGeneralEventWithName:@"levelChange" andParams:@{ @"fromLevel" : fromLevel,
-            @"toLevel" : toLevel }];
-
+                                                               @"toLevel"   : toLevel ,
+                                                               @"currency" : currency}];
 };
 
 - (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep {

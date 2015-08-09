@@ -21,14 +21,12 @@ static PXTrackerCore *sTrackerCore;
 + (void)initializeWithGameKey:(NSString *)gameKey enableDeviceToken:(BOOL)enableDeviceToken {
     static dispatch_once_t pred;
     dispatch_once(&pred, ^{
-        sTrackerCore.finalizeBlock = ^ (NSString *deviceToken) {
-            [[PXTrackerCore alloc] init];
-            if (enableDeviceToken) {
-                
-            }
-        };
+        sTrackerCore = [[PXTrackerCore alloc] init];
+        sTrackerCore.gameKey = gameKey;
+        if (!enableDeviceToken) {
+            [sTrackerCore setupUserPredictionsForToken:nil];
+        }
     });
-    sTrackerCore.gameKey = gameKey;
 }
 
 + (BOOL)userHasIAPOffer {
@@ -45,8 +43,8 @@ static PXTrackerCore *sTrackerCore;
 
 };
 
-+ (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel {
-    [sTrackerCore recordLevelChangeEventFromLevel:fromLevel toLevel:toLevel];
++ (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel andCurrency:(NSNumber *)currency {
+    [sTrackerCore recordLevelChangeEventFromLevel:fromLevel toLevel:toLevel andCurrency:currency];
 };
 
 + (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep {
