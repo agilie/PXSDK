@@ -189,7 +189,7 @@
 - (NSDate *)currentUserDateIAPOffer {
     NSNumber *result = [self.userDefaults objectForKey:kPXTriggerDateKeyStore];
     if (result) {
-        NSDate *storedDate = [NSDate dateWithTimeIntervalSinceNow:[result doubleValue]];
+        NSDate *storedDate = [NSDate dateWithTimeIntervalSince1970:[result doubleValue]];
         NSDate *beginingOfToday = [self.calendar dateFromComponents:[self dateComponents]];
         if ([storedDate compare:beginingOfToday] == NSOrderedDescending) {
             [self setCurrentUserDateIAPOffer:[NSNumber numberWithDouble:[beginingOfToday timeIntervalSince1970]]];
@@ -199,7 +199,7 @@
     } else {
         [self.userDefaults setObject:self.user.dateForIAPOffer forKey:kPXTriggerDateKeyStore];
         [self.userDefaults synchronize];
-        return [NSDate dateWithTimeIntervalSinceNow:[self.user.dateForIAPOffer doubleValue]];
+        return [NSDate dateWithTimeIntervalSince1970:[self.user.dateForIAPOffer doubleValue]];
     }
 }
 
@@ -305,7 +305,7 @@
 
 - (void)processPushNotification:(NSDictionary *)pushNotification {
     PXLog(@"%@",pushNotification);
-    [self sendGeneralEventWithName:@"pushReceived" andParams:@{@"pushContent": [pushNotification descriptionWithLocale:[NSLocale systemLocale]]}];
+    [self sendGeneralEventWithName:@"pushReceived" andParams:@{@"pushContent": [pushNotification description]}];
     if ([pushNotification objectForKey:@"alert"]) {
         NSDictionary *payloadDict = [pushNotification objectForKey:@"alert"];
         [self showAlertWithTitle:[payloadDict objectForKey:@"title"] body:[payloadDict objectForKey:@"body"]];
