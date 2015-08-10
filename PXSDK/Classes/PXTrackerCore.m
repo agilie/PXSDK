@@ -133,10 +133,11 @@
 }
 
 - (BOOL)userHasIAPOffer {
+    [self checkIfAlreadyNewDate];
     if (self.user) {
         NSTimeInterval spentTime = [NSDate date].timeIntervalSince1970 - self.currentSessionTimeStart;
         return [self.user.timeForIAPOffer doubleValue] < spentTime && [self.user.levelForIAPOffer isEqualToNumber:self.curentUserLevel] &&
-        [self.currentUserDateIAPOffer compare:[NSDate date]] == NSOrderedDescending;
+        [self.currentUserDateIAPOffer compare:[NSDate date]] == NSOrderedSame;
     }
     return NO;
 }
@@ -266,8 +267,9 @@
     [self sendGeneralEventWithName:@"levelChange" andParams:@{ @"fromLevel" : fromLevel,
                                                                @"toLevel"   : toLevel ,
                                                                @"currency" : currency}];
-    if ([self userHasIAPOffer]) {
+    if ([self userHasIAPOffer] && [self.userDefaults boolForKey:kPXRewardAlreadyShownToday] == NO) {
         [self showAlertWithTitle:self.user.alertTitle body:self.user.alertBody];
+        [self.userDefaults setBool:YES forKey:kPXRewardAlreadyShownToday];
     }
 };
 
@@ -313,5 +315,17 @@
     }
 }
 
+#pragma mark - Helper
+
+- (void)checkIfAlreadyNewDate {
+    NSDate *lastSyncDate = [self.userDefaults objectForKey:kPXRewardLastSyncDate];
+    NSDate *beginingOfToday = [self.calendar dateFromComponents:[self dateComponents]];
+    [self.userDefaults setObject:[NSDate date] forKey:kPXRewardLastSyncDate];
+    [self.userDefaults synchronize];
+    if ([lastSyncDate compare:beginingOfToday] == NSOrderedDescending) {
+        [self.userDefaults setBool:NO forKey:kPXRewardAlreadyShownToday];
+        [self.userDefaults synchronize];
+    }
+}
 
 @end
