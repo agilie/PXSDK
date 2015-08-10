@@ -11,6 +11,12 @@
 
 + (void)initializeWithGameKey:(NSString *)gameKey enableDeviceToken:(BOOL)enableDeviceToken;
 
++ (void)setupUserPredictionsForToken:(NSString *)token;
+
++ (void)processLaunchOptions:(NSDictionary *)launchOptions;
+
++ (void)processPushNotification:(NSDictionary *)pushNotification;
+
 + (BOOL)userHasIAPOffer;
 
 + (void)sendEvent:(NSString *)eventName withParams:(NSDictionary *)params;

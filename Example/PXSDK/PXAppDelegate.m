@@ -17,7 +17,7 @@
     // Override point for customization after application launch.
     
     
-    [PXTracker initializeWithGameKey:@"Testgame01" enableDeviceToken:YES];
+    [PXTracker initializeWithGameKey:@"Testgame01" enableDeviceToken:NO];
 
     return YES;
 }

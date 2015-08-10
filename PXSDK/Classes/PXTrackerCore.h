@@ -37,4 +37,8 @@
 
 - (void)recordСurrencyChangeEventWithLevel:(NSNumber *)level andCurrency:(NSNumber *)virtualCurrency;
 
+- (void)processLaunchOptions:(NSDictionary *)launchOptions;
+
+- (void)processPushNotification:(NSDictionary *)pushNotification;
+
 @end

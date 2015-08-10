@@ -29,6 +29,18 @@ static PXTrackerCore *sTrackerCore;
     });
 }
 
++ (void)setupUserPredictionsForToken:(NSString *)token {
+    [sTrackerCore setupUserPredictionsForToken:token];
+}
+
++ (void)processLaunchOptions:(NSDictionary *)launchOptions {
+    [sTrackerCore processLaunchOptions:launchOptions];
+}
+
++ (void)processPushNotification:(NSDictionary *)pushNotification {
+    [sTrackerCore processPushNotification:pushNotification];
+}
+
 + (BOOL)userHasIAPOffer {
     return [sTrackerCore userHasIAPOffer];
 }

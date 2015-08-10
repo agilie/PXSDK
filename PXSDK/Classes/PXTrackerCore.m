@@ -11,6 +11,13 @@
 #import "PXDefines.h"
 #import "PXUser.h"
 
+@interface PXTrackerCore ()
+
+@property (strong, nonatomic) NSCalendar *calendar;
+@property (strong, nonatomic) NSUserDefaults *userDefaults;
+
+@end
+
 @implementation PXTrackerCore
 
 - (id)init {
@@ -22,6 +29,26 @@
         [self setupNSNotificationCenter];
     }
     return self;
+}
+
+#pragma mark - Getters
+
+- (NSUserDefaults *)userDefaults {
+    if (!_userDefaults) {
+        _userDefaults = [NSUserDefaults standardUserDefaults];
+    }
+    return _userDefaults;
+}
+
+- (NSCalendar *)calendar {
+    if (!_calendar) {
+        _calendar = [NSCalendar currentCalendar];
+    }
+    return _calendar;
+}
+
+- (NSDateComponents *)dateComponents {
+    return [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[NSDate date]];
 }
 
 - (void)setupNSNotificationCenter {
@@ -58,13 +85,14 @@
     self.deviceToken = token;
     NSString *requestUrl = [NSString stringWithFormat:kPXGetUserPredictionsUrl, self.gameKey, self.uuid];
     if (token) {
-        [NSString stringWithFormat:@"requestUrl/%@",token];
+        [NSString stringWithFormat:@"%@/%@",requestUrl, token];
     }
     __weak typeof(self) weakSelf = self;
     [self.network getRequestWithUrl:requestUrl completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             weakSelf.user = [[PXUser alloc] initWithDictonary:dictionary];
+            [weakSelf setCurrentUserDateIAPOffer:weakSelf.user.dateForIAPOffer];
         } else {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, kPXRequestUserPredictionsInterval * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [weakSelf setupUserPredictionsForToken:token];
@@ -107,7 +135,8 @@
 - (BOOL)userHasIAPOffer {
     if (self.user) {
         NSTimeInterval spentTime = [NSDate date].timeIntervalSince1970 - self.currentSessionTimeStart;
-        return [self.user.params1 doubleValue] < spentTime && [self.user.params2 isEqualToNumber:self.curentUserLevel];
+        return [self.user.timeForIAPOffer doubleValue] < spentTime && [self.user.levelForIAPOffer isEqualToNumber:self.curentUserLevel] &&
+        [self.currentUserDateIAPOffer compare:[NSDate date]] == NSOrderedDescending;
     }
     return NO;
 }
@@ -142,21 +171,41 @@
 }
 
 - (NSNumber *)curentUserLevel {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *result = [userDefaults objectForKey:kPXLevelKeyStore];
+    NSString *result = [self.userDefaults objectForKey:kPXLevelKeyStore];
     if (result) {
-        return [userDefaults objectForKey:kPXLevelKeyStore];
+        return [self.userDefaults objectForKey:kPXLevelKeyStore];
     } else {
-        [userDefaults setObject:@0 forKey:kPXLevelKeyStore];
-        [userDefaults synchronize];
+        [self.userDefaults setObject:@0 forKey:kPXLevelKeyStore];
+        [self.userDefaults synchronize];
         return @0;
     }
 }
 
 - (void)setCurentUserLevel:(NSNumber *)level {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:level forKey:kPXLevelKeyStore];
-    [userDefaults synchronize];
+    [self.userDefaults setObject:level forKey:kPXLevelKeyStore];
+    [self.userDefaults synchronize];
+}
+
+- (NSDate *)currentUserDateIAPOffer {
+    NSNumber *result = [self.userDefaults objectForKey:kPXTriggerDateKeyStore];
+    if (result) {
+        NSDate *storedDate = [NSDate dateWithTimeIntervalSinceNow:[result doubleValue]];
+        NSDate *beginingOfToday = [self.calendar dateFromComponents:[self dateComponents]];
+        if ([storedDate compare:beginingOfToday] == NSOrderedDescending) {
+            [self setCurrentUserDateIAPOffer:[NSNumber numberWithDouble:[beginingOfToday timeIntervalSince1970]]];
+            return beginingOfToday;
+        }
+        return storedDate;
+    } else {
+        [self.userDefaults setObject:self.user.dateForIAPOffer forKey:kPXTriggerDateKeyStore];
+        [self.userDefaults synchronize];
+        return [NSDate dateWithTimeIntervalSinceNow:[self.user.dateForIAPOffer doubleValue]];
+    }
+}
+
+- (void)setCurrentUserDateIAPOffer:(NSNumber *)date {
+    [self.userDefaults setObject:date forKey:kPXTriggerDateKeyStore];
+    [self.userDefaults synchronize];
 }
 
 - (NSData *)makeRequestData:(NSData *)input {
@@ -216,6 +265,9 @@
     [self sendGeneralEventWithName:@"levelChange" andParams:@{ @"fromLevel" : fromLevel,
                                                                @"toLevel"   : toLevel ,
                                                                @"currency" : currency}];
+    if ([self userHasIAPOffer]) {
+        [self showAlertWithTitle:nil body:nil];
+    }
 };
 
 - (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep {
@@ -230,6 +282,35 @@
     [self sendGeneralEventWithName:@"currencyChange" andParams:@{ @"level" : level,
             @"virtualCurrency" : virtualCurrency }];
 };
+
+#pragma mark - Alert
+
+- (void)showAlertWithTitle:(NSString *)title body:(NSString *)body {
+    [[[UIAlertView alloc] initWithTitle:title? :@"" message:body? : @"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+}
+
+#pragma mark - AlerView Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self resetSession];
+    }
+}
+
+#pragma mark - handle push notification
+
+- (void)processLaunchOptions:(NSDictionary *)launchOptions {
+    [self processPushNotification:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
+}
+
+- (void)processPushNotification:(NSDictionary *)pushNotification {
+    PXLog(@"%@",pushNotification);
+    [self sendGeneralEventWithName:@"pushReceived" andParams:@{@"pushContent": [pushNotification descriptionWithLocale:[NSLocale systemLocale]]}];
+    if ([pushNotification objectForKey:@"alert"]) {
+        NSDictionary *payloadDict = [pushNotification objectForKey:@"alert"];
+        [self showAlertWithTitle:[payloadDict objectForKey:@"title"] body:[payloadDict objectForKey:@"body"]];
+    }
+}
 
 
 @end
