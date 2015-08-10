@@ -85,7 +85,7 @@
     self.deviceToken = token;
     NSString *requestUrl = [NSString stringWithFormat:kPXGetUserPredictionsUrl, self.gameKey, self.uuid];
     if (token) {
-        [NSString stringWithFormat:@"%@/%@",requestUrl, token];
+        requestUrl = [NSString stringWithFormat:@"%@/%@",requestUrl, token];
     }
     __weak typeof(self) weakSelf = self;
     [self.network getRequestWithUrl:requestUrl completion:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -166,6 +166,7 @@
 }
 
 - (void)resetSession {
+    [self setupUserPredictionsForToken:self.deviceToken];
     self.currentSession = [self generateUniqueSessionString];
     self.currentSessionTimeStart = [NSDate date].timeIntervalSince1970;
 }
@@ -266,7 +267,7 @@
                                                                @"toLevel"   : toLevel ,
                                                                @"currency" : currency}];
     if ([self userHasIAPOffer]) {
-        [self showAlertWithTitle:nil body:nil];
+        [self showAlertWithTitle:self.user.alertTitle body:self.user.alertBody];
     }
 };
 

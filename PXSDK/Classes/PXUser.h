@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSNumber *timeForReward;
 @property (nonatomic, strong) NSNumber *levelForReward;
 @property (nonatomic, strong) NSNumber *dateForReward;
+@property (nonatomic, copy) NSString *alertTitle;
+@property (nonatomic, copy) NSString *alertBody;
 
 @end
 

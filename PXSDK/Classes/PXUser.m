@@ -16,6 +16,8 @@
         self.timeForReward = userDict[@"params4"];
         self.levelForReward = userDict[@"params5"];
         self.dateForReward = userDict[@"params6"];
+        self.alertTitle = userDict[@"params7"];
+        self.alertBody = userDict[@"params8"];
     }
     return self;
 }
