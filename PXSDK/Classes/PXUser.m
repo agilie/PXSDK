@@ -10,11 +10,10 @@
 - (id)initWithDictonary:(NSDictionary *)userDict {
     self = [super init];
     if (self) {
-        self.params1 = userDict[@"params1"];
-        self.params2 = userDict[@"params2"];
-        self.params3 = userDict[@"params3"];
-        self.params4 = userDict[@"params4"];
-        self.params5 = userDict[@"params5"];
+        NSDictionary *mapping = @{@"timeForIAPOffer":@"params1", @"levelForIAPOffer":@"params2", @"dateForIAPOffer":@"params3", @"timeForReward":@"params4", @"levelForReward":@"params5", @"dateForReward":@"params6", @"alertTitle":@"params7", @"alertBody":@"params8"};
+        [mapping enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            [self setValue:userDict[obj] forKey:key];
+        }];
     }
     return self;
 }

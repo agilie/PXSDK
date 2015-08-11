@@ -9,11 +9,14 @@
 
 - (id)initWithDictonary:(NSDictionary *)userDict;
 
-@property (nonatomic, strong) NSNumber *params1;
-@property (nonatomic, strong) NSNumber *params2;
-@property (nonatomic, strong) NSNumber *params3;
-@property (nonatomic, strong) NSNumber *params4;
-@property (nonatomic, strong) NSNumber *params5;
+@property (nonatomic, strong) NSNumber *timeForIAPOffer;
+@property (nonatomic, strong) NSNumber *levelForIAPOffer;
+@property (nonatomic, strong) NSNumber *dateForIAPOffer;
+@property (nonatomic, strong) NSNumber *timeForReward;
+@property (nonatomic, strong) NSNumber *levelForReward;
+@property (nonatomic, strong) NSNumber *dateForReward;
+@property (nonatomic, copy) NSString *alertTitle;
+@property (nonatomic, copy) NSString *alertBody;
 
 @end
 

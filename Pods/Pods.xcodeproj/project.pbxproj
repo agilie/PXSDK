@@ -7,280 +7,262 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0840A41729B042AD02E9EEFA /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = C5B73A807380A5E1E4CB9FBF /* NSString+MD5.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0D0477C8A43DB21EF7F150EB /* PXDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C311A696E4AC2D88A6B0EC1 /* PXDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2B825F7B701D62770DF6C4A7 /* PXEventBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CC7AEB8A4AC325E0780CBA2 /* PXEventBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2F0D62B174E323663EFA35FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3816101C712A04646E2C6056 /* Foundation.framework */; };
-		3DA3EE6C533CD0FDE9BD6C52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3816101C712A04646E2C6056 /* Foundation.framework */; };
-		4B42C97DA75FD39C78411EA9 /* Pods-PXSDKExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9A8B880FBE5897F67D97BE /* Pods-PXSDKExample-dummy.m */; };
-		5A709FED3428C46FD9CF500F /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 0303FA8BE9E21A7059117E9C /* NSString+MD5.m */; };
-		605B17362FB0457A123D68F1 /* Lockbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C62C9DF533E0E2ACC1FB0CF /* Lockbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		609D65C863FE9AA1629277A4 /* PXEventBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = F86058075F06865511049B0A /* PXEventBuffer.m */; };
-		712AECC82942D952A9F51542 /* Lockbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 741EC7C13CEA2C958A49CB48 /* Lockbox.m */; };
-		8ADE3F010E48F96D49C14498 /* PXNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 64AD3807A1A2165BE68FE804 /* PXNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8E424F2AFCFD113F3141BE6E /* PXUser.h in Headers */ = {isa = PBXBuildFile; fileRef = E1F2B1726B28D7915DB583DF /* PXUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96A10BAE2D2FB2F4AD09659C /* Pods-PXSDKExample-PXSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A88B3829D425993B3A0D395 /* Pods-PXSDKExample-PXSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A64D1607D910C01311D5AE4A /* PXTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 131FBB155BC45D7F07AA6D5E /* PXTracker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A94E775AC5478521DC184231 /* Pods-PXSDKExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B6600508DD8BAB9BEACC5279 /* Pods-PXSDKExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B765E99866C61B15A539406A /* Pods-PXSDKExample-PXSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9945AEFEDE73394E6285D545 /* Pods-PXSDKExample-PXSDK-dummy.m */; };
-		B80558674A358F838A6C92F5 /* PXUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 444F5CBE7B618E4D686B633C /* PXUser.m */; };
-		BD921E1B17798F8AEB3AB175 /* PXTrackerCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B46EDB9806DFB8193BDD8 /* PXTrackerCore.m */; };
-		C075A7E4E3389552CB218FDF /* PXNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4081A9921103AA4C039AE7 /* PXNetwork.m */; };
-		D772A8EAA24D3460F7FFCCBC /* PXTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 067592D029BAD12CC8FC67D3 /* PXTracker.m */; };
-		E54D1D8C008A7C4541B76A56 /* PXTrackerCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C88598693D1DF1BBB5CA574 /* PXTrackerCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		081ED7FA84E612B685860292 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A2799EDB08366BC4097A5F /* Foundation.framework */; };
+		107461188B2F8157974D5145 /* PXNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3F60907F1DF7110E9A4BBA /* PXNetwork.m */; };
+		12B4DEC13DCB8596DC27A003 /* Pods-PXSDKExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 534C8C123602F366DA704986 /* Pods-PXSDKExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E1E88D42386D65CD0C48805 /* Lockbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 94ADE0C11BBF4AC4CC9800B3 /* Lockbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		227E812CBFCC31AFD8E78DED /* PXEventBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = E4FE279BA99AF7E61524D0D1 /* PXEventBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2FE7F66837C7E561702B1591 /* PXTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = D196087BAE7876D496E000E6 /* PXTracker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		390136EED31B6A844B1E97DA /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 432913510EEA21DA9DDE4BB0 /* NSString+MD5.m */; };
+		4402D6404D42FE0FE01289B1 /* Pods-PXSDKExample-PXSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 595F966C541447117CC3B44E /* Pods-PXSDKExample-PXSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46D3542371390ED405CB93D5 /* Pods-PXSDKExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 771168A6EB26B01D60D5385C /* Pods-PXSDKExample-dummy.m */; };
+		555ECE01252D49587DBE7D85 /* PXUser.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0CD98B8BF113E9C3F00997 /* PXUser.m */; };
+		5E9B39B58910CC9541B550E3 /* PXTrackerCore.m in Sources */ = {isa = PBXBuildFile; fileRef = C42010B1CFE93FD907A506BF /* PXTrackerCore.m */; };
+		634487D4E55D7563AEEF952A /* PXDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 673C1A74371F25BE0F41459A /* PXDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		658778FA0AB4F0FD6126E271 /* PXTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3BF2B35B8569430684E171 /* PXTracker.m */; };
+		66EAE04A0D7C235792025289 /* PXEventBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A2A3ABF72B19203356C18A /* PXEventBuffer.m */; };
+		703388EC4048D09D65A28EA2 /* PXTrackerCore.h in Headers */ = {isa = PBXBuildFile; fileRef = FCD801E4018D7E0B5F598719 /* PXTrackerCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8095BE481A67C9972A5A855A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A2799EDB08366BC4097A5F /* Foundation.framework */; };
+		838A489162C589742369537B /* PXNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = C5AFFF5F417BF23683A3AA9E /* PXNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABF4D1576AC77ED6616CED17 /* Lockbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C203EA08F59FEC819D3A8C /* Lockbox.m */; };
+		B00706513B975F2874282472 /* PXUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AD16C4D2D25E2CDA740A3AD /* PXUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCD8244ADD61540163815513 /* Pods-PXSDKExample-PXSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C663BD24818022E5F07637F /* Pods-PXSDKExample-PXSDK-dummy.m */; };
+		F72C2D6AC69DA5FCD596B0BF /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = AF72AA9C21F0F24B73251524 /* NSString+MD5.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8BD0E9504B9F1DD58A8358D6 /* PBXContainerItemProxy */ = {
+		B59EF378789921E32DE84C56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C46F2E18DF442B6AE0E23CBA /* Project object */;
+			containerPortal = 85ECA26043742C2192F89EAD /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 58D8F15F9033AD35BCEB819B;
+			remoteGlobalIDString = 0C16AFC84F623B5F31F16A95;
 			remoteInfo = "Pods-PXSDKExample-PXSDK";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0303FA8BE9E21A7059117E9C /* NSString+MD5.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
-		0605DFC0E4EF8C242C1B0B3C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		067592D029BAD12CC8FC67D3 /* PXTracker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXTracker.m; sourceTree = "<group>"; };
-		131FBB155BC45D7F07AA6D5E /* PXTracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXTracker.h; sourceTree = "<group>"; };
-		1B2D436790875E72EB5CD618 /* Pods-PXSDKExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PXSDKExample-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1DE0277F6619B8ECB4458864 /* Pods-PXSDKExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PXSDKExample.release.xcconfig"; sourceTree = "<group>"; };
-		212EE131B0A37BB80536EC02 /* Pods-PXSDKExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PXSDKExample.modulemap"; sourceTree = "<group>"; };
-		258CB66F4A6BE1BEDB31526B /* Pods-PXSDKExample-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDKExample-environment.h"; sourceTree = "<group>"; };
-		2C311A696E4AC2D88A6B0EC1 /* PXDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXDefines.h; sourceTree = "<group>"; };
-		2C62C9DF533E0E2ACC1FB0CF /* Lockbox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Lockbox.h; sourceTree = "<group>"; };
-		2F9A8B880FBE5897F67D97BE /* Pods-PXSDKExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PXSDKExample-dummy.m"; sourceTree = "<group>"; };
-		343349FCB3247BC4F54D2D8A /* Pods_PXSDKExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PXSDKExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3816101C712A04646E2C6056 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3C88598693D1DF1BBB5CA574 /* PXTrackerCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXTrackerCore.h; sourceTree = "<group>"; };
-		444F5CBE7B618E4D686B633C /* PXUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXUser.m; sourceTree = "<group>"; };
-		506E5079139FFE703C2BE834 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		645D273DC6A93F6E5214C2BE /* PXSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PXSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		64AD3807A1A2165BE68FE804 /* PXNetwork.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXNetwork.h; sourceTree = "<group>"; };
-		741EC7C13CEA2C958A49CB48 /* Lockbox.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Lockbox.m; sourceTree = "<group>"; };
-		771B46EDB9806DFB8193BDD8 /* PXTrackerCore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXTrackerCore.m; sourceTree = "<group>"; };
-		786F2DAF52DB0208CB3CDEF1 /* Pods-PXSDKExample-PXSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PXSDKExample-PXSDK.xcconfig"; sourceTree = "<group>"; };
-		7A88B3829D425993B3A0D395 /* Pods-PXSDKExample-PXSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDKExample-PXSDK-umbrella.h"; sourceTree = "<group>"; };
-		7CC7AEB8A4AC325E0780CBA2 /* PXEventBuffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXEventBuffer.h; sourceTree = "<group>"; };
-		87CAA3661D7474020B343047 /* Pods-PXSDKExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PXSDKExample-acknowledgements.plist"; sourceTree = "<group>"; };
-		8E96A6C4C505854D4BEE85C8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9945AEFEDE73394E6285D545 /* Pods-PXSDKExample-PXSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PXSDKExample-PXSDK-dummy.m"; sourceTree = "<group>"; };
-		9E5C4D4CA11C6130F59AB5BA /* Pods-PXSDKExample-PXSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDKExample-PXSDK-prefix.pch"; sourceTree = "<group>"; };
-		A4E1FB5478C13A82E991F828 /* Pods-PXSDKExample-PXSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PXSDKExample-PXSDK.modulemap"; sourceTree = "<group>"; };
-		B6600508DD8BAB9BEACC5279 /* Pods-PXSDKExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDKExample-umbrella.h"; sourceTree = "<group>"; };
-		C2C7B5DAA6CF0B6EA5B088A0 /* Pods-PXSDKExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PXSDKExample-resources.sh"; sourceTree = "<group>"; };
-		C5B73A807380A5E1E4CB9FBF /* NSString+MD5.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
-		D911AD8745B8279405A07B46 /* Pods-PXSDKExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PXSDKExample-frameworks.sh"; sourceTree = "<group>"; };
-		DD4081A9921103AA4C039AE7 /* PXNetwork.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXNetwork.m; sourceTree = "<group>"; };
-		E1F2B1726B28D7915DB583DF /* PXUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXUser.h; sourceTree = "<group>"; };
-		F2EFFC515C8FE02F8FE0578F /* Pods-PXSDKExample-PXSDK-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PXSDKExample-PXSDK-Private.xcconfig"; sourceTree = "<group>"; };
-		F86058075F06865511049B0A /* PXEventBuffer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXEventBuffer.m; sourceTree = "<group>"; };
-		FBC10226F703FCD7E0B2C3EE /* Pods-PXSDKExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PXSDKExample.debug.xcconfig"; sourceTree = "<group>"; };
+		0251702370AA1E10C81D541E /* Pods-PXSDKExample-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDKExample-environment.h"; sourceTree = "<group>"; };
+		192565034500B93B6754853B /* Pods-PXSDKExample-PXSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PXSDKExample-PXSDK.modulemap"; sourceTree = "<group>"; };
+		21691438EB7EDB48C9F50BAB /* Pods-PXSDKExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PXSDKExample.modulemap"; sourceTree = "<group>"; };
+		2677F509692D2FB3C9D8E130 /* Pods-PXSDKExample-PXSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDKExample-PXSDK-prefix.pch"; sourceTree = "<group>"; };
+		2B7C5E3D2A574011CC892C08 /* Pods-PXSDKExample-PXSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PXSDKExample-PXSDK.xcconfig"; sourceTree = "<group>"; };
+		432913510EEA21DA9DDE4BB0 /* NSString+MD5.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		47C203EA08F59FEC819D3A8C /* Lockbox.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Lockbox.m; sourceTree = "<group>"; };
+		4BDEF1DFEB5EA58E96FB3770 /* Pods-PXSDKExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PXSDKExample.release.xcconfig"; sourceTree = "<group>"; };
+		4EB422EF1700084222A4C865 /* Pods-PXSDKExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PXSDKExample-acknowledgements.plist"; sourceTree = "<group>"; };
+		534C8C123602F366DA704986 /* Pods-PXSDKExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDKExample-umbrella.h"; sourceTree = "<group>"; };
+		573F7B671A7C0A14507301B6 /* Pods_PXSDKExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PXSDKExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5865D9CFB580DCE48F4487A8 /* Pods-PXSDKExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PXSDKExample-frameworks.sh"; sourceTree = "<group>"; };
+		595F966C541447117CC3B44E /* Pods-PXSDKExample-PXSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PXSDKExample-PXSDK-umbrella.h"; sourceTree = "<group>"; };
+		5D8A7D455AFDFD2E53C20DCC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E3BF2B35B8569430684E171 /* PXTracker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXTracker.m; sourceTree = "<group>"; };
+		673C1A74371F25BE0F41459A /* PXDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXDefines.h; sourceTree = "<group>"; };
+		6AD16C4D2D25E2CDA740A3AD /* PXUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXUser.h; sourceTree = "<group>"; };
+		6E5B94316EEB427995CCA83B /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		743674EFC38E54BA85418950 /* Pods-PXSDKExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PXSDKExample-resources.sh"; sourceTree = "<group>"; };
+		771168A6EB26B01D60D5385C /* Pods-PXSDKExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PXSDKExample-dummy.m"; sourceTree = "<group>"; };
+		797C7EBE2E8DF42BC127679D /* Pods-PXSDKExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PXSDKExample.debug.xcconfig"; sourceTree = "<group>"; };
+		7C663BD24818022E5F07637F /* Pods-PXSDKExample-PXSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PXSDKExample-PXSDK-dummy.m"; sourceTree = "<group>"; };
+		86A2799EDB08366BC4097A5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		94ADE0C11BBF4AC4CC9800B3 /* Lockbox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Lockbox.h; sourceTree = "<group>"; };
+		96E513AB10CACE6A652AFB72 /* Pods-PXSDKExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PXSDKExample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9C5A12FD5B248B7C6572770A /* PXSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PXSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A70F01E0F57D9B85563D84AE /* Pods-PXSDKExample-PXSDK-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PXSDKExample-PXSDK-Private.xcconfig"; sourceTree = "<group>"; };
+		AF72AA9C21F0F24B73251524 /* NSString+MD5.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		BA32CE2EEF1F7E73FB12A740 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C42010B1CFE93FD907A506BF /* PXTrackerCore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXTrackerCore.m; sourceTree = "<group>"; };
+		C5AFFF5F417BF23683A3AA9E /* PXNetwork.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXNetwork.h; sourceTree = "<group>"; };
+		D196087BAE7876D496E000E6 /* PXTracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXTracker.h; sourceTree = "<group>"; };
+		DF0CD98B8BF113E9C3F00997 /* PXUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXUser.m; sourceTree = "<group>"; };
+		DF3F60907F1DF7110E9A4BBA /* PXNetwork.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXNetwork.m; sourceTree = "<group>"; };
+		E4FE279BA99AF7E61524D0D1 /* PXEventBuffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXEventBuffer.h; sourceTree = "<group>"; };
+		F3A2A3ABF72B19203356C18A /* PXEventBuffer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PXEventBuffer.m; sourceTree = "<group>"; };
+		FCD801E4018D7E0B5F598719 /* PXTrackerCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PXTrackerCore.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C6F1B73C21538E7520356318 /* Frameworks */ = {
+		D045D8F390205A15F6D85911 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F0D62B174E323663EFA35FA /* Foundation.framework in Frameworks */,
+				8095BE481A67C9972A5A855A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D6B59BCCFB9EBE395A1D8F66 /* Frameworks */ = {
+		D2B9E92EF0C8CA9B403BFF75 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DA3EE6C533CD0FDE9BD6C52 /* Foundation.framework in Frameworks */,
+				081ED7FA84E612B685860292 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		18822F79CD5B371F1CD231EF /* PXSDK */ = {
+		12E2DE8868E5D4BD40570CD2 /* PXSDK */ = {
 			isa = PBXGroup;
 			children = (
-				FC509BC9EF58786477BAC225 /* Classes */,
+				DB12A34DE4C1AA78839D4316 /* Classes */,
 			);
 			path = PXSDK;
 			sourceTree = "<group>";
 		};
-		1A3AA12D772B2A46518D4559 /* Pods-PXSDKExample */ = {
+		1569F720B8F3C8CE992A161D /* PXSDK */ = {
 			isa = PBXGroup;
 			children = (
-				8E96A6C4C505854D4BEE85C8 /* Info.plist */,
-				212EE131B0A37BB80536EC02 /* Pods-PXSDKExample.modulemap */,
-				1B2D436790875E72EB5CD618 /* Pods-PXSDKExample-acknowledgements.markdown */,
-				87CAA3661D7474020B343047 /* Pods-PXSDKExample-acknowledgements.plist */,
-				2F9A8B880FBE5897F67D97BE /* Pods-PXSDKExample-dummy.m */,
-				258CB66F4A6BE1BEDB31526B /* Pods-PXSDKExample-environment.h */,
-				D911AD8745B8279405A07B46 /* Pods-PXSDKExample-frameworks.sh */,
-				C2C7B5DAA6CF0B6EA5B088A0 /* Pods-PXSDKExample-resources.sh */,
-				B6600508DD8BAB9BEACC5279 /* Pods-PXSDKExample-umbrella.h */,
-				FBC10226F703FCD7E0B2C3EE /* Pods-PXSDKExample.debug.xcconfig */,
-				1DE0277F6619B8ECB4458864 /* Pods-PXSDKExample.release.xcconfig */,
-			);
-			name = "Pods-PXSDKExample";
-			path = "Target Support Files/Pods-PXSDKExample";
-			sourceTree = "<group>";
-		};
-		26AFE3BF5CE3E57883F02DA5 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				0605DFC0E4EF8C242C1B0B3C /* Info.plist */,
-				A4E1FB5478C13A82E991F828 /* Pods-PXSDKExample-PXSDK.modulemap */,
-				786F2DAF52DB0208CB3CDEF1 /* Pods-PXSDKExample-PXSDK.xcconfig */,
-				F2EFFC515C8FE02F8FE0578F /* Pods-PXSDKExample-PXSDK-Private.xcconfig */,
-				9945AEFEDE73394E6285D545 /* Pods-PXSDKExample-PXSDK-dummy.m */,
-				9E5C4D4CA11C6130F59AB5BA /* Pods-PXSDKExample-PXSDK-prefix.pch */,
-				7A88B3829D425993B3A0D395 /* Pods-PXSDKExample-PXSDK-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Pods/Target Support Files/Pods-PXSDKExample-PXSDK";
-			sourceTree = "<group>";
-		};
-		3767DA89F0117CB30F148EF1 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3816101C712A04646E2C6056 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		3A8E966CB141409B47D52EEC /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				1A3AA12D772B2A46518D4559 /* Pods-PXSDKExample */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		4C5352A52D54C2F83D76FE66 /* PXSDK */ = {
-			isa = PBXGroup;
-			children = (
-				18822F79CD5B371F1CD231EF /* PXSDK */,
-				26AFE3BF5CE3E57883F02DA5 /* Support Files */,
+				12E2DE8868E5D4BD40570CD2 /* PXSDK */,
+				1F4A748078C0EBEDB76DCE9B /* Support Files */,
 			);
 			name = PXSDK;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		6B297DCDB106936CA76D5656 /* Products */ = {
+		1F4A748078C0EBEDB76DCE9B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				645D273DC6A93F6E5214C2BE /* PXSDK.framework */,
-				343349FCB3247BC4F54D2D8A /* Pods_PXSDKExample.framework */,
+				5D8A7D455AFDFD2E53C20DCC /* Info.plist */,
+				192565034500B93B6754853B /* Pods-PXSDKExample-PXSDK.modulemap */,
+				2B7C5E3D2A574011CC892C08 /* Pods-PXSDKExample-PXSDK.xcconfig */,
+				A70F01E0F57D9B85563D84AE /* Pods-PXSDKExample-PXSDK-Private.xcconfig */,
+				7C663BD24818022E5F07637F /* Pods-PXSDKExample-PXSDK-dummy.m */,
+				2677F509692D2FB3C9D8E130 /* Pods-PXSDKExample-PXSDK-prefix.pch */,
+				595F966C541447117CC3B44E /* Pods-PXSDKExample-PXSDK-umbrella.h */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "Pods/Target Support Files/Pods-PXSDKExample-PXSDK";
 			sourceTree = "<group>";
 		};
-		C8B2E661CB2B7AEE462F7EBB /* Frameworks */ = {
+		46D17D021129A974AF3E330D /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3767DA89F0117CB30F148EF1 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D8919F4B3811ED1198AB3EEB /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4C5352A52D54C2F83D76FE66 /* PXSDK */,
+				1569F720B8F3C8CE992A161D /* PXSDK */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		E46C1B972962A1B76FE1B3F3 = {
+		5EB1D59F445CB0F27961A562 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				506E5079139FFE703C2BE834 /* Podfile */,
-				D8919F4B3811ED1198AB3EEB /* Development Pods */,
-				C8B2E661CB2B7AEE462F7EBB /* Frameworks */,
-				6B297DCDB106936CA76D5656 /* Products */,
-				3A8E966CB141409B47D52EEC /* Targets Support Files */,
+				F3956A36E8EEC5C47FCCD760 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7EFFD2B53AC097D93B78D489 /* Pods-PXSDKExample */ = {
+			isa = PBXGroup;
+			children = (
+				BA32CE2EEF1F7E73FB12A740 /* Info.plist */,
+				21691438EB7EDB48C9F50BAB /* Pods-PXSDKExample.modulemap */,
+				96E513AB10CACE6A652AFB72 /* Pods-PXSDKExample-acknowledgements.markdown */,
+				4EB422EF1700084222A4C865 /* Pods-PXSDKExample-acknowledgements.plist */,
+				771168A6EB26B01D60D5385C /* Pods-PXSDKExample-dummy.m */,
+				0251702370AA1E10C81D541E /* Pods-PXSDKExample-environment.h */,
+				5865D9CFB580DCE48F4487A8 /* Pods-PXSDKExample-frameworks.sh */,
+				743674EFC38E54BA85418950 /* Pods-PXSDKExample-resources.sh */,
+				534C8C123602F366DA704986 /* Pods-PXSDKExample-umbrella.h */,
+				797C7EBE2E8DF42BC127679D /* Pods-PXSDKExample.debug.xcconfig */,
+				4BDEF1DFEB5EA58E96FB3770 /* Pods-PXSDKExample.release.xcconfig */,
+			);
+			name = "Pods-PXSDKExample";
+			path = "Target Support Files/Pods-PXSDKExample";
+			sourceTree = "<group>";
+		};
+		9D054D08FBDC47EB32652EF0 = {
+			isa = PBXGroup;
+			children = (
+				6E5B94316EEB427995CCA83B /* Podfile */,
+				46D17D021129A974AF3E330D /* Development Pods */,
+				5EB1D59F445CB0F27961A562 /* Frameworks */,
+				D9F179C1697262C32F2355B5 /* Products */,
+				E049CD2D91904A5B5E89821D /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		FC509BC9EF58786477BAC225 /* Classes */ = {
+		D9F179C1697262C32F2355B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C62C9DF533E0E2ACC1FB0CF /* Lockbox.h */,
-				741EC7C13CEA2C958A49CB48 /* Lockbox.m */,
-				C5B73A807380A5E1E4CB9FBF /* NSString+MD5.h */,
-				0303FA8BE9E21A7059117E9C /* NSString+MD5.m */,
-				2C311A696E4AC2D88A6B0EC1 /* PXDefines.h */,
-				7CC7AEB8A4AC325E0780CBA2 /* PXEventBuffer.h */,
-				F86058075F06865511049B0A /* PXEventBuffer.m */,
-				64AD3807A1A2165BE68FE804 /* PXNetwork.h */,
-				DD4081A9921103AA4C039AE7 /* PXNetwork.m */,
-				131FBB155BC45D7F07AA6D5E /* PXTracker.h */,
-				067592D029BAD12CC8FC67D3 /* PXTracker.m */,
-				3C88598693D1DF1BBB5CA574 /* PXTrackerCore.h */,
-				771B46EDB9806DFB8193BDD8 /* PXTrackerCore.m */,
-				E1F2B1726B28D7915DB583DF /* PXUser.h */,
-				444F5CBE7B618E4D686B633C /* PXUser.m */,
+				9C5A12FD5B248B7C6572770A /* PXSDK.framework */,
+				573F7B671A7C0A14507301B6 /* Pods_PXSDKExample.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB12A34DE4C1AA78839D4316 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				94ADE0C11BBF4AC4CC9800B3 /* Lockbox.h */,
+				47C203EA08F59FEC819D3A8C /* Lockbox.m */,
+				AF72AA9C21F0F24B73251524 /* NSString+MD5.h */,
+				432913510EEA21DA9DDE4BB0 /* NSString+MD5.m */,
+				673C1A74371F25BE0F41459A /* PXDefines.h */,
+				E4FE279BA99AF7E61524D0D1 /* PXEventBuffer.h */,
+				F3A2A3ABF72B19203356C18A /* PXEventBuffer.m */,
+				C5AFFF5F417BF23683A3AA9E /* PXNetwork.h */,
+				DF3F60907F1DF7110E9A4BBA /* PXNetwork.m */,
+				D196087BAE7876D496E000E6 /* PXTracker.h */,
+				5E3BF2B35B8569430684E171 /* PXTracker.m */,
+				FCD801E4018D7E0B5F598719 /* PXTrackerCore.h */,
+				C42010B1CFE93FD907A506BF /* PXTrackerCore.m */,
+				6AD16C4D2D25E2CDA740A3AD /* PXUser.h */,
+				DF0CD98B8BF113E9C3F00997 /* PXUser.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		E049CD2D91904A5B5E89821D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EFFD2B53AC097D93B78D489 /* Pods-PXSDKExample */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		F3956A36E8EEC5C47FCCD760 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				86A2799EDB08366BC4097A5F /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6726B04FE45ED957B0C43881 /* Headers */ = {
+		6AA839B095533BFF267BAE49 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A94E775AC5478521DC184231 /* Pods-PXSDKExample-umbrella.h in Headers */,
+				12B4DEC13DCB8596DC27A003 /* Pods-PXSDKExample-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB27670D44EC1B88BDE69FC8 /* Headers */ = {
+		6BFA89AF7394F805B950C3B7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				605B17362FB0457A123D68F1 /* Lockbox.h in Headers */,
-				0840A41729B042AD02E9EEFA /* NSString+MD5.h in Headers */,
-				0D0477C8A43DB21EF7F150EB /* PXDefines.h in Headers */,
-				2B825F7B701D62770DF6C4A7 /* PXEventBuffer.h in Headers */,
-				8ADE3F010E48F96D49C14498 /* PXNetwork.h in Headers */,
-				A64D1607D910C01311D5AE4A /* PXTracker.h in Headers */,
-				E54D1D8C008A7C4541B76A56 /* PXTrackerCore.h in Headers */,
-				8E424F2AFCFD113F3141BE6E /* PXUser.h in Headers */,
-				96A10BAE2D2FB2F4AD09659C /* Pods-PXSDKExample-PXSDK-umbrella.h in Headers */,
+				1E1E88D42386D65CD0C48805 /* Lockbox.h in Headers */,
+				F72C2D6AC69DA5FCD596B0BF /* NSString+MD5.h in Headers */,
+				634487D4E55D7563AEEF952A /* PXDefines.h in Headers */,
+				227E812CBFCC31AFD8E78DED /* PXEventBuffer.h in Headers */,
+				838A489162C589742369537B /* PXNetwork.h in Headers */,
+				2FE7F66837C7E561702B1591 /* PXTracker.h in Headers */,
+				703388EC4048D09D65A28EA2 /* PXTrackerCore.h in Headers */,
+				B00706513B975F2874282472 /* PXUser.h in Headers */,
+				4402D6404D42FE0FE01289B1 /* Pods-PXSDKExample-PXSDK-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		490191031869A4910B3E9863 /* Pods-PXSDKExample */ = {
+		0C16AFC84F623B5F31F16A95 /* Pods-PXSDKExample-PXSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 17F5660FD5E16C32A461DBBC /* Build configuration list for PBXNativeTarget "Pods-PXSDKExample" */;
+			buildConfigurationList = 61678E5DE2755514263D01B6 /* Build configuration list for PBXNativeTarget "Pods-PXSDKExample-PXSDK" */;
 			buildPhases = (
-				9A73AB6D717F5F36647CA1AF /* Sources */,
-				D6B59BCCFB9EBE395A1D8F66 /* Frameworks */,
-				6726B04FE45ED957B0C43881 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F1B339A88BF8F05754731778 /* PBXTargetDependency */,
-			);
-			name = "Pods-PXSDKExample";
-			productName = "Pods-PXSDKExample";
-			productReference = 343349FCB3247BC4F54D2D8A /* Pods_PXSDKExample.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		58D8F15F9033AD35BCEB819B /* Pods-PXSDKExample-PXSDK */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B69F57D2A3BC3AD22B772392 /* Build configuration list for PBXNativeTarget "Pods-PXSDKExample-PXSDK" */;
-			buildPhases = (
-				EBDF913F7DE7D18F9190596B /* Sources */,
-				C6F1B73C21538E7520356318 /* Frameworks */,
-				EB27670D44EC1B88BDE69FC8 /* Headers */,
+				E69DF6ED9B9E8935374FBB77 /* Sources */,
+				D045D8F390205A15F6D85911 /* Frameworks */,
+				6BFA89AF7394F805B950C3B7 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -288,126 +270,90 @@
 			);
 			name = "Pods-PXSDKExample-PXSDK";
 			productName = "Pods-PXSDKExample-PXSDK";
-			productReference = 645D273DC6A93F6E5214C2BE /* PXSDK.framework */;
+			productReference = 9C5A12FD5B248B7C6572770A /* PXSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6DD1DDF4A069B1FCCCF05EFB /* Pods-PXSDKExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C4FF04796AAE053B2B40312 /* Build configuration list for PBXNativeTarget "Pods-PXSDKExample" */;
+			buildPhases = (
+				15C79B72BCADCEEEE9A0D9A3 /* Sources */,
+				D2B9E92EF0C8CA9B403BFF75 /* Frameworks */,
+				6AA839B095533BFF267BAE49 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BF8859A5F670176AAA77283 /* PBXTargetDependency */,
+			);
+			name = "Pods-PXSDKExample";
+			productName = "Pods-PXSDKExample";
+			productReference = 573F7B671A7C0A14507301B6 /* Pods_PXSDKExample.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C46F2E18DF442B6AE0E23CBA /* Project object */ = {
+		85ECA26043742C2192F89EAD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 88466A7677307354EF894158 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 1AA7A6A71E8861D03D1B25CE /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = E46C1B972962A1B76FE1B3F3;
-			productRefGroup = 6B297DCDB106936CA76D5656 /* Products */;
+			mainGroup = 9D054D08FBDC47EB32652EF0;
+			productRefGroup = D9F179C1697262C32F2355B5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				490191031869A4910B3E9863 /* Pods-PXSDKExample */,
-				58D8F15F9033AD35BCEB819B /* Pods-PXSDKExample-PXSDK */,
+				6DD1DDF4A069B1FCCCF05EFB /* Pods-PXSDKExample */,
+				0C16AFC84F623B5F31F16A95 /* Pods-PXSDKExample-PXSDK */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9A73AB6D717F5F36647CA1AF /* Sources */ = {
+		15C79B72BCADCEEEE9A0D9A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B42C97DA75FD39C78411EA9 /* Pods-PXSDKExample-dummy.m in Sources */,
+				46D3542371390ED405CB93D5 /* Pods-PXSDKExample-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EBDF913F7DE7D18F9190596B /* Sources */ = {
+		E69DF6ED9B9E8935374FBB77 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				712AECC82942D952A9F51542 /* Lockbox.m in Sources */,
-				5A709FED3428C46FD9CF500F /* NSString+MD5.m in Sources */,
-				609D65C863FE9AA1629277A4 /* PXEventBuffer.m in Sources */,
-				C075A7E4E3389552CB218FDF /* PXNetwork.m in Sources */,
-				D772A8EAA24D3460F7FFCCBC /* PXTracker.m in Sources */,
-				BD921E1B17798F8AEB3AB175 /* PXTrackerCore.m in Sources */,
-				B80558674A358F838A6C92F5 /* PXUser.m in Sources */,
-				B765E99866C61B15A539406A /* Pods-PXSDKExample-PXSDK-dummy.m in Sources */,
+				ABF4D1576AC77ED6616CED17 /* Lockbox.m in Sources */,
+				390136EED31B6A844B1E97DA /* NSString+MD5.m in Sources */,
+				66EAE04A0D7C235792025289 /* PXEventBuffer.m in Sources */,
+				107461188B2F8157974D5145 /* PXNetwork.m in Sources */,
+				658778FA0AB4F0FD6126E271 /* PXTracker.m in Sources */,
+				5E9B39B58910CC9541B550E3 /* PXTrackerCore.m in Sources */,
+				555ECE01252D49587DBE7D85 /* PXUser.m in Sources */,
+				DCD8244ADD61540163815513 /* Pods-PXSDKExample-PXSDK-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F1B339A88BF8F05754731778 /* PBXTargetDependency */ = {
+		3BF8859A5F670176AAA77283 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-PXSDKExample-PXSDK";
-			target = 58D8F15F9033AD35BCEB819B /* Pods-PXSDKExample-PXSDK */;
-			targetProxy = 8BD0E9504B9F1DD58A8358D6 /* PBXContainerItemProxy */;
+			target = 0C16AFC84F623B5F31F16A95 /* Pods-PXSDKExample-PXSDK */;
+			targetProxy = B59EF378789921E32DE84C56 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		4A3026ADFE9AB55E15BF0F6B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2EFFC515C8FE02F8FE0578F /* Pods-PXSDKExample-PXSDK-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-PXSDKExample-PXSDK/Pods-PXSDKExample-PXSDK-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-PXSDKExample-PXSDK/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-PXSDKExample-PXSDK/Pods-PXSDKExample-PXSDK.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = PXSDK;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		6C88B7A5DC06B0E4F14D86F4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2EFFC515C8FE02F8FE0578F /* Pods-PXSDKExample-PXSDK-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-PXSDKExample-PXSDK/Pods-PXSDKExample-PXSDK-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-PXSDKExample-PXSDK/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-PXSDKExample-PXSDK/Pods-PXSDKExample-PXSDK.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = PXSDK;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A907AACE34485C88B8327CB9 /* Release */ = {
+		3A2B19D10B34B88015C2F3E6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -441,9 +387,9 @@
 			};
 			name = Release;
 		};
-		CF335AAE4973826D9630E80E /* Release */ = {
+		52DEFBC675C2F2A7CB7C0A5C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DE0277F6619B8ECB4458864 /* Pods-PXSDKExample.release.xcconfig */;
+			baseConfigurationReference = A70F01E0F57D9B85563D84AE /* Pods-PXSDKExample-PXSDK-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -452,16 +398,14 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-PXSDKExample/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-PXSDKExample-PXSDK/Pods-PXSDKExample-PXSDK-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-PXSDKExample-PXSDK/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-PXSDKExample/Pods-PXSDKExample.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-PXSDKExample-PXSDK/Pods-PXSDKExample-PXSDK.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_PXSDKExample;
+				PRODUCT_NAME = PXSDK;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -470,7 +414,7 @@
 			};
 			name = Release;
 		};
-		E37F89099C6EFE43B6B29B0F /* Debug */ = {
+		705EFDAA94AF67080BBFE2D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -509,9 +453,36 @@
 			};
 			name = Debug;
 		};
-		FE646675BF1B470644EF146C /* Debug */ = {
+		C219879B9998DD3541C4A150 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBC10226F703FCD7E0B2C3EE /* Pods-PXSDKExample.debug.xcconfig */;
+			baseConfigurationReference = A70F01E0F57D9B85563D84AE /* Pods-PXSDKExample-PXSDK-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-PXSDKExample-PXSDK/Pods-PXSDKExample-PXSDK-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-PXSDKExample-PXSDK/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-PXSDKExample-PXSDK/Pods-PXSDKExample-PXSDK.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = PXSDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C2E3BAA96B570807B025FB2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 797C7EBE2E8DF42BC127679D /* Pods-PXSDKExample.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -538,37 +509,66 @@
 			};
 			name = Debug;
 		};
+		D1EE11AA54946CB0007E9512 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BDEF1DFEB5EA58E96FB3770 /* Pods-PXSDKExample.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-PXSDKExample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-PXSDKExample/Pods-PXSDKExample.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_PXSDKExample;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		17F5660FD5E16C32A461DBBC /* Build configuration list for PBXNativeTarget "Pods-PXSDKExample" */ = {
+		1AA7A6A71E8861D03D1B25CE /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FE646675BF1B470644EF146C /* Debug */,
-				CF335AAE4973826D9630E80E /* Release */,
+				705EFDAA94AF67080BBFE2D4 /* Debug */,
+				3A2B19D10B34B88015C2F3E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		88466A7677307354EF894158 /* Build configuration list for PBXProject "Pods" */ = {
+		3C4FF04796AAE053B2B40312 /* Build configuration list for PBXNativeTarget "Pods-PXSDKExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E37F89099C6EFE43B6B29B0F /* Debug */,
-				A907AACE34485C88B8327CB9 /* Release */,
+				C2E3BAA96B570807B025FB2C /* Debug */,
+				D1EE11AA54946CB0007E9512 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B69F57D2A3BC3AD22B772392 /* Build configuration list for PBXNativeTarget "Pods-PXSDKExample-PXSDK" */ = {
+		61678E5DE2755514263D01B6 /* Build configuration list for PBXNativeTarget "Pods-PXSDKExample-PXSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6C88B7A5DC06B0E4F14D86F4 /* Debug */,
-				4A3026ADFE9AB55E15BF0F6B /* Release */,
+				C219879B9998DD3541C4A150 /* Debug */,
+				52DEFBC675C2F2A7CB7C0A5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C46F2E18DF442B6AE0E23CBA /* Project object */;
+	rootObject = 85ECA26043742C2192F89EAD /* Project object */;
 }

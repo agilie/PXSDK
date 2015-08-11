@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "58D8F15F9033AD35BCEB819B"
+               BlueprintIdentifier = "0C16AFC84F623B5F31F16A95"
                BuildableName = "PXSDK.framework"
                BlueprintName = "Pods-PXSDKExample-PXSDK"
                ReferencedContainer = "container:Pods.xcodeproj">
