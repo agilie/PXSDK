@@ -14,6 +14,9 @@ static NSInteger kPXCacheUpdateInterval = 1.0f * 65 * 5;
 static NSInteger kPXRequestUserPredictionsInterval = 60;
 static NSString *const kPXLockboxUUDIDKey = @"uudid";
 static NSString *const kPXLevelKeyStore = @"userLevel";
+static NSString *const kPXTriggerDateKeyStore = @"triggerDate";
+static NSString *const kPXRewardAlreadyShownToday = @"rewardAlreadyShown";
+static NSString *const kPXRewardLastSyncDate = @"lastSyncDate";
 static char *const kPXFileQueueLockerName = "PXEventBufferQueue";
 static NSString *const kPXCacheFileName = @"PXTrackerCache.data";
 

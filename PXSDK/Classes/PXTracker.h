@@ -7,7 +7,15 @@
 
 @interface PXTracker : NSObject
 
-+ (void)initializeWithGameKey:(NSString *)gameKey;
++ (void)initializeWithGameKey:(NSString *)gameKey __attribute__((deprecated));
+
++ (void)initializeWithGameKey:(NSString *)gameKey enableDeviceToken:(BOOL)enableDeviceToken;
+
++ (void)setupUserPredictionsForToken:(NSString *)token;
+
++ (void)processLaunchOptions:(NSDictionary *)launchOptions;
+
++ (void)processPushNotification:(NSDictionary *)pushNotification;
 
 + (BOOL)userHasIAPOffer;
 
@@ -15,7 +23,7 @@
 
 + (void)recordTransactionEventWithName:(NSString *)withName buyVirtualCurrency:(NSString *)buyVirtualCurrency receivingAmount:(NSNumber *)receivingAmount usingRealCurrency:(NSString *)usingRealCurrency spendingAmount:(NSNumber *)spendingAmount;
 
-+ (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel;
++ (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel andCurrency:(NSNumber *)currency;
 
 + (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep;
 

@@ -11,6 +11,13 @@
 #import "PXDefines.h"
 #import "PXUser.h"
 
+@interface PXTrackerCore ()
+
+@property (strong, nonatomic) NSCalendar *calendar;
+@property (strong, nonatomic) NSUserDefaults *userDefaults;
+
+@end
+
 @implementation PXTrackerCore
 
 - (id)init {
@@ -19,16 +26,30 @@
         self.uuid = [self getUniqueDeviceIdentifierAsString];
         self.network = [[PXNetwork alloc] init];
         self.eventBuffer = [[PXEventBuffer alloc] init];
-
         [self setupCoreTimers];
         [self setupNSNotificationCenter];
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [self setupUserPredictions];
-        });
-
     }
     return self;
+}
+
+#pragma mark - Getters
+
+- (NSUserDefaults *)userDefaults {
+    if (!_userDefaults) {
+        _userDefaults = [NSUserDefaults standardUserDefaults];
+    }
+    return _userDefaults;
+}
+
+- (NSCalendar *)calendar {
+    if (!_calendar) {
+        _calendar = [NSCalendar currentCalendar];
+    }
+    return _calendar;
+}
+
+- (NSDateComponents *)dateComponents {
+    return [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[NSDate date]];
 }
 
 - (void)setupNSNotificationCenter {
@@ -61,18 +82,21 @@
     self.cacheTimer = nil;
 }
 
-- (void)setupUserPredictions {
-
+- (void)setupUserPredictionsForToken:(NSString *)token {
+    self.deviceToken = token;
     NSString *requestUrl = [NSString stringWithFormat:kPXGetUserPredictionsUrl, self.gameKey, self.uuid];
-
+    if (token) {
+        requestUrl = [NSString stringWithFormat:@"%@/%@",requestUrl, token];
+    }
+    __weak typeof(self) weakSelf = self;
     [self.network getRequestWithUrl:requestUrl completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            self.user = [[PXUser alloc] initWithDictonary:dictionary];
+            weakSelf.user = [[PXUser alloc] initWithDictonary:dictionary];
+            [weakSelf setCurrentUserDateIAPOffer:weakSelf.user.dateForIAPOffer];
         } else {
-
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, kPXRequestUserPredictionsInterval * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                [self setupUserPredictions];
+                [weakSelf setupUserPredictionsForToken:token];
             });
         }
     }];
@@ -110,9 +134,11 @@
 }
 
 - (BOOL)userHasIAPOffer {
+    [self checkIfAlreadyNewDate];
     if (self.user) {
         NSTimeInterval spentTime = [NSDate date].timeIntervalSince1970 - self.currentSessionTimeStart;
-        return [self.user.params1 doubleValue] < spentTime && [self.user.params2 isEqualToNumber:self.curentUserLevel];
+        return [self.user.timeForIAPOffer doubleValue] < spentTime && [self.user.levelForIAPOffer isEqualToNumber:self.curentUserLevel] &&
+        [self.currentUserDateIAPOffer compare:[NSDate date]] == NSOrderedSame;
     }
     return NO;
 }
@@ -142,26 +168,43 @@
 }
 
 - (void)resetSession {
+    [self setupUserPredictionsForToken:self.deviceToken];
     self.currentSession = [self generateUniqueSessionString];
     self.currentSessionTimeStart = [NSDate date].timeIntervalSince1970;
 }
 
 - (NSNumber *)curentUserLevel {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *result = [userDefaults objectForKey:kPXLevelKeyStore];
+    NSString *result = [self.userDefaults objectForKey:kPXLevelKeyStore];
     if (result) {
-        return [userDefaults objectForKey:kPXLevelKeyStore];
+        return [self.userDefaults objectForKey:kPXLevelKeyStore];
     } else {
-        [userDefaults setObject:@0 forKey:kPXLevelKeyStore];
-        [userDefaults synchronize];
+        [self.userDefaults setObject:@0 forKey:kPXLevelKeyStore];
+        [self.userDefaults synchronize];
         return @0;
     }
 }
 
 - (void)setCurentUserLevel:(NSNumber *)level {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:level forKey:kPXLevelKeyStore];
-    [userDefaults synchronize];
+    [self.userDefaults setObject:level forKey:kPXLevelKeyStore];
+    [self.userDefaults synchronize];
+}
+
+- (NSDate *)currentUserDateIAPOffer {
+    NSNumber *result = [self.userDefaults objectForKey:kPXTriggerDateKeyStore];
+    NSDate *dateResult = nil;
+    if (result) {
+        dateResult = [NSDate dateWithTimeIntervalSince1970:[result doubleValue]];
+    } else {
+        [self.userDefaults setObject:self.user.dateForIAPOffer forKey:kPXTriggerDateKeyStore];
+        [self.userDefaults synchronize];
+        dateResult = [NSDate dateWithTimeIntervalSince1970:[self.user.dateForIAPOffer doubleValue]];
+    }
+    return dateResult;
+}
+
+- (void)setCurrentUserDateIAPOffer:(NSNumber *)date {
+    [self.userDefaults setObject:date forKey:kPXTriggerDateKeyStore];
+    [self.userDefaults synchronize];
 }
 
 - (NSData *)makeRequestData:(NSData *)input {
@@ -214,13 +257,17 @@
 
 };
 
-- (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel {
+- (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel andCurrency:(NSNumber *)currency {
 
     [self setCurentUserLevel:toLevel];
 
     [self sendGeneralEventWithName:@"levelChange" andParams:@{ @"fromLevel" : fromLevel,
-            @"toLevel" : toLevel }];
-
+                                                               @"toLevel"   : toLevel ,
+                                                               @"currency" : currency}];
+    if ([self userHasIAPOffer] && [self.userDefaults boolForKey:kPXRewardAlreadyShownToday] == NO) {
+        [self showAlertWithTitle:self.user.alertTitle body:self.user.alertBody];
+        [self.userDefaults setBool:YES forKey:kPXRewardAlreadyShownToday];
+    }
 };
 
 - (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep {
@@ -236,5 +283,46 @@
             @"virtualCurrency" : virtualCurrency }];
 };
 
+#pragma mark - Alert
+
+- (void)showAlertWithTitle:(NSString *)title body:(NSString *)body {
+    [[[UIAlertView alloc] initWithTitle:title? :@"" message:body? : @"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+}
+
+#pragma mark - AlertView Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self resetSession];
+    }
+}
+
+#pragma mark - Handling of push notification
+
+- (void)processLaunchOptions:(NSDictionary *)launchOptions {
+    [self processPushNotification:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
+}
+
+- (void)processPushNotification:(NSDictionary *)pushNotification {
+    PXLog(@"%@",pushNotification);
+    [self sendGeneralEventWithName:@"pushReceived" andParams:@{@"pushContent": [pushNotification description]}];
+    if ([pushNotification objectForKey:@"alert"]) {
+        NSDictionary *payloadDict = [pushNotification objectForKey:@"alert"];
+        [self showAlertWithTitle:[payloadDict objectForKey:@"title"] body:[payloadDict objectForKey:@"body"]];
+    }
+}
+
+#pragma mark - Helper
+
+- (void)checkIfAlreadyNewDate {
+    NSDate *lastSyncDate = [self.userDefaults objectForKey:kPXRewardLastSyncDate];
+    NSDate *beginingOfToday = [self.calendar dateFromComponents:[self dateComponents]];
+    [self.userDefaults setObject:[NSDate date] forKey:kPXRewardLastSyncDate];
+    [self.userDefaults synchronize];
+    if ([lastSyncDate compare:beginingOfToday] == NSOrderedDescending) {
+        [self.userDefaults setBool:NO forKey:kPXRewardAlreadyShownToday];
+        [self.userDefaults synchronize];
+    }
+}
 
 @end

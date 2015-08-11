@@ -18,6 +18,29 @@ static PXTrackerCore *sTrackerCore;
     sTrackerCore.gameKey = gameKey;
 }
 
++ (void)initializeWithGameKey:(NSString *)gameKey enableDeviceToken:(BOOL)enableDeviceToken {
+    static dispatch_once_t pred;
+    dispatch_once(&pred, ^{
+        sTrackerCore = [[PXTrackerCore alloc] init];
+        sTrackerCore.gameKey = gameKey;
+        if (!enableDeviceToken) {
+            [sTrackerCore setupUserPredictionsForToken:nil];
+        }
+    });
+}
+
++ (void)setupUserPredictionsForToken:(NSString *)token {
+    [sTrackerCore setupUserPredictionsForToken:token];
+}
+
++ (void)processLaunchOptions:(NSDictionary *)launchOptions {
+    [sTrackerCore processLaunchOptions:launchOptions];
+}
+
++ (void)processPushNotification:(NSDictionary *)pushNotification {
+    [sTrackerCore processPushNotification:pushNotification];
+}
+
 + (BOOL)userHasIAPOffer {
     return [sTrackerCore userHasIAPOffer];
 }
@@ -32,8 +55,8 @@ static PXTrackerCore *sTrackerCore;
 
 };
 
-+ (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel {
-    [sTrackerCore recordLevelChangeEventFromLevel:fromLevel toLevel:toLevel];
++ (void)recordLevelChangeEventFromLevel:(NSNumber *)fromLevel toLevel:(NSNumber *)toLevel andCurrency:(NSNumber *)currency {
+    [sTrackerCore recordLevelChangeEventFromLevel:fromLevel toLevel:toLevel andCurrency:currency];
 };
 
 + (void)recordTutorialChangeEventFromStep:(NSNumber *)fromStep toStep:(NSNumber *)toStep {

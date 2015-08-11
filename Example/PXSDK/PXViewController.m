@@ -13,7 +13,7 @@
 @implementation PXViewController
 
 - (IBAction)sendLevel:(id)sender {
-    [PXTracker recordLevelChangeEventFromLevel:@0 toLevel:@2];
+    [PXTracker recordLevelChangeEventFromLevel:@0 toLevel:@2 andCurrency:@100];
 }
 
 - (IBAction)sendTutor:(id)sender {
