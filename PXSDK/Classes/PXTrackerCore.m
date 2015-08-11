@@ -190,19 +190,15 @@
 
 - (NSDate *)currentUserDateIAPOffer {
     NSNumber *result = [self.userDefaults objectForKey:kPXTriggerDateKeyStore];
+    NSDate *dateResult = nil;
     if (result) {
-        NSDate *storedDate = [NSDate dateWithTimeIntervalSince1970:[result doubleValue]];
-        NSDate *beginingOfToday = [self.calendar dateFromComponents:[self dateComponents]];
-        if ([storedDate compare:beginingOfToday] == NSOrderedDescending) {
-            [self setCurrentUserDateIAPOffer:[NSNumber numberWithDouble:[beginingOfToday timeIntervalSince1970]]];
-            return beginingOfToday;
-        }
-        return storedDate;
+        dateResult = [NSDate dateWithTimeIntervalSince1970:[result doubleValue]];
     } else {
         [self.userDefaults setObject:self.user.dateForIAPOffer forKey:kPXTriggerDateKeyStore];
         [self.userDefaults synchronize];
-        return [NSDate dateWithTimeIntervalSince1970:[self.user.dateForIAPOffer doubleValue]];
+        dateResult = [NSDate dateWithTimeIntervalSince1970:[self.user.dateForIAPOffer doubleValue]];
     }
+    return dateResult;
 }
 
 - (void)setCurrentUserDateIAPOffer:(NSNumber *)date {
@@ -292,7 +288,7 @@
     [[[UIAlertView alloc] initWithTitle:title? :@"" message:body? : @"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
 }
 
-#pragma mark - AlerView Delegate
+#pragma mark - AlertView Delegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
@@ -300,7 +296,7 @@
     }
 }
 
-#pragma mark - handle push notification
+#pragma mark - Handling of push notification
 
 - (void)processLaunchOptions:(NSDictionary *)launchOptions {
     [self processPushNotification:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
