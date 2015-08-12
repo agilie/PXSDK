@@ -264,7 +264,7 @@
     [self sendGeneralEventWithName:@"levelChange" andParams:@{ @"fromLevel" : fromLevel,
                                                                @"toLevel"   : toLevel ,
                                                                @"currency" : currency}];
-    if ([self userHasIAPOffer] && [self.userDefaults boolForKey:kPXRewardAlreadyShownToday] == NO) {
+    if ([self userHasIAPOffer] && ![self.userDefaults objectForKey:kPXRewardAlreadyShownToday]) {
         [self showAlertWithTitle:self.user.alertTitle body:self.user.alertBody];
         [self.userDefaults setBool:YES forKey:kPXRewardAlreadyShownToday];
     }
