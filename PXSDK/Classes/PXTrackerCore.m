@@ -264,7 +264,7 @@
     [self sendGeneralEventWithName:@"levelChange" andParams:@{ @"fromLevel" : fromLevel,
                                                                @"toLevel"   : toLevel ,
                                                                @"currency" : currency}];
-    if ([self userHasIAPOffer] && ![self.userDefaults objectForKey:kPXRewardAlreadyShownToday]) {
+    if ([self userHasIAPOffer] && ![self.userDefaults boolForKey:kPXRewardAlreadyShownToday]) {
         [self showAlertWithTitle:self.user.alertTitle body:self.user.alertBody];
         [self.userDefaults setBool:YES forKey:kPXRewardAlreadyShownToday];
     }
@@ -317,12 +317,14 @@
 - (void)checkIfAlreadyNewDate {
     NSDate *lastSyncDate = [self.userDefaults objectForKey:kPXRewardLastSyncDate];
     NSDate *beginingOfToday = [self.calendar dateFromComponents:[self dateComponents]];
+    if (lastSyncDate) {
+        if ([lastSyncDate compare:beginingOfToday] == NSOrderedDescending) {
+            [self.userDefaults setBool:NO forKey:kPXRewardAlreadyShownToday];
+            [self.userDefaults synchronize];
+        }
+    }
     [self.userDefaults setObject:[NSDate date] forKey:kPXRewardLastSyncDate];
     [self.userDefaults synchronize];
-    if ([lastSyncDate compare:beginingOfToday] == NSOrderedDescending) {
-        [self.userDefaults setBool:NO forKey:kPXRewardAlreadyShownToday];
-        [self.userDefaults synchronize];
-    }
 }
 
 @end
