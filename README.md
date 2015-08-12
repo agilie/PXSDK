@@ -1,6 +1,6 @@
 # PXSDK
 
-[![CI Status](http://img.shields.io/travis/Ankudinov Alexander/PXSDK.svg?style=flat)](https://travis-ci.org/Ankudinov Alexander/PXSDK)
+[![CI Status](http://img.shields.io/travis/agilie/PXSDK.svg?style=flat)](https://travis-ci.org/agilie/PXSDK)
 [![Version](https://img.shields.io/cocoapods/v/PXSDK.svg?style=flat)](http://cocoapods.org/pods/PXSDK)
 [![License](https://img.shields.io/cocoapods/l/PXSDK.svg?style=flat)](http://cocoapods.org/pods/PXSDK)
 [![Platform](https://img.shields.io/cocoapods/p/PXSDK.svg?style=flat)](http://cocoapods.org/pods/PXSDK)
@@ -14,9 +14,9 @@ it, simply add the following line to your Podfile:
 pod "PXSDK"
 ```
 
-Import "PXTracker.h" to your AppDelegate.m file, and init PXTracker with your game API key in didFinishLaunchingWithOptions delegate:
+Import "PXTracker.h" to your AppDelegate.m file, and init PXTracker with your game API key in didFinishLaunchingWithOptions delegate passing YES param if you want to use APNS for tracking:
 ```obj-c
-[PXTracker setGameKey:@"THATYOURAPIKEY"];
+[PXTracker initializeWithGameKey:@"Testgame01" enableDeviceToken:NO];
 ```
 Import "PXTracker.h" in all the files where you want to track events.
 
@@ -27,7 +27,7 @@ Add that requirements frameworks to your project:
 
 #List of tracking events and offer availability
   * sendEvent         - eventName, parameters dictonary
-  * levelChange       - timeStamp, fromLevel, toLevel
+  * levelChange       - timeStamp, fromLevel, toLevel, currency
   * tutorialChange    - timeStamp, fromStep, toStep
   * transactionEvent  - timeStamp, withName, buyVirtualCurrenct, receivingAmount, usingRealCurrency, spendingAmount
   * userHasIAPOffer  - no parameters, return YES if IAPOffer is avaible
@@ -49,7 +49,7 @@ Level change event consists of two fields that you can use to describe a users l
 * NSNumber toLevel
 
 ```obj-c
-[PXTracker recordLevelChangeEventFromLevel:@0 toLevel:@2];
+[PXTracker recordLevelChangeEventFromLevel:@0 toLevel:@2 andCurrency:@20];
 ```
  
 ##Tutorial step change event
