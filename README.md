@@ -1,6 +1,6 @@
 # PXSDK
 
-[![CI Status](http://img.shields.io/travis/Ankudinov Alexander/PXSDK.svg?style=flat)](https://travis-ci.org/Ankudinov Alexander/PXSDK)
+[![CI Status](http://img.shields.io/travis/agilie/PXSDK.svg?style=flat)](https://travis-ci.org/agilie/PXSDK)
 [![Version](https://img.shields.io/cocoapods/v/PXSDK.svg?style=flat)](http://cocoapods.org/pods/PXSDK)
 [![License](https://img.shields.io/cocoapods/l/PXSDK.svg?style=flat)](http://cocoapods.org/pods/PXSDK)
 [![Platform](https://img.shields.io/cocoapods/p/PXSDK.svg?style=flat)](http://cocoapods.org/pods/PXSDK)
