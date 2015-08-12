@@ -14,7 +14,7 @@ it, simply add the following line to your Podfile:
 pod "PXSDK"
 ```
 
-Import "PXTracker.h" to your AppDelegate.m file, and init PXTracker with your game API key in didFinishLaunchingWithOptions delegate:
+Import "PXTracker.h" to your AppDelegate.m file, and init PXTracker with your game API key in didFinishLaunchingWithOptions delegate passing YES param if you want to use APNS for tracking:
 ```obj-c
 [PXTracker initializeWithGameKey:@"Testgame01" enableDeviceToken:NO];
 ```
