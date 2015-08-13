@@ -212,7 +212,7 @@
     NSLocale *locale = [NSLocale currentLocale];
     NSString *countryCode = [locale objectForKey:NSLocaleCountryCode];
 
-    NSString *initialJsonData = [NSString stringWithFormat:@" { \"uuid\" : \"%@\" , \"gikey\" : \"%@\" , \"countryCode\" : \"%@\" , \"events\" : [", self.uuid, self.gameKey, countryCode];
+    NSString *initialJsonData = [NSString stringWithFormat:@" { \"uuid\" : \"%@\" , \"gikey\" : \"%@\" , \"deviceToken\" : \"%@\" , \"countryCode\" : \"%@\" , \"events\" : [", self.uuid, self.gameKey, self.deviceToken, countryCode];
     NSString *endJsonData = @"]}";
 
     NSMutableData *initialData = [NSMutableData dataWithData:[initialJsonData dataUsingEncoding:NSUTF8StringEncoding]];
