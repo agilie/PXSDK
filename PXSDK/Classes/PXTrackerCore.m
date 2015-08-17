@@ -83,7 +83,9 @@
 }
 
 - (void)setupUserPredictionsForToken:(NSString *)token {
-    self.deviceToken = token;
+    NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>[] "];
+    NSString *clearToken = [[token description] stringByTrimmingCharactersInSet:angleBrackets];
+    self.deviceToken = clearToken;
     NSString *requestUrl = [NSString stringWithFormat:kPXGetUserPredictionsUrl, self.gameKey, self.uuid];
     if (token) {
         requestUrl = [NSString stringWithFormat:@"%@/%@",requestUrl, token];
