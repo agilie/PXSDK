@@ -24,7 +24,7 @@
 
 - (id)init;
 
-- (void)setupUserPredictionsForToken:(NSData *)token;
+- (void)setupUserPredictionsForToken:(NSString *)token;
 
 - (BOOL)userHasIAPOffer;
 

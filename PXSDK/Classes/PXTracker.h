@@ -11,7 +11,7 @@
 
 + (void)initializeWithGameKey:(NSString *)gameKey enableDeviceToken:(BOOL)enableDeviceToken;
 
-+ (void)setupUserPredictionsForToken:(NSData *)token;
++ (void)setupUserPredictionsForToken:(NSString *)token;
 
 + (void)processLaunchOptions:(NSDictionary *)launchOptions;
 

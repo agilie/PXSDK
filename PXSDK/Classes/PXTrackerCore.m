@@ -82,13 +82,13 @@
     self.cacheTimer = nil;
 }
 
-- (void)setupUserPredictionsForToken:(NSData *)token {
+- (void)setupUserPredictionsForToken:(NSString *)token {
     NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>"];
     NSString *clearToken = [[token description] stringByTrimmingCharactersInSet:angleBrackets];
     self.deviceToken = [clearToken stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *requestUrl = [NSString stringWithFormat:kPXGetUserPredictionsUrl, self.gameKey, self.uuid];
     if (token) {
-        requestUrl = [NSString stringWithFormat:@"%@/%@",requestUrl, token];
+        requestUrl = [NSString stringWithFormat:@"%@/%@",requestUrl, self.deviceToken];
     }
     __weak typeof(self) weakSelf = self;
     [self.network getRequestWithUrl:requestUrl completion:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -111,29 +111,25 @@
 
 - (void)dynamicTimerFire:(id)sender {
     if ([self.eventBuffer dataFromBuffer].length > 0 && self.network.available) {
-        if ([self shouldSendData]) {
-            NSData *data2send = [self makeRequestData:[self.eventBuffer dataFromBuffer]];
-            [self.network sendToServiceRawData:data2send completion:^(BOOL succes) {
-                if (succes) {
-                    [self.eventBuffer destroyBuffer];
-                } else {
-                    [self.eventBuffer flushToCacheBuffer];
-                }
-            }];
-        }
+        NSData *data2send = [self makeRequestData:[self.eventBuffer dataFromBuffer]];
+        [self.network sendToServiceRawData:data2send completion:^(BOOL succes) {
+            if (succes) {
+                [self.eventBuffer destroyBuffer];
+            } else {
+                [self.eventBuffer flushToCacheBuffer];
+            }
+        }];
     }
 }
 
 - (void)cacheTimerFire:(id)sender {
     if ([[self.eventBuffer dataFromCacheBuffer] length] > 0 && self.network.available) {
-        if ([self shouldSendData]) {
-            NSData *data2send = [self makeRequestData:[self.eventBuffer dataFromCacheBuffer]];
-            [self.network sendToServiceRawData:data2send completion:^(BOOL succes) {
-                if (succes) {
-                    [self.eventBuffer destroyCacheBuffer];
-                }
-            }];
-        }
+        NSData *data2send = [self makeRequestData:[self.eventBuffer dataFromCacheBuffer]];
+        [self.network sendToServiceRawData:data2send completion:^(BOOL succes) {
+            if (succes) {
+                [self.eventBuffer destroyCacheBuffer];
+            }
+        }];
     }
 }
 
