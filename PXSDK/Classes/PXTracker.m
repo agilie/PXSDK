@@ -30,7 +30,7 @@ static PXTrackerCore *sTrackerCore;
     });
 }
 
-+ (void)setupUserPredictionsForToken:(NSString *)token {
++ (void)setupUserPredictionsForToken:(NSData *)token {
     [sTrackerCore setupUserPredictionsForToken:token];
 }
 
