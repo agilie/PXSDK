@@ -87,9 +87,6 @@
     NSString *clearToken = [[token description] stringByTrimmingCharactersInSet:angleBrackets];
     self.deviceToken = [clearToken stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *requestUrl = [NSString stringWithFormat:kPXGetUserPredictionsUrl, self.gameKey, self.uuid];
-    if (token) {
-        requestUrl = [NSString stringWithFormat:@"%@/%@",requestUrl, self.deviceToken];
-    }
     __weak typeof(self) weakSelf = self;
     [self.network getRequestWithUrl:requestUrl completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
