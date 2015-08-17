@@ -82,10 +82,10 @@
     self.cacheTimer = nil;
 }
 
-- (void)setupUserPredictionsForToken:(NSString *)token {
-    NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>[]"];
+- (void)setupUserPredictionsForToken:(NSData *)token {
+    NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>"];
     NSString *clearToken = [[token description] stringByTrimmingCharactersInSet:angleBrackets];
-    self.deviceToken = clearToken;
+    self.deviceToken = [clearToken stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *requestUrl = [NSString stringWithFormat:kPXGetUserPredictionsUrl, self.gameKey, self.uuid];
     if (token) {
         requestUrl = [NSString stringWithFormat:@"%@/%@",requestUrl, token];
