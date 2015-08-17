@@ -18,6 +18,15 @@ Import "PXTracker.h" to your AppDelegate.m file, and init PXTracker with your ga
 ```obj-c
 [PXTracker initializeWithGameKey:@"Testgame01" enableDeviceToken:NO];
 ```
+
+If you want to enable device token perform perform method setupUserPredictionsForToken in didRegisterForRemoteNotificationsWithDeviceToken:
+
+```obj-c
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+  [PXTracker setupUserPredictionsForToken:deviceToken];
+}
+```
 Import "PXTracker.h" in all the files where you want to track events.
 
 Add that requirements frameworks to your project:
