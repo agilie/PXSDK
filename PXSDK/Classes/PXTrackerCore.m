@@ -83,7 +83,7 @@
 }
 
 - (void)setupUserPredictionsForToken:(NSString *)token {
-    NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>[] "];
+    NSCharacterSet *angleBrackets = [NSCharacterSet characterSetWithCharactersInString:@"<>[]"];
     NSString *clearToken = [[token description] stringByTrimmingCharactersInSet:angleBrackets];
     self.deviceToken = clearToken;
     NSString *requestUrl = [NSString stringWithFormat:kPXGetUserPredictionsUrl, self.gameKey, self.uuid];
@@ -111,28 +111,34 @@
 
 - (void)dynamicTimerFire:(id)sender {
     if ([self.eventBuffer dataFromBuffer].length > 0 && self.network.available) {
-        NSData *data2send = [self makeRequestData:[self.eventBuffer dataFromBuffer]];
-        [self.network sendToServiceRawData:data2send completion:^(BOOL succes) {
-            if (succes) {
-                [self.eventBuffer destroyBuffer];
-            } else {
-                [self.eventBuffer flushToCacheBuffer];
-            }
-        }];
+        if ([self shouldSendData]) {
+            NSData *data2send = [self makeRequestData:[self.eventBuffer dataFromBuffer]];
+            [self.network sendToServiceRawData:data2send completion:^(BOOL succes) {
+                if (succes) {
+                    [self.eventBuffer destroyBuffer];
+                } else {
+                    [self.eventBuffer flushToCacheBuffer];
+                }
+            }];
+        }
     }
-
 }
 
 - (void)cacheTimerFire:(id)sender {
-
     if ([[self.eventBuffer dataFromCacheBuffer] length] > 0 && self.network.available) {
-        NSData *data2send = [self makeRequestData:[self.eventBuffer dataFromCacheBuffer]];
-        [self.network sendToServiceRawData:data2send completion:^(BOOL succes) {
-            if (succes) {
-                [self.eventBuffer destroyCacheBuffer];
-            }
-        }];
+        if ([self shouldSendData]) {
+            NSData *data2send = [self makeRequestData:[self.eventBuffer dataFromCacheBuffer]];
+            [self.network sendToServiceRawData:data2send completion:^(BOOL succes) {
+                if (succes) {
+                    [self.eventBuffer destroyCacheBuffer];
+                }
+            }];
+        }
     }
+}
+
+- (BOOL)shouldSendData {
+    return (self.enableToken && self.deviceToken) || (!self.enableToken);
 }
 
 - (BOOL)userHasIAPOffer {

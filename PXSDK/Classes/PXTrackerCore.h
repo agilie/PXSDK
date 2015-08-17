@@ -11,6 +11,7 @@
 
 @interface PXTrackerCore : NSObject
 
+@property (nonatomic, assign) BOOL enableToken;
 @property (nonatomic, copy) NSString *deviceToken;
 @property (nonatomic, copy) NSString *gameKey;
 @property (nonatomic, copy) NSString *currentSession;

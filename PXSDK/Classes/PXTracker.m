@@ -22,6 +22,7 @@ static PXTrackerCore *sTrackerCore;
     static dispatch_once_t pred;
     dispatch_once(&pred, ^{
         sTrackerCore = [[PXTrackerCore alloc] init];
+        sTrackerCore.enableToken = enableDeviceToken;
         sTrackerCore.gameKey = gameKey;
         if (!enableDeviceToken) {
             [sTrackerCore setupUserPredictionsForToken:nil];
