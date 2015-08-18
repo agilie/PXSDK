@@ -4,12 +4,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PXTrackerCore.h"
 
 @interface PXTracker : NSObject
 
 + (void)initializeWithGameKey:(NSString *)gameKey __attribute__((deprecated));
 
 + (void)initializeWithGameKey:(NSString *)gameKey enableDeviceToken:(BOOL)enableDeviceToken;
+
++ (void)setUpdateCurrencyDelegate:(id)delegate;
 
 + (void)setupUserPredictionsForToken:(NSString *)token;
 

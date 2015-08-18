@@ -9,8 +9,15 @@
 @class PXEventBuffer;
 @class PXUser;
 
+@protocol PXTrackerProtocol <NSObject>
+
+- (void)addVirtualCurrency:(NSNumber *)virtualCurrency;
+
+@end
+
 @interface PXTrackerCore : NSObject
 
+@property (weak, nonatomic) id <PXTrackerProtocol> delegate;
 @property (nonatomic, assign) BOOL enableToken;
 @property (nonatomic, copy) NSString *deviceToken;
 @property (nonatomic, copy) NSString *gameKey;

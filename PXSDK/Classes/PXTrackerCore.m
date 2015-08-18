@@ -307,6 +307,12 @@
 - (void)processPushNotification:(NSDictionary *)pushNotification {
     PXLog(@"%@",pushNotification);
     [self sendGeneralEventWithName:@"pushReceived" andParams:@{@"pushContent": [pushNotification description]}];
+    if ([self.delegate respondsToSelector:@selector(addVirtualCurrency:)]) {
+        if ([pushNotification objectForKey:@"custom"]) {
+            NSDictionary *customDict = [pushNotification objectForKey:@"custom"];
+            [self.delegate addVirtualCurrency:[customDict objectForKey:@"value"]];
+        }
+    }
     if ([pushNotification objectForKey:@"alert"]) {
         NSDictionary *payloadDict = [pushNotification objectForKey:@"alert"];
         [self showAlertWithTitle:[payloadDict objectForKey:@"title"] body:[payloadDict objectForKey:@"body"]];

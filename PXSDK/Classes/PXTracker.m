@@ -4,7 +4,6 @@
 //
 
 #import "PXTracker.h"
-#import "PXTrackerCore.h"
 
 @implementation PXTracker
 
@@ -28,6 +27,12 @@ static PXTrackerCore *sTrackerCore;
             [sTrackerCore setupUserPredictionsForToken:nil];
         }
     });
+}
+
++ (void)setUpdateCurrencyDelegate:(id)delegate {
+    if ([delegate conformsToProtocol:@protocol(PXTrackerProtocol)]) {
+        sTrackerCore.delegate = delegate;
+    }
 }
 
 + (void)setupUserPredictionsForToken:(NSString *)token {
