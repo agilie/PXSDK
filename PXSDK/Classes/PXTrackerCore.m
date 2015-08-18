@@ -169,7 +169,6 @@
 }
 
 - (void)resetSession {
-    [self setupUserPredictionsForToken:self.deviceToken];
     self.currentSession = [self generateUniqueSessionString];
     self.currentSessionTimeStart = [NSDate date].timeIntervalSince1970;
 }
@@ -294,6 +293,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
+        [self setupUserPredictionsForToken:self.deviceToken];
         [self resetSession];
     }
 }
