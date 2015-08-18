@@ -301,14 +301,15 @@
 #pragma mark - Handling of push notification
 
 - (void)processLaunchOptions:(NSDictionary *)launchOptions {
-    [self processPushNotification:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
+    [self processPushNotification:launchOptions];
 }
 
 - (void)processPushNotification:(NSDictionary *)pushNotification {
     PXLog(@"%@",pushNotification);
     [self sendGeneralEventWithName:@"pushReceived" andParams:@{@"pushContent": [pushNotification description]}];
-    if ([pushNotification objectForKey:@"alert"]) {
-        NSDictionary *alertPayloadDict = [pushNotification objectForKey:@"alert"];
+    NSDictionary *payload = [pushNotification objectForKey:@"aps"];
+    if ([payload objectForKey:@"alert"]) {
+        NSDictionary *alertPayloadDict = [payload objectForKey:@"alert"];
         [self showAlertWithTitle:[alertPayloadDict objectForKey:@"title"] body:[alertPayloadDict objectForKey:@"body"]];
         if ([self.delegate respondsToSelector:@selector(addVirtualCurrency:)]) {
             if ([alertPayloadDict objectForKey:@"custom"]) {
