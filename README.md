@@ -24,7 +24,7 @@ If you want to enable device token just perform method setupUserPredictionsForTo
 ```obj-c
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-  [PXTracker setupUserPredictionsForToken:deviceToken];
+  [PXTracker setupUserPredictionsForToken:[deviceToken description]];
 }
 ```
 To show APNS rewards as UIAlerView you should add
