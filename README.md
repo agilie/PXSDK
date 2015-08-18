@@ -33,7 +33,7 @@ To show APNS rewards as UIAlerView you should add
  
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   .....
-  if ( [processLaunchOptions:launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]) {
+  if ([launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]) {
     [PXTracker processLaunchOptions:launchOptions];
   }
   
