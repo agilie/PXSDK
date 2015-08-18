@@ -19,7 +19,7 @@ Import "PXTracker.h" to your AppDelegate.m file, and init PXTracker with your ga
 [PXTracker initializeWithGameKey:@"Testgame01" enableDeviceToken:NO];
 ```
 
-If you want to enable device token perform perform method setupUserPredictionsForToken in didRegisterForRemoteNotificationsWithDeviceToken:
+If you want to enable device token just perform method setupUserPredictionsForToken in didRegisterForRemoteNotificationsWithDeviceToken:
 
 ```obj-c
 
@@ -27,6 +27,25 @@ If you want to enable device token perform perform method setupUserPredictionsFo
   [PXTracker setupUserPredictionsForToken:deviceToken];
 }
 ```
+To show APNS rewards as UIAlerView you should add
+
+```obj-c
+ 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  .....
+  if ( [processLaunchOptions:launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]) {
+    [PXTracker processLaunchOptions:launchOptions];
+  }
+  
+  
+  return YES;
+}
+ 
+- (void)application:(UIApplication )application didReceiveRemoteNotification:(NSDictionary )userInfo {
+    [PXTracker processPushNotification:userInfo];
+ }
+```
+
 Import "PXTracker.h" in all the files where you want to track events.
 
 Add that requirements frameworks to your project:
