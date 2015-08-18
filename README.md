@@ -46,6 +46,10 @@ To show APNS rewards as UIAlerView you should add
  }
 ```
 
+To handle virtual currency from rewards your class should conforms to protocol PXTrackerProtocol and responds to selector:
+
+- (void)addVirtualCurrency:(NSNumber *)virtualCurrency;
+
 Import "PXTracker.h" in all the files where you want to track events.
 
 Add that requirements frameworks to your project:
